@@ -12,8 +12,11 @@
     "sync-eval": "tsx src/cli/run_sync_eval.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.112.4",
+    "@types/leaflet": "^1.9.22",
     "clsx": "^2.1.1",
     "dexie": "^4.0.10",
+    "leaflet": "^1.9.4",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

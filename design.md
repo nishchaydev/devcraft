@@ -1,105 +1,91 @@
-# DevCraft UI/UX Design System & Mobile Tokens
+# Intercom Design System
 
-## 1. Design Philosophy: Shop-Floor Optimization
+## 1. Visual Theme & Atmosphere
 
-DevCraft's UI is designed specifically for noisy, dim, or harsh outdoor/shop-floor environments across tier-2/3 Indian micro-businesses.
+Intercom's visual identity relies on editorial warmth, extreme restraint, and product-first clarity. Rather than standard stark SaaS white or loud dark modes, the brand grounds itself on a soft, warm cream-white canvas (`{colors.canvas}` ≈ `#f5f1ec`). 
 
-### Core Principles
-1. **High Contrast & Sunlight Legibility:** Dark slate backgrounds (`#0f172a`) paired with vibrant high-contrast status accents (Emerald, Amber, Crimson, Indigo).
-2. **Tactile Touch Targets:** All buttons, status chips, and interactive cards have minimum touch boundaries of $48\times 48\text{px}$ for fast operation with dusty or busy hands.
-3. **Glanceable Status Badges:** Color-coded order status indicators immediately communicate order state without text scanning.
-4. **Zero Layout Shift:** Rigid mobile skeleton components ensure instant rendering during offline cold starts.
-
----
-
-## 2. Design Tokens & Color Palette
-
-```css
-:root {
-  /* Surface & Base Colors */
-  --bg-dark: #0f172a;           /* Slate 900 - Deep Background */
-  --bg-card: #1e293b;           /* Slate 800 - Container Cards */
-  --bg-card-hover: #334155;     /* Slate 700 - Hover / Active */
-  --border-color: #475569;     /* Slate 600 - High Contrast Borders */
-
-  /* Text & Typography */
-  --text-primary: #f8fafc;      /* Slate 50 - High Legibility White */
-  --text-secondary: #94a3b8;    /* Slate 400 - Subtitles & Metadata */
-  --text-muted: #64748b;        /* Slate 500 - Auxiliary Labels */
-
-  /* Status Colors */
-  --status-synced: #10b981;     /* Emerald 500 - Synced / Success */
-  --status-synced-bg: #064e3b;  /* Emerald 950 - Badge Background */
-
-  --status-draft: #3b82f6;      /* Blue 500 - Draft / Unsynced */
-  --status-draft-bg: #1e3a8a;   /* Blue 950 - Badge Background */
-
-  --status-conflicted: #f59e0b; /* Amber 500 - Conflicted / Requires Review */
-  --status-conflicted-bg: #451a03;/* Amber 950 - Badge Background */
-
-  --status-clarify: #ef4444;    /* Red 500 - Needs Clarification */
-  --status-clarify-bg: #450a0a;  /* Red 950 - Badge Background */
-
-  /* Primary Accent & CTAs */
-  --accent-primary: #6366f1;    /* Indigo 500 - Primary Buttons */
-  --accent-hover: #4f46e5;      /* Indigo 600 - Hover State */
-}
-```
+### Core Aesthetic Principles
+- **Editorial Warmth**: The cream ground signals an intelligent, deliberate, magazine-like surface.
+- **Product as Hero**: Marketing chrome remains quiet, allowing high-fidelity product UI mockups inside white surface cards to command focus.
+- **Strict Chromatic Discipline**: System primary is rich Charcoal (`#111111`). Accent color is strictly **Fin Orange** (`#ff5600`), used solely for AI product touchpoints—never decoratively.
+- **Flat Elevation**: No heavy drop shadows or glow effects. Layering is achieved purely through white-on-cream surface contrast (`{colors.surface-1}` on `{colors.canvas}`).
 
 ---
 
-## 3. Typography & Badges
+## 2. Color Palette & Roles
 
-### Typography Hierarchy
-- **Primary Font:** Inter, system-ui, -apple-system, sans-serif.
-- **Headings:**
-  - `H1 (Title)`: `1.5rem` (`24px`), Bold (`700`), Line Height `1.2`
-  - `H2 (Section)`: `1.25rem` (`20px`), Semi-Bold (`600`), Line Height `1.3`
-  - `Body`: `1.0rem` (`16px`), Regular (`400`), Line Height `1.5`
-  - `Caption / Monospace`: `0.875rem` (`14px`), Medium (`500`), JetBrains Mono / monospace (for IDs, JSON, and amounts).
+### Surface Tokens
+- **Canvas (`{colors.canvas}`)**: `#f5f1ec` · Default warm cream page background.
+- **Surface 1 (`{colors.surface-1}`)**: `#ffffff` · Pure white floating cards (mockups, pricing, features).
+- **Surface 2 (`{colors.surface-2}`)**: `#eee9e0` · Subtle secondary cream (discount tiles, alt stripes).
+- **Hairline (`{colors.hairline}`)**: `#d3cec6` · 1px warm gray borders for card definition.
+- **Hairline Soft (`{colors.hairline-soft}`)**: `#e5e0d8` · Subtle dividers between list items and footer links.
+- **Inverse Canvas (`{colors.inverse-canvas}`)**: `#000000` · True black for testimonial/quote emphasis strips.
 
-### Status Badges Specification
+### Typography & Ink Tokens
+- **Ink (`{colors.ink}`)**: `#111111` · Primary charcoal for all display titles, headlines, body text, and primary CTAs.
+- **Ink Muted (`{colors.ink-muted}`)**: `#626260` · Secondary text, metadata, deselected tab states.
+- **Ink Subtle (`{colors.ink-subtle}`)**: `#7b7b78` · Helper text, footer link headers.
+- **On Primary (`{colors.on-primary}`)**: `#ffffff` · White text on charcoal primary buttons.
 
-| Status Badge | Text Label | Icon | Background | Text Color | Border | Context / Trigger |
-|---|---|---|---|---|---|---|
-| **Synced** | `SYNCED` | $\checkmark$ Check | `#064e3b` | `#34d399` | `#059669` | Order synced cleanly across network / devices. |
-| **Draft** | `LOCAL DRAFT` | $\odot$ Circle | `#1e3a8a` | `#60a5fa` | `#2563eb` | Order created offline; pending sync. |
-| **Conflicted** | `CONFLICT` | $\Delta$ Warning | `#451a03` | `#fbbf24` | `#d97706` | Multi-device conflict surfaced; review required. |
-| **Needs Clarify** | `NEEDS CLARIFY` | $?$ Help | `#450a0a` | `#f87171` | `#dc2626` | `needs_clarification: true` (missing blocking info / ambiguous date). |
+### Brand Accent & Product Palette
+- **Fin Orange (`{colors.fin-orange}`)**: `#ff5600` · AI-product accent reserved for Fin CTAs, badges, and inline AI highlights.
+- **Brand Blue (`{colors.brand-blue}`)**: `#0007cb` · Accent blue for specific marketing illustrations.
+- **In-Product Analytics Palette**: `{colors.report-blue}` (`#2f80ed`), `{colors.report-green}` (`#27ae60`), `{colors.report-pink}` (`#eb5757`), `{colors.report-lime}` (`#6fcf97`) — used strictly *inside* product UI mockups.
 
 ---
 
-## 4. Mobile Component Layouts
+## 3. Typography Rules
 
-```
-+-------------------------------------------------------------+
-| [DevCraft]  (Online / Airplane Mode)      [Conflicts (2)]   |  <- Header Bar
-+-------------------------------------------------------------+
-|                                                             |
-|  +-------------------------------------------------------+  |
-|  | Message Parser Input Box                              |  |
-|  | "bhaiya 2 kurta chahiye navy blue, chest 40, parso..."|  |
-|  | [ Parse Message ] (Primary CTA Indigo Button)         |  |
-|  +-------------------------------------------------------+  |
-|                                                             |
-|  Filter: [ All ] [ Due Today ] [ Unpaid ] [ Conflicted ]   |  <- Quick Filter Chips
-|                                                             |
-|  +-------------------------------------------------------+  |
-|  | ORD-1042 · Ramesh (Tailor)          [SYNCED]          |  |  <- Order Card
-|  | 2x Kurta (navy blue, chest 40)                        |  |
-|  | Due: 2026-09-05 | Amount: ₹1,200                       |  |
-|  +-------------------------------------------------------+  |
-|  | ORD-1043 · Meena Aunty              [CONFLICT]        |  |
-|  | 1x Pajama (cream, waist 34)                           |  |
-|  | Due: 2026-09-08 | Amount: ₹1,500                       |  |
-|  +-------------------------------------------------------+  |
-|                                                             |
-+-------------------------------------------------------------+
-| [Feed]        [Analytics]       [Sync Simulator]            |  <- Bottom Navigation
-+-------------------------------------------------------------+
-```
+### Font Families
+- **Display & Body**: `Saans` (Proprietary geometric sans). Fallbacks: `Inter`, `Geist Sans`, `Söhne`.
+- **Monospace**: `SaansMono` (Proprietary mono). Fallbacks: `JetBrains Mono`, `ui-monospace` (used only inside product UI mockups).
 
-### Component Guidelines
-1. **Message Parser Box:** Prominent sticky box at top of screen for quick pasting of WhatsApp strings.
-2. **Order Cards:** Feature high-contrast typography, explicit rupee symbols (`₹`), items list summary, due date, and dynamic status chip.
-3. **Conflict Banner/Drawer:** Slide-over modal presenting side-by-side edit comparison (Device A vs Device B) with clear **[Accept A]**, **[Accept B]**, or **[Custom Merge]** actions.
+### Hierarchy Scale
+
+| Token | Size | Weight | Line Height | Tracking | Purpose |
+|---|---|---|---|---|---|
+| `{typography.display-xl}` | 72px | 500 | 1.05 | -2.0px | Main Hero Headlines |
+| `{typography.display-lg}` | 56px | 500 | 1.10 | -1.4px | Major Section Openers |
+| `{typography.display-md}` | 40px | 500 | 1.15 | -0.8px | Sub-section Headlines |
+| `{typography.headline}` | 28px | 500 | 1.20 | -0.5px | Pricing Tier Titles, CTA Banners |
+| `{typography.card-title}` | 22px | 500 | 1.25 | -0.3px | Feature & Card Titles |
+| `{typography.subhead}` | 20px | 400 | 1.40 | -0.2px | Lead Intros & Subheaders |
+| `{typography.body-lg}` | 18px | 400 | 1.50 | -0.1px | Hero Sub-paragraphs |
+| `{typography.body}` | 16px | 400 | 1.50 | 0.0px | Default Body Type |
+| `{typography.body-sm}` | 14px | 400 | 1.50 | 0.0px | Secondary Card Body, Footers |
+| `{typography.caption}` | 12px | 400 | 1.40 | 0.0px | Meta Labels & Captions |
+| `{typography.button}` | 15px | 500 | 1.20 | 0.0px | Action Button Labels |
+| `{typography.eyebrow}` | 14px | 500 | 1.30 | 0.0px | Sentence-case Section Badges |
+
+---
+
+## 4. Component Stylings
+
+### Buttons
+- **`button-primary`**: Charcoal (`#111111`) fill, white text, 10px 18px padding, 8px corner radius (`{rounded.md}`).
+- **`button-secondary`**: Pure white (`#ffffff`) fill, 1px hairline border (`#d3cec6`), charcoal text, 8px radius (`{rounded.md}`).
+- **`button-fin`**: Fin Orange (`#ff5600`) fill, white text, 8px radius (`{rounded.md}`). Reserved strictly for Fin AI actions.
+- **`button-tertiary`**: Flat transparent background, charcoal text, clean hover state.
+
+### Cards & Mockup Containers
+- **`product-mockup-card`**: Pure white (`#ffffff`) background, 16px corner radius (`{rounded.xl}`), 24px padding. Houses high-fidelity product screenshots.
+- **`pricing-card`**: Pure white (`#ffffff`) background, 12px corner radius (`{rounded.lg}`), 1px hairline border (`#d3cec6`), 24px padding.
+- **`pricing-card-featured`**: Charcoal (`#111111`) background, white text, 12px corner radius (`{rounded.lg}`), 24px padding.
+- **`testimonial-card`**: Pure white (`#ffffff`) background, 12px corner radius (`{rounded.lg}`), 32px padding, paired with rounded avatar (`{rounded.full}`).
+
+---
+
+## 5. Minimal & Premium Execution Guidelines
+
+### Do
+- Maintain generous vertical whitespace (`96px` section gaps) to let content breathe.
+- Pair Medium weight (`500`) headlines with Regular weight (`400`) body copy.
+- Enforce negative letter-spacing on display headlines to achieve a tight, modern typographic feel.
+- Keep card corners moderate (`12px` to `16px`) — never fully pill-rounded, never sharp 0px.
+
+### Don't
+- **No drop shadows**: Never apply heavy drop shadows or glow effects.
+- **No decorative gradients**: Avoid multi-color gradients or atmospheric background blurs.
+- **No accent misuse**: Never use Fin Orange for generic background blocks or non-AI CTAs.
+- **No all-caps eyebrows**: Eyebrows must remain in clean sentence case.

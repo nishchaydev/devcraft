@@ -67,40 +67,40 @@ const DeviceNetworkSVG: React.FC<{ hasResults: boolean }> = ({ hasResults }) => 
 
 /* ── Scenario result card ────────────────────────────────── */
 const ScenarioCard: React.FC<{ result: SimulationScenarioResult }> = ({ result }) => (
-  <div className="card-elevated p-4 space-y-3 animate-fade-in">
+  <div className="card-elevated p-4 space-y-3 animate-fade-in bg-white border border-[#d3cec6] rounded-xl shadow-sm">
     {/* Header */}
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-      <h4 className="text-sm font-bold text-white">{result.title}</h4>
+      <h4 className="text-sm font-semibold text-[#111111]">{result.title}</h4>
       <span className="badge badge-paid shrink-0">
         <CheckCircle2 size={11} /> Deterministic Invariance · PASS
       </span>
     </div>
 
     {/* Hash comparison */}
-    <div className="bg-slate-950/80 rounded-xl p-3 border border-slate-800/60 space-y-2">
-      <p className="text-[11px] text-slate-500 uppercase font-semibold tracking-wider mb-2">
+    <div className="bg-[#faf8f5] rounded-xl p-3 border border-[#d3cec6] space-y-2">
+      <p className="text-[11px] text-[#7b7b78] uppercase font-semibold tracking-wider mb-2">
         State Hash Comparison
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div className="space-y-0.5">
-          <p className="text-[10px] text-slate-600 flex items-center gap-1">
+          <p className="text-[10px] text-[#7b7b78] flex items-center gap-1">
             <Hash size={9} /> Sync A→B
           </p>
-          <code className="block text-[11px] font-mono text-emerald-400 truncate bg-slate-900/60 px-2 py-1 rounded">
+          <code className="block text-[11px] font-mono text-[#27ae60] truncate bg-white px-2 py-1 rounded border border-[#e5e0d8]">
             {result.hashA}
           </code>
         </div>
         <div className="space-y-0.5">
-          <p className="text-[10px] text-slate-600 flex items-center gap-1">
+          <p className="text-[10px] text-[#7b7b78] flex items-center gap-1">
             <Hash size={9} /> Sync B→A
           </p>
-          <code className="block text-[11px] font-mono text-emerald-400 truncate bg-slate-900/60 px-2 py-1 rounded">
+          <code className="block text-[11px] font-mono text-[#27ae60] truncate bg-white px-2 py-1 rounded border border-[#e5e0d8]">
             {result.hashB}
           </code>
         </div>
       </div>
       {result.hashA === result.hashB && (
-        <p className="text-[11px] text-emerald-500 font-semibold flex items-center gap-1.5 pt-1">
+        <p className="text-[11px] text-[#27ae60] font-semibold flex items-center gap-1.5 pt-1">
           <CheckCircle2 size={11} /> Hashes match — convergence proven
         </p>
       )}
@@ -126,12 +126,12 @@ export const ConflictView: React.FC = () => {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 className="text-lg font-bold text-white">Multi-Device Sync Center</h2>
-          <p className="text-xs text-slate-500 mt-0.5">
+          <h2 className="text-lg font-semibold text-[#111111]">Multi-Device Sync Center</h2>
+          <p className="text-xs text-[#7b7b78] mt-0.5">
             Mathematical proof: Sync(A→B) ≡ Sync(B→A) under Lamport LWW
           </p>
         </div>
-        <button onClick={handleRunSim} className="btn-primary text-xs shrink-0">
+        <button onClick={handleRunSim} className="ic-btn-primary text-xs shrink-0 py-2 px-3">
           <Play size={14} /> Run Simulation Suite
         </button>
       </div>
@@ -150,10 +150,10 @@ export const ConflictView: React.FC = () => {
           <button
             key={num}
             onClick={() => setScenario(num)}
-            className={`py-2.5 text-xs font-bold rounded-xl border transition-colors ${
+            className={`py-2.5 text-xs font-medium rounded-xl border transition-colors ${
               activeScenario === num
-                ? 'bg-indigo-900/50 border-indigo-500/60 text-indigo-300'
-                : 'bg-slate-900/60 border-slate-800 text-slate-500 hover:text-slate-300'
+                ? 'bg-[#111111] border-[#111111] text-white shadow-sm'
+                : 'bg-white border-[#d3cec6] text-[#626260] hover:text-[#111111]'
             }`}
           >
             Scenario {num}
@@ -163,10 +163,10 @@ export const ConflictView: React.FC = () => {
 
       {/* Result or empty state */}
       {!hasRun ? (
-        <div className="card flex flex-col items-center gap-3 py-10 text-center">
-          <ArrowRight size={28} className="text-slate-700" />
-          <p className="text-slate-500 text-sm">Press "Run Simulation Suite" to begin.</p>
-          <p className="text-[11px] text-slate-600">
+        <div className="card flex flex-col items-center gap-3 py-10 text-center bg-white border border-[#d3cec6] rounded-xl shadow-sm">
+          <ArrowRight size={28} className="text-[#7b7b78]" />
+          <p className="text-[#626260] text-sm">Press "Run Simulation Suite" to begin.</p>
+          <p className="text-[11px] text-[#7b7b78]">
             Simulates 3 concurrent-edit scenarios and verifies deterministic convergence.
           </p>
         </div>

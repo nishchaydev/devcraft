@@ -10,7 +10,6 @@ interface VoiceIntakeProps {
 export const VoiceIntake: React.FC<VoiceIntakeProps> = ({
   onTranscriptChange,
   onListeningComplete,
-  domainGlowColor = '#6366f1',
 }) => {
   const [isListening, setIsListening]         = useState(false);
   const [isSupported, setIsSupported]         = useState(true);
@@ -66,7 +65,7 @@ export const VoiceIntake: React.FC<VoiceIntakeProps> = ({
 
   if (!isSupported) {
     return (
-      <div className="flex items-center gap-2 text-xs text-amber-400 mb-3 bg-amber-950/30 border border-amber-800/40 rounded-lg px-3 py-2">
+      <div className="flex items-center gap-2 text-xs text-amber-700 mb-3 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
         <AlertTriangle size={13} className="shrink-0" />
         Voice input not available in this browser. Type the order below.
       </div>
@@ -81,15 +80,15 @@ export const VoiceIntake: React.FC<VoiceIntakeProps> = ({
         onClick={toggle}
         className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200"
         style={{
-          backgroundColor: isListening ? '#7f1d1d' : '#1e1b4b',
-          border: `2px solid ${isListening ? '#ef4444' : domainGlowColor}`,
-          boxShadow: isListening ? `0 0 18px ${domainGlowColor}60` : '0 4px 12px rgba(0,0,0,0.4)',
+          backgroundColor: isListening ? '#fff0f0' : '#fff5f0',
+          border: `2px solid ${isListening ? '#ef4444' : '#ff5600'}`,
+          boxShadow: isListening ? '0 0 18px rgba(239,68,68,0.2)' : '0 2px 8px rgba(255,86,0,0.15)',
         }}
         title={isListening ? 'Stop voice input' : 'Start voice input (Hindi/Hinglish)'}
       >
         {isListening
-          ? <MicOff size={20} className="text-red-400 animate-pulse" />
-          : <Mic size={20} style={{ color: domainGlowColor }} />
+          ? <MicOff size={20} className="text-red-500 animate-pulse" />
+          : <Mic size={20} className="text-[#ff5600]" />
         }
       </button>
 
@@ -101,18 +100,18 @@ export const VoiceIntake: React.FC<VoiceIntakeProps> = ({
               <div
                 key={i}
                 className="voice-waveform-bar"
-                style={{ backgroundColor: domainGlowColor }}
+                style={{ backgroundColor: '#ff5600' }}
               />
             ))}
           </div>
-          <span className="text-xs text-sky-400 font-semibold truncate">
+          <span className="text-xs text-[#ff5600] font-semibold truncate">
             Listening… {interimTranscript && `"${interimTranscript.slice(-30)}"`}
           </span>
         </div>
       ) : (
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-[#7b7b78]">
           Tap mic to dictate in Hindi / Hinglish{' '}
-          <em className="text-slate-600">("2 kurta navy blue…")</em>
+          <em className="text-[#626260]">("2 kurta navy blue…")</em>
         </p>
       )}
     </div>

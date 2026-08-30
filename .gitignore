@@ -28,3 +28,4 @@ yarn-error.log*
 .eslintcache
 .vite/
 .DS_Store
+.shared_messages.json

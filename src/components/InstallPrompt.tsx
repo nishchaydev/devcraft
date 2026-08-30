@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Smartphone, X, Info } from 'lucide-react';
+import { Download, Smartphone, X, HelpCircle, CheckCircle2, Share } from 'lucide-react';
 
 export const InstallPrompt: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -51,144 +51,119 @@ export const InstallPrompt: React.FC = () => {
 
   return (
     <>
-      <div
-        className="animate-fade-in"
-        style={{
-          position: 'fixed',
-          bottom: '64px',
-          left: 0,
-          right: 0,
-          backgroundColor: '#020617',
-          borderTop: '2px solid #059669',
-          padding: '10px 16px',
-          zIndex: 50,
-          boxShadow: '0 -10px 25px -5px rgba(0, 0, 0, 0.7)'
-        }}
+      {/* Fixed bottom floating banner */}
+      <aside
+        aria-label="PWA Installation Prompt"
+        className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 animate-card-enter bg-white border border-[#d3cec6] rounded-xl shadow-xl p-3.5 flex items-center justify-between gap-3 text-[#111111]"
       >
-        <div style={{ maxWidth: '768px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div
-              style={{
-                backgroundColor: '#059669',
-                padding: '6px',
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <Smartphone size={20} color="#ffffff" />
-            </div>
-            <div>
-              <h4 style={{ fontSize: '0.85rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
-                Install DevCraft OMS
-              </h4>
-              <p style={{ fontSize: '0.7rem', color: '#94a3b8', margin: 0 }}>
-                Full-screen offline mobile application
-              </p>
-            </div>
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-9 h-9 rounded-lg bg-[#ff5600] flex items-center justify-center text-white shrink-0 shadow-sm">
+            <Smartphone className="w-5 h-5" />
           </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <button
-              onClick={handleInstallClick}
-              style={{
-                backgroundColor: '#10b981',
-                color: '#020617',
-                border: 'none',
-                padding: '8px 14px',
-                fontSize: '0.8rem',
-                fontWeight: 800,
-                borderRadius: '8px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              <Download size={14} /> 📲 Install App
-            </button>
-
-            <button
-              onClick={() => setDismissed(true)}
-              style={{
-                backgroundColor: 'transparent',
-                border: 'none',
-                color: '#64748b',
-                cursor: 'pointer',
-                padding: '4px'
-              }}
-            >
-              <X size={18} />
-            </button>
+          <div className="min-w-0">
+            <h4 className="text-xs font-semibold text-[#111111] flex items-center gap-1.5 truncate">
+              <span>Install via-P.A.A.R.</span>
+              <span className="text-[10px] bg-[#ff5600]/10 text-[#ff5600] px-1.5 py-0.2 rounded font-mono font-medium">PWA</span>
+            </h4>
+            <p className="text-[11px] text-[#626260] truncate">
+              Offline access &amp; instant loading
+            </p>
           </div>
         </div>
-      </div>
 
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={handleInstallClick}
+            className="px-3 py-1.5 bg-[#111111] hover:bg-[#222222] text-white text-xs font-medium rounded-lg flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Install</span>
+          </button>
+
+          <button
+            onClick={() => setDismissed(true)}
+            className="p-1.5 text-[#626260] hover:text-[#111111] hover:bg-[#faf8f5] rounded-md transition-colors cursor-pointer"
+            aria-label="Dismiss installation banner"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      </aside>
+
+      {/* Manual Installation Guide Modal */}
       {showModal && (
         <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(2, 6, 23, 0.85)',
-            backdropFilter: 'blur(4px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '16px',
-            zIndex: 100
-          }}
-          className="animate-fade-in"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="install-modal-title"
+          className="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-fade-in"
+          onClick={() => setShowModal(false)}
         >
           <div
-            style={{
-              backgroundColor: '#0f172a',
-              border: '1px solid #334155',
-              borderRadius: '16px',
-              padding: '20px',
-              maxWidth: '420px',
-              width: '100%',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)'
-            }}
+            className="bg-[#ffffff] border border-[#d3cec6] rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#34d399', display: 'flex', alignItems: 'center', gap: '8px', margin: 0 }}>
-                <Info size={18} /> Mobile App Installation Guide
-              </h3>
-              <button onClick={() => setShowModal(false)} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}>
-                <X size={20} />
+            <div className="flex items-center justify-between pb-2 border-b border-[#d3cec6]">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-[#ff5600]/10 text-[#ff5600] flex items-center justify-center">
+                  <HelpCircle className="w-4 h-4" />
+                </div>
+                <h3 id="install-modal-title" className="text-sm font-semibold text-[#111111]">
+                  How to Install via-P.A.A.R.
+                </h3>
+              </div>
+              <button
+                onClick={() => setShowModal(false)}
+                className="text-[#626260] hover:text-[#111111] p-1 rounded-md cursor-pointer"
+                aria-label="Close installation guide"
+              >
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div style={{ backgroundColor: '#1e293b', padding: '12px', borderRadius: '8px', marginBottom: '12px' }}>
-              <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f8fafc', marginBottom: '4px' }}>
-                🤖 Android (Google Chrome / Edge):
-              </h4>
-              <ol style={{ fontSize: '0.8rem', color: '#cbd5e1', paddingLeft: '20px', margin: 0 }}>
-                <li>Tap the <b>three dots menu (⋮)</b> in top right.</li>
-                <li>Tap <b>"Install app"</b> or <b>"Add to Home screen"</b>.</li>
-                <li>Tap <b>Install</b> to launch standalone!</li>
-              </ol>
-            </div>
+            <div className="space-y-3 text-xs text-[#111111]">
+              {/* Android */}
+              <div className="bg-[#faf8f5] border border-[#d3cec6] rounded-xl p-3 space-y-1.5">
+                <h4 className="font-semibold text-[#111111] flex items-center gap-1.5">
+                  <Smartphone className="w-3.5 h-3.5 text-[#ff5600]" /> Android (Chrome / Edge)
+                </h4>
+                <ol className="list-decimal list-inside text-[#626260] space-y-1 pl-1">
+                  <li>Tap the <strong>three dots menu (⋮)</strong> in your browser.</li>
+                  <li>Select <strong>&quot;Install app&quot;</strong> or <strong>&quot;Add to Home screen&quot;</strong>.</li>
+                  <li>Confirm by clicking <strong>&quot;Install&quot;</strong>.</li>
+                </ol>
+              </div>
 
-            <div style={{ backgroundColor: '#1e293b', padding: '12px', borderRadius: '8px', marginBottom: '16px' }}>
-              <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f8fafc', marginBottom: '4px' }}>
-                🍎 iOS (Apple Safari):
-              </h4>
-              <ol style={{ fontSize: '0.8rem', color: '#cbd5e1', paddingLeft: '20px', margin: 0 }}>
-                <li>Tap the <b>Share icon (↑)</b> in the bottom bar.</li>
-                <li>Scroll down and tap <b>"Add to Home Screen"</b>.</li>
-                <li>Tap <b>Add</b> to launch full-screen!</li>
-              </ol>
+              {/* iOS */}
+              <div className="bg-[#faf8f5] border border-[#d3cec6] rounded-xl p-3 space-y-1.5">
+                <h4 className="font-semibold text-[#111111] flex items-center gap-1.5">
+                  <Share className="w-3.5 h-3.5 text-[#ff5600]" /> iOS (Apple Safari)
+                </h4>
+                <ol className="list-decimal list-inside text-[#626260] space-y-1 pl-1">
+                  <li>Tap the <strong>Share icon (↑)</strong> at the bottom of Safari.</li>
+                  <li>Scroll down and tap <strong>&quot;Add to Home Screen&quot;</strong>.</li>
+                  <li>Tap <strong>&quot;Add&quot;</strong> in the top-right corner.</li>
+                </ol>
+              </div>
+
+              {/* Benefits */}
+              <div className="space-y-1 pt-1">
+                <p className="font-medium text-[#111111] flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#27ae60]" /> PWA Features Enabled:
+                </p>
+                <ul className="text-[#626260] text-[11px] list-disc list-inside space-y-0.5 pl-1">
+                  <li>Zero-latency local database with Dexie.js</li>
+                  <li>Offline order intake &amp; multi-device sync</li>
+                  <li>Full-screen standalone native experience</li>
+                </ul>
+              </div>
             </div>
 
             <button
               onClick={() => setShowModal(false)}
-              className="btn-primary"
-              style={{ width: '100%', backgroundColor: '#4f46e5', minHeight: '40px' }}
+              className="w-full py-2 bg-[#111111] hover:bg-[#222222] text-white text-xs font-medium rounded-lg transition-colors cursor-pointer"
             >
-              Got It!
+              Got it
             </button>
           </div>
         </div>

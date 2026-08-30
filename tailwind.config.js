@@ -10,7 +10,29 @@ export default {
         glass: {
           surface: 'rgba(15, 23, 42, 0.85)',
           border: 'rgba(148, 163, 184, 0.2)',
+        },
+        intercom: {
+          canvas: '#f5f1ec',
+          'surface-1': '#ffffff',
+          'surface-2': '#eee9e0',
+          ink: '#111111',
+          'ink-muted': '#626260',
+          'ink-subtle': '#7b7b78',
+          'fin-orange': '#ff5600',
+          hairline: '#d3cec6',
+          'hairline-soft': '#e5e0d8',
+          'inverse-canvas': '#000000',
+          'on-primary': '#ffffff',
         }
+      },
+      borderRadius: {
+        'ic-xs': '4px',
+        'ic-sm': '6px',
+        'ic-md': '8px',
+        'ic-lg': '12px',
+        'ic-xl': '16px',
+        'ic-xxl': '24px',
+        'ic-pill': '9999px',
       },
       backdropBlur: {
         xs: '4px',

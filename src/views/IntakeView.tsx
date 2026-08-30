@@ -26,10 +26,10 @@ const DOMAIN_LABELS: Record<DomainType, string> = {
 };
 
 const DOMAIN_COLORS: Record<DomainType, { badge: string; glow: string; border: string }> = {
-  tailor:      { badge: 'bg-indigo-950 text-indigo-300 border-indigo-700',  glow: '#6366f1', border: '#6366f1' },
-  tiffin:      { badge: 'bg-emerald-950 text-emerald-300 border-emerald-700', glow: '#10b981', border: '#10b981' },
-  electrician: { badge: 'bg-yellow-950 text-yellow-300 border-yellow-700',  glow: '#eab308', border: '#eab308' },
-  baker:       { badge: 'bg-orange-950 text-orange-300 border-orange-700',  glow: '#f97316', border: '#f97316' },
+  tailor:      { badge: 'bg-indigo-50 text-indigo-700 border-indigo-200',  glow: '#6366f1', border: '#6366f1' },
+  tiffin:      { badge: 'bg-emerald-50 text-emerald-700 border-emerald-200', glow: '#10b981', border: '#10b981' },
+  electrician: { badge: 'bg-yellow-50 text-yellow-700 border-yellow-200',  glow: '#eab308', border: '#eab308' },
+  baker:       { badge: 'bg-orange-50 text-orange-700 border-orange-200',  glow: '#f97316', border: '#f97316' },
 };
 
 const INITIAL_SAMPLE = 'bhaiya 2 kurta chahiye navy blue, chest 40, parso tak ho jayega kya? last time jaisa hi';
@@ -111,13 +111,13 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
     <div className="p-4 space-y-4 animate-fade-in">
       {/* Page Header */}
       <div>
-        <h2 className="text-lg font-bold text-white">Unified Order Intake</h2>
-        <p className="text-xs text-slate-500 mt-0.5">Hindi / Hinglish voice or text parsing • 4 operator domains</p>
+        <h2 className="text-lg font-semibold text-[#111111]">Unified Order Intake</h2>
+        <p className="text-xs text-[#7b7b78] mt-0.5">Hindi / Hinglish voice or text parsing • 4 operator domains</p>
       </div>
 
       {/* Input Card */}
       <div
-        className="card-glass"
+        className="card"
         style={{ borderColor: domainColors.border + '60' }}
       >
         <VoiceIntake
@@ -126,16 +126,16 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
           domainGlowColor={domainColors.glow}
         />
 
-        {/* WhatsApp-style message bubble */}
+        {/* Message bubble input */}
         <div
-          className="rounded-xl rounded-tl-sm p-3 mb-3"
-          style={{ backgroundColor: '#064e3b', borderLeft: `3px solid ${domainColors.glow}` }}
+          className="rounded-xl p-3 mb-3 border border-[#d3cec6] bg-[#faf8f5]"
+          style={{ borderLeft: `3px solid #ff5600` }}
         >
           <textarea
             rows={3}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="textarea-field"
+            className="w-full bg-transparent text-xs text-[#111111] placeholder-[#7b7b78] focus:outline-none resize-none"
             placeholder="Type or speak customer order in Hindi/Hinglish (Tailor, Tiffin, Electrician, Baker)..."
           />
         </div>
@@ -143,8 +143,7 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
         <button
           onClick={handleParse}
           disabled={isParsing}
-          className="btn-primary w-full sm:w-auto"
-          style={!isParsing ? { backgroundColor: domainColors.glow } : undefined}
+          className="ic-btn-fin w-full sm:w-auto"
         >
           <Sparkles size={16} />
           {isParsing ? 'Parsing & Auto-Detecting…' : t('parseBtn')}
@@ -155,17 +154,17 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
       {parsedRecord && (
         <div className="card-tilt-wrapper">
           <div
-            className="card-glass card-tilt-inner animate-card-enter"
+            className="card card-tilt-inner animate-card-enter"
             style={{ borderColor: domainColors.border + '80', ...tiltStyle }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
             {/* Card Header */}
             <div className="flex justify-between items-center mb-4">
-              <h3 className="flex items-center gap-2 text-sm font-bold text-emerald-400">
+              <h3 className="flex items-center gap-2 text-sm font-semibold text-[#ff5600]">
                 <CheckCircle2 size={16} /> Parsed Smart-Card
               </h3>
-              <span className={`badge ${parsedRecord.needs_clarification ? 'badge-clarify' : 'badge-synced'}`}>
+              <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${parsedRecord.needs_clarification ? 'bg-amber-50 border border-amber-200 text-amber-700' : 'bg-emerald-50 border border-emerald-200 text-emerald-700'}`}>
                 {parsedRecord.needs_clarification ? '⚠ Needs Clarification' : '✓ Ready'}
               </span>
             </div>
@@ -178,23 +177,23 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
                   {DOMAIN_LABELS[parsedRecord.detectedDomain]} · Auto-Detected
                 </span>
               )}
-              <span className="badge bg-blue-950/80 border-blue-700/60 text-blue-300">
+              <span className="badge bg-[#faf8f5] border-[#d3cec6] text-[#111111]">
                 <Cpu size={11} />
                 {parsedRecord.engineUsed === 'gemini-flash'
                   ? 'Gemini 1.5 Flash (Online)'
                   : 'Local NLP Engine (Offline)'}
               </span>
-              <span className="badge bg-slate-800/80 border-slate-600/60 text-slate-300">
+              <span className="badge bg-[#faf8f5] border-[#d3cec6] text-[#626260]">
                 ⚡ {parsedRecord.latencyMs}ms · {(parsedRecord.confidence * 100).toFixed(0)}% conf.
               </span>
             </div>
 
             {/* Order Details */}
-            <div className="bg-slate-950/60 rounded-xl p-4 border border-slate-800/60 mb-4 space-y-3">
+            <div className="bg-[#faf8f5] rounded-xl p-4 border border-[#d3cec6] mb-4 space-y-3">
               {/* Customer row */}
               <div className="flex items-center gap-2">
-                <User size={14} className="text-slate-500 shrink-0" />
-                <span className="font-semibold text-white text-sm">
+                <User size={14} className="text-[#7b7b78] shrink-0" />
+                <span className="font-semibold text-[#111111] text-sm">
                   {parsedRecord.customer || 'Unspecified Customer'}
                 </span>
               </div>
@@ -202,17 +201,17 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
               {/* Meta badges */}
               <div className="flex flex-wrap gap-2">
                 {parsedRecord.due_date && (
-                  <span className="badge bg-indigo-950/70 border-indigo-700/50 text-indigo-300">
+                  <span className="badge bg-white border-[#d3cec6] text-[#111111]">
                     <Calendar size={11} /> {parsedRecord.due_date}
                   </span>
                 )}
                 {parsedRecord.amount !== null && (
-                  <span className="badge bg-emerald-950/70 border-emerald-700/50 text-emerald-300">
+                  <span className="badge bg-emerald-50 border-emerald-200 text-emerald-700">
                     <DollarSign size={11} /> ₹{parsedRecord.amount}
                   </span>
                 )}
                 {parsedRecord.references_prior_order && (
-                  <span className="badge bg-amber-950/70 border-amber-700/50 text-amber-300">
+                  <span className="badge bg-amber-50 border-amber-200 text-amber-700">
                     🔁 Repeat Order
                   </span>
                 )}
@@ -220,9 +219,9 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
 
               {/* Items */}
               {parsedRecord.items.map((it, idx) => (
-                <div key={idx} className="pt-2 border-t border-slate-800/60">
-                  <p className="text-sm font-semibold text-slate-200 mb-1.5">
-                    <span className="text-indigo-400">{it.quantity}×</span> {it.description}
+                <div key={idx} className="pt-2 border-t border-[#e5e0d8]">
+                  <p className="text-sm font-semibold text-[#111111] mb-1.5">
+                    <span className="text-[#ff5600]">{it.quantity}×</span> {it.description}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {Object.entries(it.attributes).map(([k, v], aIdx) => (
@@ -241,25 +240,25 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
 
             {/* WhatsApp Reply Bubble */}
             {parsedRecord.whatsappReply && (
-              <div className="whatsapp-bubble mb-4">
+              <div className="whatsapp-bubble mb-4 bg-white border border-[#d3cec6] p-4 rounded-xl">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="flex items-center gap-1.5 text-[11px] text-emerald-300 font-semibold">
+                  <span className="flex items-center gap-1.5 text-[11px] text-[#27ae60] font-semibold">
                     <MessageSquare size={11} /> WhatsApp Confirmation Reply
                   </span>
                   <button
                     onClick={handleCopyReply}
-                    className="flex items-center gap-1 bg-[#128c7e] hover:bg-[#0a7a6e] text-white text-[11px] px-2.5 py-1 rounded-lg transition-colors"
+                    className="flex items-center gap-1 bg-[#111111] hover:bg-[#222222] text-white text-[11px] px-2.5 py-1 rounded-lg transition-colors"
                   >
                     {copied ? <Check size={11} /> : <Copy size={11} />}
                     {copied ? 'Copied!' : 'Copy'}
                   </button>
                 </div>
-                <p className="text-sm text-[#e9edef] italic leading-relaxed mb-3">
+                <p className="text-sm text-[#111111] italic leading-relaxed mb-3">
                   "{parsedRecord.whatsappReply}"
                 </p>
                 <button
                   onClick={handleOpenWhatsApp}
-                  className="flex items-center gap-2 bg-[#25d366] hover:bg-[#22c55e] text-slate-900 font-bold text-sm px-4 py-2 rounded-lg transition-colors"
+                  className="flex items-center gap-2 ic-btn-primary text-sm px-4 py-2"
                 >
                   <Send size={14} /> Send via WhatsApp
                 </button>
@@ -270,24 +269,24 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
             <div className="grid grid-cols-2 gap-3">
               <button
                 onClick={() => setShowInspector(!showInspector)}
-                className="btn-secondary text-xs"
+                className="ic-btn-secondary text-xs"
               >
                 <Code size={13} />
                 {showInspector ? 'Hide Inspector' : 'JSON Inspector'}
                 {showInspector ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
               </button>
-              <button onClick={handleSaveOrder} className="btn-emerald text-xs">
+              <button onClick={handleSaveOrder} className="ic-btn-fin text-xs">
                 {t('confirmSave')}
               </button>
             </div>
 
             {/* JSON Inspector */}
             {showInspector && (
-              <div className="animate-fade-in mt-3 bg-slate-950 rounded-xl p-4 border border-slate-800">
-                <p className="text-xs font-bold text-indigo-400 mb-1">Rule Explanation</p>
-                <p className="text-xs text-slate-400 mb-3">{parsedRecord.ruleExplanation}</p>
-                <p className="text-[10px] text-slate-600 font-bold uppercase mb-1">Raw schema.json output</p>
-                <pre className="text-[11px] text-emerald-400 bg-slate-900 p-3 rounded-lg overflow-x-auto leading-relaxed">
+              <div className="animate-fade-in mt-3 bg-white rounded-xl p-4 border border-[#d3cec6] shadow-sm">
+                <p className="text-xs font-semibold text-[#ff5600] mb-1">Rule Explanation</p>
+                <p className="text-xs text-[#626260] mb-3">{parsedRecord.ruleExplanation}</p>
+                <p className="text-[10px] text-[#7b7b78] font-bold uppercase mb-1">Raw schema.json output</p>
+                <pre className="text-[11px] text-[#111111] bg-[#faf8f5] p-3 rounded-lg overflow-x-auto leading-relaxed border border-[#e5e0d8]">
                   {JSON.stringify(parsedRecord, null, 2)}
                 </pre>
               </div>
@@ -298,7 +297,7 @@ export const IntakeView: React.FC<{ onOrderCreated?: () => void }> = ({ onOrderC
 
       {/* Success Banner */}
       {successMsg && (
-        <div className="animate-fade-in flex items-center gap-3 bg-emerald-950/60 border border-emerald-600/40 text-emerald-300 rounded-xl px-4 py-3 text-sm font-semibold">
+        <div className="animate-fade-in flex items-center gap-3 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-xl px-4 py-3 text-sm font-semibold">
           <CheckCircle2 size={16} /> {successMsg}
         </div>
       )}

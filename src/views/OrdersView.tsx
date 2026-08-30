@@ -71,11 +71,11 @@ export const OrdersView: React.FC<{ onNewOrderClick?: () => void }> = ({ onNewOr
       {/* Page Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-lg font-bold text-white">Orders Feed</h2>
-          <p className="text-xs text-slate-500 mt-0.5">{filtered.length} orders · live from IndexedDB</p>
+          <h2 className="text-lg font-semibold text-[#111111]">Orders Feed</h2>
+          <p className="text-xs text-[#7b7b78] mt-0.5">{filtered.length} orders · live from IndexedDB</p>
         </div>
         {onNewOrderClick && (
-          <button onClick={onNewOrderClick} className="btn-primary text-xs px-3 py-2">
+          <button onClick={onNewOrderClick} className="ic-btn-primary text-xs px-3 py-2">
             <Plus size={14} /> New Order
           </button>
         )}

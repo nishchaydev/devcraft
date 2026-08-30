@@ -4,16 +4,17 @@
 
 @layer base {
   :root {
-    --bg-main: #0b0f19;
-    --surface-card: #131b2e;
-    --surface-hover: #1c2742;
-    --border-color: #23304d;
-    --text-main: #f1f5f9;
-    --text-muted: #94a3b8;
-    --brand-primary: #6366f1;
-    --brand-success: #10b981;
-    --brand-warning: #f59e0b;
-    --brand-danger: #ef4444;
+    --bg-main: #f5f1ec;           /* Intercom Warm Cream Canvas */
+    --surface-card: #ffffff;      /* Intercom Surface 1 Pure White */
+    --surface-hover: #faf8f5;     /* Hover light cream */
+    --border-color: #d3cec6;      /* Intercom Hairline warm gray */
+    --text-main: #111111;         /* Intercom Ink Charcoal */
+    --text-muted: #626260;       /* Intercom Ink Muted */
+    --brand-primary: #111111;     /* Primary Charcoal */
+    --brand-fin: #ff5600;         /* Fin AI Orange */
+    --brand-success: #27ae60;     /* Report Green */
+    --brand-warning: #f2994a;     /* Report Orange */
+    --brand-danger: #eb5757;      /* Report Pink / Error Red */
   }
 
   * {
@@ -25,31 +26,31 @@
   body {
     background-color: var(--bg-main);
     color: var(--text-main);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
 }
 
-/* Card Container Styles */
+/* Card Container Styles - Intercom Elevated White Card on Cream */
 .card {
   background-color: var(--surface-card);
   border: 1px solid var(--border-color);
-  border-radius: 1rem;
+  border-radius: 0.75rem; /* 12px ic-lg */
   padding: 1.25rem;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  border-color: #3b82f6;
+  border-color: #111111;
 }
 
 /* Operational Metric Quick-Action Buttons */
 .metric-btn {
-  background-color: #162036;
-  border: 1px solid #23304d;
-  border-radius: 0.875rem;
+  background-color: #ffffff;
+  border: 1px solid #d3cec6;
+  border-radius: 0.75rem;
   padding: 0.875rem 1rem;
   text-align: left;
   display: flex;
@@ -62,30 +63,30 @@
 }
 
 .metric-btn:hover {
-  background-color: #1e2d4d;
-  border-color: #6366f1;
-  transform: translateY(-2px);
+  background-color: #faf8f5;
+  border-color: #111111;
+  transform: translateY(-1px);
 }
 
 /* Search Bar Input */
 .query-search-bar {
   width: 100%;
-  background-color: #0b0f19;
-  border: 1.5px solid #2e3d60;
-  border-radius: 0.875rem;
+  background-color: #ffffff;
+  border: 1px solid #d3cec6;
+  border-radius: 0.5rem;
   padding: 0.875rem 1.25rem;
   font-size: 0.95rem;
-  color: #ffffff;
+  color: #111111;
   transition: all 0.2s ease;
 }
 
 .query-search-bar:focus {
   outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+  border-color: #111111;
+  box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.1);
 }
 
-/* Badges and Chips */
+/* Badges and Chips - Intercom Report Badge Palette */
 .chip {
   display: inline-flex;
   align-items: center;
@@ -93,42 +94,65 @@
   padding: 0.25rem 0.625rem;
   border-radius: 9999px;
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.025em;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .chip-paid {
-  background-color: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  color: #34d399;
+  background-color: rgba(39, 174, 96, 0.1);
+  border: 1px solid rgba(39, 174, 96, 0.3);
+  color: #27ae60;
 }
 
 .chip-unpaid {
-  background-color: rgba(245, 158, 11, 0.15);
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  color: #fbbf24;
+  background-color: rgba(255, 86, 0, 0.1);
+  border: 1px solid rgba(255, 86, 0, 0.3);
+  color: #ff5600;
 }
 
 .chip-clarify {
-  background-color: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.4);
-  color: #f87171;
+  background-color: rgba(235, 87, 87, 0.1);
+  border: 1px solid rgba(235, 87, 87, 0.3);
+  color: #eb5757;
 }
 
 /* Action Buttons */
 .btn-primary {
-  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  background-color: #111111;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
-  border-radius: 0.625rem;
+  border-radius: 0.5rem;
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  transition: all 0.15s ease;
+  transition: opacity 0.15s ease;
   cursor: pointer;
   border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-fin {
+  background-color: #ff5600;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-fin:hover {
+  opacity: 0.9;
 }
 
 .btn-primary:hover {
@@ -190,3 +214,137 @@
 .animate-card-enter {
   animation: card-enter 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+/* --- Intercom Minimal & Premium Design System Utilities --- */
+.ic-canvas {
+  background-color: #f5f1ec;
+  color: #111111;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.ic-display-xl {
+  font-size: 4.5rem; /* 72px */
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.ic-display-lg {
+  font-size: 3.5rem; /* 56px */
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1.4px;
+}
+
+.ic-display-md {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+}
+
+.ic-headline {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.ic-card-title {
+  font-size: 1.375rem; /* 22px */
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+
+.ic-btn-primary {
+  background-color: #111111;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.ic-btn-primary:hover {
+  opacity: 0.92;
+}
+
+.ic-btn-secondary {
+  background-color: #ffffff;
+  color: #111111;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid #d3cec6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.ic-btn-secondary:hover {
+  background-color: #faf8f5;
+}
+
+.ic-btn-fin {
+  background-color: #ff5600;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.15s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.ic-btn-fin:hover {
+  opacity: 0.9;
+}
+
+.ic-product-card {
+  background-color: #ffffff;
+  border: 1px solid #d3cec6;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.ic-pricing-card {
+  background-color: #ffffff;
+  border: 1px solid #d3cec6;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.ic-pricing-card-featured {
+  background-color: #111111;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.ic-fin-badge {
+  background-color: rgba(255, 86, 0, 0.1);
+  color: #ff5600;
+  border: 1px solid rgba(255, 86, 0, 0.25);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+

@@ -115,15 +115,15 @@ export const BatchEvalView: React.FC = () => {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 className="text-lg font-bold text-white">Official Batch Evaluator</h2>
-          <p className="text-xs text-slate-500 mt-0.5">
+          <h2 className="text-lg font-semibold text-[#111111]">Official Batch Evaluator</h2>
+          <p className="text-xs text-[#7b7b78] mt-0.5">
             {trainMessages.length}-record dataset · score.py formula
           </p>
         </div>
         <button
           onClick={handleRun}
           disabled={isRunning}
-          className="btn-primary text-xs shrink-0"
+          className="ic-btn-primary text-xs shrink-0 py-2 px-3"
         >
           <Play size={13} />
           {isRunning ? `Evaluating ${progress}%…` : `Run ${trainMessages.length}-Record Benchmark`}
@@ -132,14 +132,14 @@ export const BatchEvalView: React.FC = () => {
 
       {/* Progress bar */}
       {isRunning && (
-        <div className="card-glass">
-          <div className="flex justify-between text-xs text-slate-500 mb-2">
+        <div className="card-glass bg-white p-4 rounded-xl border border-[#d3cec6] shadow-sm">
+          <div className="flex justify-between text-xs text-[#7b7b78] mb-2">
             <span>Processing records…</span>
             <span>{progress}%</span>
           </div>
-          <div className="w-full bg-slate-800 rounded-full h-2">
+          <div className="w-full bg-[#f5f1ec] rounded-full h-2">
             <div
-              className="bg-indigo-500 h-2 rounded-full transition-all duration-150"
+              className="bg-[#ff5600] h-2 rounded-full transition-all duration-150"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -195,19 +195,19 @@ export const BatchEvalView: React.FC = () => {
               {showDiff && (
                 <div className="mt-3 space-y-2 animate-fade-in max-h-80 overflow-y-auto">
                   {diffs.map((d, i) => (
-                    <div key={i} className="bg-slate-950/60 rounded-xl p-3 border border-slate-800/60 text-xs">
-                      <p className="text-slate-500 font-mono mb-1">Record #{d.index}</p>
-                      <p className="text-slate-300 mb-2 italic line-clamp-1">"{d.message}"</p>
+                    <div key={i} className="bg-white rounded-xl p-3 border border-[#d3cec6] text-xs shadow-sm">
+                      <p className="text-[#7b7b78] font-mono mb-1">Record #{d.index}</p>
+                      <p className="text-[#626260] mb-2 italic line-clamp-1">"{d.message}"</p>
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <p className="text-[10px] text-emerald-600 mb-1">Expected</p>
-                          <pre className="text-[10px] text-emerald-400 leading-relaxed">
+                          <p className="text-[10px] text-[#27ae60] font-semibold mb-1">Expected</p>
+                          <pre className="text-[10px] text-[#27ae60] leading-relaxed bg-[#faf8f5] p-2 rounded border border-[#e5e0d8]">
                             {JSON.stringify(d.expected, null, 1)}
                           </pre>
                         </div>
                         <div>
-                          <p className="text-[10px] text-rose-600 mb-1">Got</p>
-                          <pre className="text-[10px] text-rose-400 leading-relaxed">
+                          <p className="text-[10px] text-[#eb5757] font-semibold mb-1">Got</p>
+                          <pre className="text-[10px] text-[#eb5757] leading-relaxed bg-[#faf8f5] p-2 rounded border border-[#e5e0d8]">
                             {JSON.stringify(d.got, null, 1)}
                           </pre>
                         </div>

@@ -51,20 +51,20 @@ export const AnalyticsView: React.FC = () => {
   return (
     <div className="space-y-6 max-w-4xl mx-auto pb-24 animate-card-enter">
       {/* Header Bar */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[#d3cec6] pb-4">
         <div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+          <h2 className="text-xl font-semibold text-[#111111] flex items-center gap-2">
             <span>⚡</span> Operational Query Hub
           </h2>
-          <p className="text-xs text-slate-400 mt-0.5">
+          <p className="text-xs text-[#7b7b78] mt-0.5">
             100% Offline • Zero-Scroll IndexedDB Intelligence
           </p>
         </div>
         <button
           onClick={handleSeed}
-          className="btn-primary text-xs"
+          className="ic-btn-primary text-xs py-2 px-3"
         >
-          <span>⚡</span> Reset & Seed 20 Live Orders
+          <span>⚡</span> Reset &amp; Seed 20 Live Orders
         </button>
       </div>
 
@@ -76,8 +76,8 @@ export const AnalyticsView: React.FC = () => {
         >
           <span className="text-xl">📅</span>
           <div>
-            <div className="text-xs font-bold text-white">Due Today</div>
-            <div className="text-[11px] text-slate-400">Overdue & deadlines</div>
+            <div className="text-xs font-semibold text-[#111111]">Due Today</div>
+            <div className="text-[11px] text-[#7b7b78]">Overdue &amp; deadlines</div>
           </div>
         </button>
 
@@ -87,8 +87,8 @@ export const AnalyticsView: React.FC = () => {
         >
           <span className="text-xl">💰</span>
           <div>
-            <div className="text-xs font-bold text-white">Unpaid Balances</div>
-            <div className="text-[11px] text-slate-400">Udhar & receivables</div>
+            <div className="text-xs font-semibold text-[#111111]">Unpaid Balances</div>
+            <div className="text-[11px] text-[#7b7b78]">Udhar &amp; receivables</div>
           </div>
         </button>
 
@@ -98,8 +98,8 @@ export const AnalyticsView: React.FC = () => {
         >
           <span className="text-xl">👤</span>
           <div>
-            <div className="text-xs font-bold text-white">Customer History</div>
-            <div className="text-[11px] text-slate-400">Specs & prior orders</div>
+            <div className="text-xs font-semibold text-[#111111]">Customer History</div>
+            <div className="text-[11px] text-[#7b7b78]">Specs &amp; prior orders</div>
           </div>
         </button>
 
@@ -109,8 +109,8 @@ export const AnalyticsView: React.FC = () => {
         >
           <span className="text-xl">📊</span>
           <div>
-            <div className="text-xs font-bold text-white">Committed Capacity</div>
-            <div className="text-[11px] text-slate-400">7-day workload grid</div>
+            <div className="text-xs font-semibold text-[#111111]">Committed Capacity</div>
+            <div className="text-[11px] text-[#7b7b78]">7-day workload grid</div>
           </div>
         </button>
       </div>
@@ -127,7 +127,7 @@ export const AnalyticsView: React.FC = () => {
         />
         <button
           onClick={() => runQuery(searchQuery)}
-          className="absolute right-2 top-2 btn-primary text-xs py-1.5 px-4"
+          className="absolute right-2 top-2 ic-btn-fin text-xs py-1.5 px-4"
         >
           {isProcessing ? '...' : 'Query'}
         </button>
@@ -135,23 +135,23 @@ export const AnalyticsView: React.FC = () => {
 
       {/* Query Result Card */}
       {queryResult && (
-        <div className="card space-y-4 border-indigo-500/30">
-          <div className="flex justify-between items-start gap-3 border-b border-slate-800 pb-3">
+        <div className="card space-y-4 border-[#d3cec6]">
+          <div className="flex justify-between items-start gap-3 border-b border-[#d3cec6] pb-3">
             <div>
-              <div className="text-[11px] font-mono uppercase tracking-wider text-indigo-400 font-bold">
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#ff5600] font-semibold">
                 {queryResult.intent}
               </div>
-              <h3 className="text-lg font-bold text-white mt-0.5">
+              <h3 className="text-lg font-semibold text-[#111111] mt-0.5">
                 {queryResult.title}
               </h3>
             </div>
             {queryResult.summaryValue && (
               <div className="text-right">
-                <div className="text-xl font-black text-amber-400">
+                <div className="text-xl font-bold text-[#ff5600]">
                   {queryResult.summaryValue}
                 </div>
                 {queryResult.secondaryInfo && (
-                  <div className="text-[11px] text-slate-400">
+                  <div className="text-[11px] text-[#7b7b78]">
                     {queryResult.secondaryInfo}
                   </div>
                 )}
@@ -159,26 +159,26 @@ export const AnalyticsView: React.FC = () => {
             )}
           </div>
 
-          <p className="text-xs text-slate-300 italic bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/80">
+          <p className="text-xs text-[#626260] italic bg-[#faf8f5] p-2.5 rounded-lg border border-[#d3cec6]">
             💡 {queryResult.explanation}
           </p>
 
           {/* Customer Specs Section if matched */}
           {queryResult.customerSpecs && (
-            <div className="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 space-y-2">
-              <h4 className="text-xs font-bold text-slate-200">
+            <div className="bg-white p-3.5 rounded-xl border border-[#d3cec6] space-y-2 shadow-sm">
+              <h4 className="text-xs font-semibold text-[#111111]">
                 Last Order Specifications for {queryResult.customerSpecs.customerName}
               </h4>
               <div className="space-y-1.5">
                 {queryResult.customerSpecs.items.map((item, i) => (
-                  <div key={i} className="text-xs flex items-center justify-between bg-slate-900 px-3 py-2 rounded-lg border border-slate-800">
-                    <span className="font-semibold text-white">
-                      <span className="text-indigo-400">{item.quantity}x</span> {item.description}
+                  <div key={i} className="text-xs flex items-center justify-between bg-[#faf8f5] px-3 py-2 rounded-lg border border-[#e5e0d8]">
+                    <span className="font-semibold text-[#111111]">
+                      <span className="text-[#ff5600]">{item.quantity}x</span> {item.description}
                     </span>
                     {item.attributes && (
                       <div className="flex gap-1">
                         {Object.entries(item.attributes).map(([k, v]) => (
-                          <span key={k} className="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">
+                          <span key={k} className="text-[10px] bg-white text-[#626260] px-2 py-0.5 rounded border border-[#d3cec6]">
                             {k}: {String(v)}
                           </span>
                         ))}
@@ -198,15 +198,15 @@ export const AnalyticsView: React.FC = () => {
                   key={idx}
                   className={`p-2.5 rounded-xl border text-center flex flex-col items-center justify-center gap-1 ${
                     day.status === 'HIGH'
-                      ? 'bg-rose-950/40 border-rose-500/50 text-rose-300'
+                      ? 'bg-[#eb5757]/10 border-[#eb5757]/30 text-[#eb5757]'
                       : day.status === 'NORMAL'
-                      ? 'bg-indigo-950/40 border-indigo-500/50 text-indigo-300'
-                      : 'bg-slate-900/60 border-slate-800 text-slate-400'
+                      ? 'bg-[#27ae60]/10 border-[#27ae60]/30 text-[#27ae60]'
+                      : 'bg-[#faf8f5] border-[#d3cec6] text-[#7b7b78]'
                   }`}
                 >
                   <span className="text-[10px] font-bold uppercase">{day.dayName}</span>
                   <span className="text-base font-black">{day.count}</span>
-                  <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-slate-950 font-mono">
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-white font-mono border border-[#d3cec6]">
                     {day.status}
                   </span>
                 </div>
@@ -216,27 +216,27 @@ export const AnalyticsView: React.FC = () => {
 
           {/* Matched Orders List */}
           <div className="space-y-2 pt-2">
-            <h4 className="text-xs font-bold text-slate-400">
+            <h4 className="text-xs font-semibold text-[#7b7b78]">
               Matched Orders ({queryResult.matchedOrders.length})
             </h4>
             {queryResult.matchedOrders.length === 0 ? (
-              <p className="text-xs text-slate-500 italic">No matching orders found.</p>
+              <p className="text-xs text-[#7b7b78] italic">No matching orders found.</p>
             ) : (
               queryResult.matchedOrders.map((ord) => (
                 <div
                   key={ord.id}
-                  className="bg-slate-950/90 border border-slate-800/90 rounded-xl p-3 flex flex-col sm:flex-row justify-between sm:items-center gap-3"
+                  className="bg-white border border-[#d3cec6] rounded-xl p-3 flex flex-col sm:flex-row justify-between sm:items-center gap-3 shadow-sm"
                 >
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-white text-sm">
+                      <span className="font-semibold text-[#111111] text-sm">
                         {ord.customer || 'Unspecified'}
                       </span>
-                      <span className="text-[10px] font-mono text-slate-500">
+                      <span className="text-[10px] font-mono text-[#7b7b78]">
                         {ord.id}
                       </span>
                     </div>
-                    <div className="text-xs text-slate-300 mt-0.5">
+                    <div className="text-xs text-[#626260] mt-0.5">
                       {ord.items.map((it) => `${it.quantity}x ${it.description}`).join(', ')}
                     </div>
                     {ord.due_date && (

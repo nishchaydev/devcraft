@@ -10,7 +10,7 @@ interface LanguageContextType {
 
 const TRANSLATIONS: Record<Language, Record<string, string>> = {
   en: {
-    appTitle: 'DevCraft PWA',
+    appTitle: 'via-P.A.A.R.',
     subtitle: 'Offline-First Order Management',
     intakeTab: 'Intake',
     ordersTab: 'Orders',
