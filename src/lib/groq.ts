@@ -1,4 +1,5 @@
 import { ParsingRule } from '../types/app';
+import { parseOfflineRecord } from '../parser/offlineParser';
 
 const GROQ_API_KEY = import.meta.env.VITE_LLM_API_KEY || '';
 const GROQ_API_URL = import.meta.env.VITE_LLM_API_URL || 'https://api.groq.com/openai/v1/chat/completions';
@@ -53,6 +54,27 @@ Extract order details into a clean JSON object following this EXACT schema:
 ${rulesPrompt}
 Respond ONLY with valid JSON, no markdown formatting or commentary.`;
 
+  // 1. Instant check for API Key presence & validity
+  if (!GROQ_API_KEY || GROQ_API_KEY.trim() === '' || GROQ_API_KEY.includes('placeholder')) {
+    const localParsed = parseOfflineRecord({
+      id: `groq-local-${Date.now()}`,
+      message: rawText,
+      received_at: new Date().toISOString()
+    });
+    return {
+      customer_info: customerMeta,
+      items: localParsed.items || [],
+      due_date: localParsed.due_date || null,
+      total_amount: localParsed.amount || null,
+      needs_clarification: localParsed.needs_clarification ?? false,
+      notes: localParsed.ruleExplanation || 'Parsed via local NLP engine.',
+    };
+  }
+
+  // 2. Fetch with AbortController timeout (2.5 seconds)
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 2500);
+
   try {
     const response = await fetch(GROQ_API_URL, {
       method: 'POST',
@@ -68,7 +90,10 @@ Respond ONLY with valid JSON, no markdown formatting or commentary.`;
         ],
         temperature: 0.1,
       }),
+      signal: controller.signal
     });
+
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       const errText = await response.text();
@@ -91,20 +116,22 @@ Respond ONLY with valid JSON, no markdown formatting or commentary.`;
       notes: parsed.notes || '',
     };
   } catch (err) {
-    console.warn('Groq LLM Parser failed, using fallback extraction:', err);
+    clearTimeout(timeoutId);
+    console.warn('Groq LLM Parser failed/timed out, using local fallback:', err);
+    
+    const localParsed = parseOfflineRecord({
+      id: `groq-local-${Date.now()}`,
+      message: rawText,
+      received_at: new Date().toISOString()
+    });
+
     return {
       customer_info: customerMeta,
-      items: [
-        {
-          description: rawText,
-          quantity: 1,
-          attributes: {}
-        }
-      ],
-      due_date: null,
-      total_amount: null,
-      needs_clarification: true,
-      notes: 'Fallback parse due to network/API error',
+      items: localParsed.items || [],
+      due_date: localParsed.due_date || null,
+      total_amount: localParsed.amount || null,
+      needs_clarification: localParsed.needs_clarification ?? false,
+      notes: `${localParsed.ruleExplanation} (LLM timeout fallback)`,
     };
   }
 }

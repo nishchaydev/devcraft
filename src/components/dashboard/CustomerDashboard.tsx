@@ -15,7 +15,8 @@ import {
   Paperclip,
   Smile,
   Mic,
-  Circle
+  Circle,
+  ArrowLeft
 } from 'lucide-react';
 
 const QUICK_ORDER_CHIPS = [
@@ -36,6 +37,7 @@ export const CustomerDashboard: React.FC = () => {
   const [loadingStores, setLoadingStores] = useState(false);
   const [sending, setSending] = useState(false);
   const [searchStoreQuery, setSearchStoreQuery] = useState('');
+  const [showSidebarOnMobile, setShowSidebarOnMobile] = useState(true);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -49,10 +51,26 @@ export const CustomerDashboard: React.FC = () => {
         .eq('role', 'owner');
 
       const storeMap = new Map<string, Profile>();
-      SEEDED_VENDORS.forEach((v) => storeMap.set(v.id, v));
-      vendorList.forEach((v) => storeMap.set(v.id, v));
+      
+      const addStore = (s: Profile) => {
+        const key = s.email ? s.email.toLowerCase() : s.id;
+        const existing = storeMap.get(key);
+        if (existing) {
+          const isSeedId = (id: string) => id.includes('11111111') || id.includes('22222222') || id.includes('33333333') || id.includes('44444444');
+          if (isSeedId(existing.id) && !isSeedId(s.id)) {
+            storeMap.set(key, { ...existing, ...s });
+          } else {
+            storeMap.set(key, { ...s, ...existing, id: s.id || existing.id });
+          }
+        } else {
+          storeMap.set(key, s);
+        }
+      };
+
+      SEEDED_VENDORS.forEach(addStore);
+      vendorList.forEach(addStore);
       if (!error && data) {
-        data.forEach((d) => storeMap.set(d.id, d));
+        data.forEach(addStore);
       }
 
       const combinedStores = Array.from(storeMap.values());
@@ -191,7 +209,7 @@ export const CustomerDashboard: React.FC = () => {
   return (
     <div className="h-[calc(100vh-5rem)] flex flex-col md:flex-row bg-[#0f141c] border border-[#222d34] rounded-2xl overflow-hidden shadow-2xl font-sans">
       {/* 🟢 INTERCOM SIDEBAR: VENDORS LIST */}
-      <div className="w-full md:w-80 bg-[#161b22] border-b md:border-b-0 md:border-r border-[#262c36] flex flex-col shrink-0">
+      <div className={`w-full md:w-80 bg-[#161b22] border-b md:border-b-0 md:border-r border-[#262c36] ${showSidebarOnMobile ? 'flex' : 'hidden'} md:flex flex-col shrink-0`}>
         <div className="p-3.5 px-4 bg-[#1f242d] flex justify-between items-center border-b border-[#262c36]">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-[#ff5600] flex items-center justify-center font-bold text-white text-sm shadow-md">
@@ -237,7 +255,10 @@ export const CustomerDashboard: React.FC = () => {
               return (
                 <button
                   key={store.id}
-                  onClick={() => setSelectedStore(store)}
+                  onClick={() => {
+                    setSelectedStore(store);
+                    setShowSidebarOnMobile(false);
+                  }}
                   className={`w-full text-left p-3.5 transition-all flex items-center gap-3 cursor-pointer ${
                     isSelected
                       ? 'bg-[#21262d] text-white border-l-4 border-[#ff5600]'
@@ -269,12 +290,19 @@ export const CustomerDashboard: React.FC = () => {
       </div>
 
       {/* 🟢 INTERCOM CHAT VIEWPORT */}
-      <div className="flex-1 flex flex-col bg-[#0f141c] relative">
+      <div className={`flex-1 ${!showSidebarOnMobile ? 'flex' : 'hidden'} md:flex flex-col bg-[#0f141c] relative`}>
         {selectedStore ? (
           <>
             {/* Intercom Chat Header */}
             <div className="p-3.5 px-4 bg-[#1f242d] border-b border-[#262c36] flex items-center justify-between shadow-md z-10">
               <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setShowSidebarOnMobile(true)}
+                  className="md:hidden p-1 rounded-lg text-[#8b949e] hover:text-white hover:bg-[#262c36] transition-all -ml-1 mr-1"
+                  title="Back to stores"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
                 <div className="w-10 h-10 rounded-full bg-[#ff5600] flex items-center justify-center text-white font-bold text-sm shadow-md">
                   {selectedStore.store_name?.charAt(0) || selectedStore.full_name?.charAt(0) || 'S'}
                 </div>

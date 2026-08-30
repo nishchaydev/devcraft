@@ -31,6 +31,8 @@ import {
   PlusCircle,
   BarChart3,
   Save,
+  Menu,
+  ArrowLeft
 } from 'lucide-react';
 
 const VENDOR_REPLY_CHIPS = [
@@ -52,10 +54,13 @@ export const OwnerDashboard: React.FC = () => {
   const [customers, setCustomers] = useState<Profile[]>([]);
   const [selectedCustomerId, setSelectedCustomerId] = useState<string | null>(null);
   const selectedCustomerIdRef = useRef<string | null>(null);
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [showCustomerListOnMobile, setShowCustomerListOnMobile] = useState(true);
 
   const handleSelectCustomer = (id: string) => {
     selectedCustomerIdRef.current = id;
     setSelectedCustomerId(id);
+    setShowCustomerListOnMobile(false);
   };
 
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
@@ -89,20 +94,36 @@ export const OwnerDashboard: React.FC = () => {
 
       const custMap = new Map<string, Profile>();
 
+      const addCustomer = (c: Profile) => {
+        const key = c.email ? c.email.toLowerCase() : c.id;
+        const existing = custMap.get(key);
+        if (existing) {
+          const isSeedId = (id: string) => id.startsWith('c') && id.includes('1111');
+          if (isSeedId(existing.id) && !isSeedId(c.id)) {
+            custMap.set(key, { ...existing, ...c });
+          } else {
+            custMap.set(key, { ...c, ...existing, id: c.id || existing.id });
+          }
+        } else {
+          custMap.set(key, c);
+        }
+      };
+
       // Add seeded customers
-      SEEDED_CUSTOMERS.forEach((c) => custMap.set(c.id, c));
+      SEEDED_CUSTOMERS.forEach(addCustomer);
 
       // Add Supabase profiles
       if (custData && custData.length > 0) {
-        custData.forEach((c) => custMap.set(c.id, c));
+        custData.forEach(addCustomer);
       }
 
       // Add any dynamic customer profile from combined network & local messages
       combinedMsgs.forEach((m) => {
         if (m.owner_id === currentOwner.id && m.parsed_json?.customer_info) {
           const info = m.parsed_json.customer_info;
-          if (!custMap.has(m.customer_id)) {
-            custMap.set(m.customer_id, {
+          const key = info.email ? info.email.toLowerCase() : m.customer_id;
+          if (!custMap.has(key)) {
+            custMap.set(key, {
               id: m.customer_id,
               email: info.email || `${m.customer_id.substring(0, 8)}@devcraft.app`,
               full_name: info.name || 'Customer',
@@ -282,13 +303,21 @@ export const OwnerDashboard: React.FC = () => {
   const currentCustomerProfile = customers.find((c) => c.id === activeCustId);
 
   const currentCustomerMessages = messages.filter((m) => {
+    // 1. Match by exact ID
     if (m.customer_id === activeCustId || m.sender_id === activeCustId) return true;
-    if (
-      currentCustomerProfile?.email &&
-      m.parsed_json?.customer_info?.email?.toLowerCase() === currentCustomerProfile.email.toLowerCase()
-    ) {
-      return true;
+    
+    // 2. Match by email
+    if (currentCustomerProfile?.email) {
+      const targetEmail = currentCustomerProfile.email.toLowerCase();
+      
+      // If message has customer email in parsed_json
+      if (m.parsed_json?.customer_info?.email?.toLowerCase() === targetEmail) return true;
+      
+      // If message has customer_id that corresponds to a seeded customer with this email
+      const seeded = SEEDED_CUSTOMERS.find((c) => c.id === m.customer_id);
+      if (seeded && seeded.email.toLowerCase() === targetEmail) return true;
     }
+    
     return false;
   });
 
@@ -299,22 +328,33 @@ export const OwnerDashboard: React.FC = () => {
 
   return (
     <LanguageProvider>
-      <div className="h-[calc(100vh-5rem)] flex flex-col md:flex-row bg-[#f5f1ec] border border-[#d3cec6] rounded-2xl overflow-hidden shadow-sm font-sans text-[#111111]">
+      <div className="h-[calc(100vh-5rem)] flex flex-col md:flex-row bg-[#f5f1ec] border border-[#d3cec6] rounded-2xl overflow-hidden shadow-sm font-sans text-[#111111] relative">
+        {/* Backdrop for mobile drawer */}
+        {isNavOpen && (
+          <div 
+            className="fixed inset-0 bg-black/40 z-40 md:hidden"
+            onClick={() => setIsNavOpen(false)}
+          />
+        )}
+
         {/* 🟢 OWNER NAVIGATION SIDEBAR */}
-        <div className="w-full md:w-64 bg-white border-b md:border-b-0 md:border-r border-[#d3cec6] flex flex-col shrink-0">
+        <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-[#d3cec6] flex flex-col shrink-0 transition-transform duration-300 transform ${isNavOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 md:flex md:w-64`}>
           <div className="p-3.5 px-4 bg-[#faf8f5] border-b border-[#d3cec6]">
             <h3 className="font-semibold text-xs text-[#111111] truncate">
               {currentOwner?.store_name || currentOwner?.full_name || 'Store Workstation'}
             </h3>
             <p className="text-[10px] text-[#27ae60] flex items-center gap-1 font-semibold mt-0.5">
               <Circle className="w-2 h-2 fill-[#27ae60] text-[#27ae60]" />
-              <span>Vendor Suite • Fin AI Engine</span>
+              <span><span>Vendor Suite • Fin AI Engine</span></span>
             </p>
           </div>
 
           <nav className="p-2 space-y-1 flex-1 overflow-y-auto">
             <button
-              onClick={() => setActiveTab('chats')}
+              onClick={() => {
+                setActiveTab('chats');
+                setIsNavOpen(false);
+              }}
               className={`w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-medium flex items-center gap-2.5 transition-all ${
                 activeTab === 'chats'
                   ? 'bg-[#111111] text-white shadow-sm'
@@ -326,7 +366,10 @@ export const OwnerDashboard: React.FC = () => {
             </button>
 
             <button
-              onClick={() => setActiveTab('parser')}
+              onClick={() => {
+                setActiveTab('parser');
+                setIsNavOpen(false);
+              }}
               className={`w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-medium flex items-center gap-2.5 transition-all ${
                 activeTab === 'parser'
                   ? 'bg-[#111111] text-white shadow-sm'
@@ -338,7 +381,10 @@ export const OwnerDashboard: React.FC = () => {
             </button>
 
             <button
-              onClick={() => setActiveTab('orders')}
+              onClick={() => {
+                setActiveTab('orders');
+                setIsNavOpen(false);
+              }}
               className={`w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-medium flex items-center gap-2.5 transition-all ${
                 activeTab === 'orders'
                   ? 'bg-[#111111] text-white shadow-sm'
@@ -350,7 +396,10 @@ export const OwnerDashboard: React.FC = () => {
             </button>
 
             <button
-              onClick={() => setActiveTab('intake')}
+              onClick={() => {
+                setActiveTab('intake');
+                setIsNavOpen(false);
+              }}
               className={`w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-medium flex items-center gap-2.5 transition-all ${
                 activeTab === 'intake'
                   ? 'bg-[#111111] text-white shadow-sm'
@@ -362,7 +411,10 @@ export const OwnerDashboard: React.FC = () => {
             </button>
 
             <button
-              onClick={() => setActiveTab('queries')}
+              onClick={() => {
+                setActiveTab('queries');
+                setIsNavOpen(false);
+              }}
               className={`w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-medium flex items-center gap-2.5 transition-all ${
                 activeTab === 'queries'
                   ? 'bg-[#111111] text-white shadow-sm'
@@ -381,9 +433,16 @@ export const OwnerDashboard: React.FC = () => {
           {activeTab === 'chats' && (
             <div className="h-full flex flex-col md:flex-row">
               {/* Customer Inbox Sub-Sidebar */}
-              <div className="w-full md:w-64 bg-white border-r border-[#d3cec6] flex flex-col shrink-0">
-                <div className="p-2.5 border-b border-[#d3cec6]">
-                  <div className="relative">
+              <div className={`w-full md:w-64 bg-white border-r border-[#d3cec6] ${showCustomerListOnMobile ? 'flex' : 'hidden'} md:flex flex-col shrink-0`}>
+                <div className="p-2.5 border-b border-[#d3cec6] flex items-center gap-2">
+                  <button
+                    onClick={() => setIsNavOpen(true)}
+                    className="md:hidden p-1.5 rounded-lg text-[#626260] hover:text-[#111111] hover:bg-[#faf8f5] border border-[#d3cec6]"
+                    title="Menu"
+                  >
+                    <Menu className="w-4 h-4" />
+                  </button>
+                  <div className="relative flex-1">
                     <Search className="w-3.5 h-3.5 text-[#7b7b78] absolute left-3 top-2.5" />
                     <input
                       type="text"
@@ -439,18 +498,27 @@ export const OwnerDashboard: React.FC = () => {
               </div>
 
               {/* Chat Conversation Window */}
-              <div className="flex-1 flex flex-col h-full bg-[#faf8f5]">
+              <div className={`flex-1 ${!showCustomerListOnMobile ? 'flex' : 'hidden'} md:flex flex-col h-full bg-[#faf8f5]`}>
                 {currentCustomerProfile ? (
                   <>
                     {/* Chat Header */}
                     <div className="p-3.5 px-4 bg-white border-b border-[#d3cec6] flex justify-between items-center z-10 shadow-sm">
-                      <div>
-                        <h4 className="font-semibold text-xs text-[#111111]">
-                          {currentCustomerProfile.full_name || currentCustomerProfile.email || 'Customer'}
-                        </h4>
-                        <p className="text-[10px] text-[#7b7b78]">
-                          {currentCustomerProfile.phone || currentCustomerProfile.email || 'No phone'}
-                        </p>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => setShowCustomerListOnMobile(true)}
+                          className="md:hidden p-1 rounded-lg text-[#626260] hover:text-[#111111] hover:bg-[#faf8f5] border border-[#d3cec6] mr-1.5"
+                          title="Back to inbox"
+                        >
+                          <ArrowLeft className="w-4 h-4" />
+                        </button>
+                        <div>
+                          <h4 className="font-semibold text-xs text-[#111111]">
+                            {currentCustomerProfile.full_name || currentCustomerProfile.email || 'Customer'}
+                          </h4>
+                          <p className="text-[10px] text-[#7b7b78]">
+                            {currentCustomerProfile.phone || currentCustomerProfile.email || 'No phone'}
+                          </p>
+                        </div>
                       </div>
                       {currentCustomerProfile.delivery_location && (
                         <div className="text-[10px] bg-[#faf8f5] px-3 py-1 rounded-full text-[#7b7b78] flex items-center gap-1 border border-[#d3cec6]">
@@ -586,7 +654,16 @@ export const OwnerDashboard: React.FC = () => {
             <div className="h-full flex flex-col md:flex-row">
               {/* Forwarded Messages List Column */}
               <div className="w-full md:w-80 bg-white border-r border-[#d3cec6] p-3 overflow-y-auto shrink-0">
-                <div className="text-xs font-semibold text-[#111111] mb-2">Forwarded Messages for Parsing</div>
+                <div className="flex items-center gap-2 mb-3">
+                  <button
+                    onClick={() => setIsNavOpen(true)}
+                    className="md:hidden p-1.5 rounded-lg text-[#626260] hover:text-[#111111] hover:bg-[#faf8f5] border border-[#d3cec6]"
+                    title="Menu"
+                  >
+                    <Menu className="w-4 h-4" />
+                  </button>
+                  <div className="text-xs font-semibold text-[#111111]">Forwarded Messages for Parsing</div>
+                </div>
                 {forwardedMessages.length === 0 ? (
                   <div className="text-xs text-[#7b7b78] py-8 text-center">
                     No forwarded messages yet.<br />
@@ -742,22 +819,58 @@ export const OwnerDashboard: React.FC = () => {
 
           {/* TAB 3: 📋 ORDER LEDGER (OrdersView) */}
           {activeTab === 'orders' && (
-            <div className="h-full overflow-y-auto p-4 sm:p-6 bg-[#faf8f5]">
-              <OrdersView onNewOrderClick={() => setActiveTab('intake')} />
+            <div className="h-full overflow-y-auto p-4 sm:p-6 bg-[#faf8f5] flex flex-col">
+              <div className="md:hidden flex items-center gap-2 mb-4">
+                <button
+                  onClick={() => setIsNavOpen(true)}
+                  className="p-1.5 rounded-lg text-[#626260] hover:text-[#111111] hover:bg-[#faf8f5] border border-[#d3cec6]"
+                  title="Menu"
+                >
+                  <Menu className="w-4 h-4" />
+                </button>
+                <span className="text-xs font-bold text-[#626260]">Order Ledger</span>
+              </div>
+              <div className="flex-1">
+                <OrdersView onNewOrderClick={() => setActiveTab('intake')} />
+              </div>
             </div>
           )}
 
           {/* TAB 4: ➕ QUICK INTAKE (IntakeView) */}
           {activeTab === 'intake' && (
-            <div className="h-full overflow-y-auto p-4 sm:p-6 bg-[#faf8f5]">
-              <IntakeView />
+            <div className="h-full overflow-y-auto p-4 sm:p-6 bg-[#faf8f5] flex flex-col">
+              <div className="md:hidden flex items-center gap-2 mb-4">
+                <button
+                  onClick={() => setIsNavOpen(true)}
+                  className="p-1.5 rounded-lg text-[#626260] hover:text-[#111111] hover:bg-[#faf8f5] border border-[#d3cec6]"
+                  title="Menu"
+                >
+                  <Menu className="w-4 h-4" />
+                </button>
+                <span className="text-xs font-bold text-[#626260]">Quick Intake</span>
+              </div>
+              <div className="flex-1">
+                <IntakeView />
+              </div>
             </div>
           )}
 
           {/* TAB 5: ⚡ OPERATIONAL QUERIES (AnalyticsView) */}
           {activeTab === 'queries' && (
-            <div className="h-full overflow-y-auto p-4 sm:p-6 bg-[#faf8f5]">
-              <AnalyticsView />
+            <div className="h-full overflow-y-auto p-4 sm:p-6 bg-[#faf8f5] flex flex-col">
+              <div className="md:hidden flex items-center gap-2 mb-4">
+                <button
+                  onClick={() => setIsNavOpen(true)}
+                  className="p-1.5 rounded-lg text-[#626260] hover:text-[#111111] hover:bg-[#faf8f5] border border-[#d3cec6]"
+                  title="Menu"
+                >
+                  <Menu className="w-4 h-4" />
+                </button>
+                <span className="text-xs font-bold text-[#626260]">Operational Queries</span>
+              </div>
+              <div className="flex-1">
+                <AnalyticsView />
+              </div>
             </div>
           )}
         </div>

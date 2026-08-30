@@ -4,12 +4,16 @@ import { Message, Profile } from '../types/app';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://ijeecfdkdntqivvyifgq.supabase.co';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    persistSession: true,
-    autoRefreshToken: true,
-  },
-});
+export const supabase = createClient(
+  supabaseUrl,
+  supabaseAnonKey || 'placeholder-key',
+  {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+  }
+);
 
 export const SEEDED_VENDORS: Profile[] = [
   {
@@ -138,7 +142,93 @@ export const SEEDED_CHATS: Message[] = [
       },
     },
     status: 'sent',
-    created_at: new Date(Date.now() - 3600 * 1000 * 1).toISOString(),
+    created_at: new Date(Date.now() - 3600 * 1000 * 5).toISOString(),
+  },
+  {
+    id: 'msg-seed-104',
+    owner_id: '11111111-1111-1111-1111-111111111111',
+    customer_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_role: 'customer',
+    raw_text: 'Hello Meena ji, can you stitch a navy blue kurta (chest 40) for me by Wednesday?',
+    parsed_json: {
+      customer_info: {
+        name: 'Ramesh Sharma (Ramesh Ji)',
+        phone: '+91 9811002233',
+        delivery_location: {
+          address: 'Flat 402, Shanti Heights, Sector 14, Gurugram',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 4).toISOString(),
+  },
+  {
+    id: 'msg-seed-105',
+    owner_id: '11111111-1111-1111-1111-111111111111',
+    customer_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_id: '11111111-1111-1111-1111-111111111111',
+    sender_role: 'owner',
+    raw_text: 'Yes Ramesh ji, please send the fabric tomorrow morning and we will start working on it.',
+    status: 'delivered',
+    created_at: new Date(Date.now() - 3600 * 1000 * 3.8).toISOString(),
+  },
+  {
+    id: 'msg-seed-106',
+    owner_id: '11111111-1111-1111-1111-111111111111',
+    customer_id: 'c3333333-3333-3333-3333-333333333333',
+    sender_id: 'c3333333-3333-3333-3333-333333333333',
+    sender_role: 'customer',
+    raw_text: 'Meena aunty, 4 salwar suit stitching ke liye fabric kab bheju?',
+    parsed_json: {
+      customer_info: {
+        name: 'Sarita Verma (Sarita Didi)',
+        phone: '+91 9833004455',
+        delivery_location: {
+          address: 'House No 58, Model Town Phase 2, Delhi',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 12).toISOString(),
+  },
+  {
+    id: 'msg-seed-107',
+    owner_id: '11111111-1111-1111-1111-111111111111',
+    customer_id: 'c4444444-4444-4444-4444-444444444444',
+    sender_id: 'c4444444-4444-4444-4444-444444444444',
+    sender_role: 'customer',
+    raw_text: 'Bhaiya 2 kurta white linen collar size 42 silwana hai, next week family function hai',
+    parsed_json: {
+      customer_info: {
+        name: 'Anil Kapoor (Anil Ji)',
+        phone: '+91 9844005566',
+        delivery_location: {
+          address: 'Villa 19, Palm Meadows, Whitefield, Bengaluru',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 20).toISOString(),
+  },
+  {
+    id: 'msg-seed-108',
+    owner_id: '11111111-1111-1111-1111-111111111111',
+    customer_id: 'c5555555-5555-5555-5555-555555555555',
+    sender_id: 'c5555555-5555-5555-5555-555555555555',
+    sender_role: 'customer',
+    raw_text: 'Didi, ek silk saree border alterations aur fall-pico lagana hai, urgent',
+    parsed_json: {
+      customer_info: {
+        name: 'Kavita Desai',
+        phone: '+91 9855006677',
+        delivery_location: {
+          address: 'Tower 3, Apt 804, Lodha Bellissimo, Mahalaxmi, Mumbai',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 10).toISOString(),
   },
 
   // --- Vendor 2: Gupta Super Kirana (Grocery) ---
@@ -170,6 +260,92 @@ export const SEEDED_CHATS: Message[] = [
     raw_text: '🛵 Out for delivery - arriving shortly via delivery boy Raju.',
     status: 'delivered',
     created_at: new Date(Date.now() - 3600 * 1000 * 3).toISOString(),
+  },
+  {
+    id: 'msg-seed-203',
+    owner_id: '22222222-2222-2222-2222-222222222222',
+    customer_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_role: 'customer',
+    raw_text: 'Gupta ji, 5kg Basmati Rice, 1kg Arhar Dal, aur 500g Amul Butter delivery karwa do Shanti Heights par',
+    parsed_json: {
+      customer_info: {
+        name: 'Ramesh Sharma (Ramesh Ji)',
+        phone: '+91 9811002233',
+        delivery_location: {
+          address: 'Flat 402, Shanti Heights, Sector 14, Gurugram',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 6).toISOString(),
+  },
+  {
+    id: 'msg-seed-204',
+    owner_id: '22222222-2222-2222-2222-222222222222',
+    customer_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_id: '22222222-2222-2222-2222-222222222222',
+    sender_role: 'owner',
+    raw_text: '✓ Order Confirmed (20m delivery) - Nikunj is on the way.',
+    status: 'delivered',
+    created_at: new Date(Date.now() - 3600 * 1000 * 5.8).toISOString(),
+  },
+  {
+    id: 'msg-seed-205',
+    owner_id: '22222222-2222-2222-2222-222222222222',
+    customer_id: 'c2222222-2222-2222-2222-222222222222',
+    sender_id: 'c2222222-2222-2222-2222-222222222222',
+    sender_role: 'customer',
+    raw_text: 'Bhaiya, 1L Britannia Milk, 1 box Kellogg Cornflakes, aur 6 Ande kal subah bhej dena 8 AM tak please',
+    parsed_json: {
+      customer_info: {
+        name: 'Priya Patel',
+        phone: '+91 9822003344',
+        delivery_location: {
+          address: 'B-12, Green Glen Layout, Bellandur, Bengaluru',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 2).toISOString(),
+  },
+  {
+    id: 'msg-seed-206',
+    owner_id: '22222222-2222-2222-2222-222222222222',
+    customer_id: 'c4444444-4444-4444-4444-444444444444',
+    sender_id: 'c4444444-4444-4444-4444-444444444444',
+    sender_role: 'customer',
+    raw_text: 'Gupta ji, 2 cans Coke, 1 packet Kurkure Chilli, aur 1 bag Surf Excel Easy Wash bhej do Whitefield me',
+    parsed_json: {
+      customer_info: {
+        name: 'Anil Kapoor (Anil Ji)',
+        phone: '+91 9844005566',
+        delivery_location: {
+          address: 'Villa 19, Palm Meadows, Whitefield, Bengaluru',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 8).toISOString(),
+  },
+  {
+    id: 'msg-seed-207',
+    owner_id: '22222222-2222-2222-2222-222222222222',
+    customer_id: 'c5555555-5555-5555-5555-555555555555',
+    sender_id: 'c5555555-5555-5555-5555-555555555555',
+    sender_role: 'customer',
+    raw_text: 'Bhaiya, 10kg sugar aur 5kg maida sweets banane ke liye bhej do, urgent hai',
+    parsed_json: {
+      customer_info: {
+        name: 'Kavita Desai',
+        phone: '+91 9855006677',
+        delivery_location: {
+          address: 'Tower 3, Apt 804, Lodha Bellissimo, Mahalaxmi, Mumbai',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 15).toISOString(),
   },
 
   // --- Vendor 3: Sharma Electricians (Services) ---
@@ -221,6 +397,73 @@ export const SEEDED_CHATS: Message[] = [
     status: 'sent',
     created_at: new Date(Date.now() - 3600 * 1000 * 2).toISOString(),
   },
+  {
+    id: 'msg-seed-304',
+    owner_id: '33333333-3333-3333-3333-333333333333',
+    customer_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_role: 'customer',
+    raw_text: 'Sunil ji, bedroom wall fan ka regulator aur wiring kharab hai, please repair kar do',
+    parsed_json: {
+      customer_info: {
+        name: 'Ramesh Sharma (Ramesh Ji)',
+        phone: '+91 9811002233',
+        delivery_location: {
+          address: 'Flat 402, Shanti Heights, Sector 14, Gurugram',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 10).toISOString(),
+  },
+  {
+    id: 'msg-seed-305',
+    owner_id: '33333333-3333-3333-3333-333333333333',
+    customer_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_id: '33333333-3333-3333-3333-333333333333',
+    sender_role: 'owner',
+    raw_text: '✓ Order Confirmed - Technician Sunil will visit tomorrow at 10:00 AM.',
+    status: 'delivered',
+    created_at: new Date(Date.now() - 3600 * 1000 * 9.8).toISOString(),
+  },
+  {
+    id: 'msg-seed-306',
+    owner_id: '33333333-3333-3333-3333-333333333333',
+    customer_id: 'c2222222-2222-2222-2222-222222222222',
+    sender_id: 'c2222222-2222-2222-2222-222222222222',
+    sender_role: 'customer',
+    raw_text: 'Sharma ji, geyser ke connection me heating issue aa raha hai, urgent service chahiye',
+    parsed_json: {
+      customer_info: {
+        name: 'Priya Patel',
+        phone: '+91 9822003344',
+        delivery_location: {
+          address: 'B-12, Green Glen Layout, Bellandur, Bengaluru',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 6).toISOString(),
+  },
+  {
+    id: 'msg-seed-307',
+    owner_id: '33333333-3333-3333-3333-333333333333',
+    customer_id: 'c5555555-5555-5555-5555-555555555555',
+    sender_id: 'c5555555-5555-5555-5555-555555555555',
+    sender_role: 'customer',
+    raw_text: 'Sunil bhaiya, water pump motor is sparking, please inspect immediately',
+    parsed_json: {
+      customer_info: {
+        name: 'Kavita Desai',
+        phone: '+91 9855006677',
+        delivery_location: {
+          address: 'Tower 3, Apt 804, Lodha Bellissimo, Mahalaxmi, Mumbai',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 1).toISOString(),
+  },
 
   // --- Vendor 4: Sweet Treats Home Bakery (Bakery) ---
   {
@@ -270,6 +513,73 @@ export const SEEDED_CHATS: Message[] = [
     },
     status: 'sent',
     created_at: new Date(Date.now() - 3600 * 1000 * 1).toISOString(),
+  },
+  {
+    id: 'msg-seed-404',
+    owner_id: '44444444-4444-4444-4444-444444444444',
+    customer_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_role: 'customer',
+    raw_text: 'Pooja, is the eggless chocolate cake order ready for Aarav?',
+    parsed_json: {
+      customer_info: {
+        name: 'Ramesh Sharma (Ramesh Ji)',
+        phone: '+91 9811002233',
+        delivery_location: {
+          address: 'Flat 402, Shanti Heights, Sector 14, Gurugram',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 8).toISOString(),
+  },
+  {
+    id: 'msg-seed-405',
+    owner_id: '44444444-4444-4444-4444-444444444444',
+    customer_id: 'c1111111-1111-1111-1111-111111111111',
+    sender_id: '44444444-4444-4444-4444-444444444444',
+    sender_role: 'owner',
+    raw_text: 'Yes Ramesh uncle, the cake is completely baked and decorated! Ready for pickup now.',
+    status: 'delivered',
+    created_at: new Date(Date.now() - 3600 * 1000 * 7.8).toISOString(),
+  },
+  {
+    id: 'msg-seed-406',
+    owner_id: '44444444-4444-4444-4444-444444444444',
+    customer_id: 'c3333333-3333-3333-3333-333333333333',
+    sender_id: 'c3333333-3333-3333-3333-333333333333',
+    sender_role: 'customer',
+    raw_text: 'Pooja beti, 20 vanilla cupcakes pineapple icing ke sath set kar do Saturday morning tak',
+    parsed_json: {
+      customer_info: {
+        name: 'Sarita Verma (Sarita Didi)',
+        phone: '+91 9833004455',
+        delivery_location: {
+          address: 'House No 58, Model Town Phase 2, Delhi',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 14).toISOString(),
+  },
+  {
+    id: 'msg-seed-407',
+    owner_id: '44444444-4444-4444-4444-444444444444',
+    customer_id: 'c4444444-4444-4444-4444-444444444444',
+    sender_id: 'c4444444-4444-4444-4444-444444444444',
+    sender_role: 'customer',
+    raw_text: 'Pooja, 5 boxes of custom dry fruit cookies pack and deliver by Monday afternoon',
+    parsed_json: {
+      customer_info: {
+        name: 'Anil Kapoor (Anil Ji)',
+        phone: '+91 9844005566',
+        delivery_location: {
+          address: 'Villa 19, Palm Meadows, Whitefield, Bengaluru',
+        },
+      },
+    },
+    status: 'sent',
+    created_at: new Date(Date.now() - 3600 * 1000 * 18).toISOString(),
   },
 ];
 

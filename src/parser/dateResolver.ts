@@ -142,8 +142,24 @@ export function resolveDate(message: string, receivedAtISO: string): DateResolut
     explicitDate = formatDateUTC(d);
   }
 
+  // Explicit month name pattern (e.g. "18 Sep", "5 October") — checked BEFORE tarikh
+  // to avoid "3/4 sleeve" style fractions stealing the match
   if (!explicitDate) {
-    const tarikhMatch = msg.match(/(\d{1,2})\s*(tarikh|tareekh|taareekh|ko|\/|तारीख)/);
+    const explicitMonthMatch = msg.match(/(\d{1,2})\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|june|july|august|september|october|november|december)/);
+    if (explicitMonthMatch) {
+      const dayNum = parseInt(explicitMonthMatch[1], 10);
+      const monthStr = explicitMonthMatch[2].substring(0, 3);
+      const monthsMap: Record<string, number> = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+      if (monthsMap[monthStr] !== undefined) {
+        const d = new Date(Date.UTC(base.year, monthsMap[monthStr], dayNum));
+        explicitDate = formatDateUTC(d);
+      }
+    }
+  }
+
+  // Tarikh pattern (e.g. "6 tarikh", "15 ko") — no bare "/" to avoid matching fractions like "3/4 sleeve"
+  if (!explicitDate) {
+    const tarikhMatch = msg.match(/(\d{1,2})\s*(tarikh|tareekh|taareekh|ko|तारीख)/);
     if (tarikhMatch) {
       const targetDay = parseInt(tarikhMatch[1], 10);
       if (targetDay >= 1 && targetDay <= 31) {
@@ -157,19 +173,6 @@ export function resolveDate(message: string, receivedAtISO: string): DateResolut
           }
         }
         const d = new Date(Date.UTC(targetYear, targetMonth, targetDay));
-        explicitDate = formatDateUTC(d);
-      }
-    }
-  }
-
-  if (!explicitDate) {
-    const explicitMonthMatch = msg.match(/(\d{1,2})\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|june|july|august|september|october|november|december)/);
-    if (explicitMonthMatch) {
-      const dayNum = parseInt(explicitMonthMatch[1], 10);
-      const monthStr = explicitMonthMatch[2].substring(0, 3);
-      const monthsMap: Record<string, number> = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
-      if (monthsMap[monthStr] !== undefined) {
-        const d = new Date(Date.UTC(base.year, monthsMap[monthStr], dayNum));
         explicitDate = formatDateUTC(d);
       }
     }
