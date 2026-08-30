@@ -21,7 +21,7 @@ const DEVANAGARI_DIGITS: Record<string, string> = {
 const IMPRECISE_DEADLINES = [
   'asap', 'urgent', 'jab ho jaye', 'festival se pehle',
   'next week kabhi bhi', 'agle mahine', 'mahine ke end tak', 'diwali se pehle',
-  'shaadi se pehle', 'exam ke baad', 'jab time mile', 'kabhi bhi', 'emergency'
+  'shaadi se pehle', 'exam ke baad', 'jab time mile', 'kabhi bhi', 'emergency', 'jaldi'
 ];
 
 export function parseKolkataDate(isoString: string): { year: number; month: number; day: number; dayOfWeek: number; dateObj: Date } {
@@ -52,25 +52,34 @@ export function formatDateUTC(date: Date): string {
 }
 
 export function resolveDate(message: string, receivedAtISO: string): DateResolutionResult {
+  const rawMsg = message;
   let msg = message.toLowerCase().replace(/[०-९]/g, m => DEVANAGARI_DIGITS[m] || m);
   const base = parseKolkataDate(receivedAtISO);
 
+  const receivedAtDate = new Date(receivedAtISO);
+  const isToday = /\b(aaj|today)\b/i.test(msg) || /आज/u.test(rawMsg);
+  if (isToday) {
+    const baseKolkata = new Date(receivedAtDate.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+    const year = baseKolkata.getFullYear();
+    const month = String(baseKolkata.getMonth() + 1).padStart(2, '0');
+    const day = String(baseKolkata.getDate()).padStart(2, '0');
+    return { date: `${year}-${month}-${day}`, referenced: true, needsClarification: false };
+  }
+
   let explicitDate: string | null = null;
 
-  if (/\b(tarso|narsu)\b/.test(msg)) {
+  if (/\b(tarso|narsu)\b|तरसों/i.test(rawMsg)) {
     const d = new Date(base.dateObj);
     d.setUTCDate(d.getUTCDate() + 3);
     explicitDate = formatDateUTC(d);
-  } else if (/\bparso\b/.test(msg)) {
+  } else if (/\bparso\b|परसों|परसो/i.test(rawMsg)) {
     const d = new Date(base.dateObj);
     d.setUTCDate(d.getUTCDate() + 2);
     explicitDate = formatDateUTC(d);
-  } else if (/\bkal\b/.test(msg)) {
+  } else if (/\bkal\b|कल/i.test(rawMsg)) {
     const d = new Date(base.dateObj);
     d.setUTCDate(d.getUTCDate() + 1);
     explicitDate = formatDateUTC(d);
-  } else if (/\baaj\b/.test(msg)) {
-    explicitDate = formatDateUTC(base.dateObj);
   }
 
   if (!explicitDate) {
@@ -108,7 +117,7 @@ export function resolveDate(message: string, receivedAtISO: string): DateResolut
     }
   }
 
-  if (!explicitDate && (msg.includes('weekend') || msg.includes('haftexl'))) {
+  if (!explicitDate && (msg.includes('weekend') || msg.includes('haftexl') || msg.includes('is weekend'))) {
     let daysToAdd = (6 - base.dayOfWeek + 7) % 7;
     const d = new Date(base.dateObj);
     d.setUTCDate(d.getUTCDate() + daysToAdd);

@@ -1,182 +1,272 @@
 import React, { useState, useEffect } from 'react';
-import { QueryEngine, CustomerBalance, CapacitySummary } from '../query/queryEngine';
-import { StoredOrder } from '../db/schema';
-import { OrderCard } from '../components/OrderCard';
-import { Calendar, DollarSign, History, BarChart3, Search } from 'lucide-react';
+import { db } from '../db/schema';
+import { processOperationalNLQuery, QueryResult } from '../query/queryEngine';
+import { seedInitialDemoOrders } from '../db/demoSeeder';
+import { liveQuery } from 'dexie';
 
 export const AnalyticsView: React.FC = () => {
-  const [activeQuery, setActiveQuery] = useState<'DUE' | 'UNPAID' | 'HISTORY' | 'CAPACITY'>('DUE');
-  
-  // Data States
-  const [dueData, setDueData] = useState<{ overdue: StoredOrder[]; dueToday: StoredOrder[]; upcoming: StoredOrder[] }>({ overdue: [], dueToday: [], upcoming: [] });
-  const [unpaidData, setUnpaidData] = useState<{ totalReceivables: number; customerLedger: CustomerBalance[] }>({ totalReceivables: 0, customerLedger: [] });
-  const [capacityData, setCapacityData] = useState<CapacitySummary | null>(null);
-  
-  // Customer History Query state
-  const [searchCustomer, setSearchCustomer] = useState('');
-  const [customerHistory, setCustomerHistory] = useState<StoredOrder[]>([]);
+  const [searchQuery, setSearchQuery] = useState('What is due today and overdue?');
+  const [queryResult, setQueryResult] = useState<QueryResult | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
-  const loadQueryData = async () => {
-    if (activeQuery === 'DUE') {
-      const data = await QueryEngine.getDueOrders();
-      setDueData(data);
-    } else if (activeQuery === 'UNPAID') {
-      const data = await QueryEngine.getUnpaidBalances();
-      setUnpaidData(data);
-    } else if (activeQuery === 'CAPACITY') {
-      const data = await QueryEngine.getCommittedCapacity();
-      setCapacityData(data);
+  const [ordersCount, setOrdersCount] = useState<number>(0);
+
+  useEffect(() => {
+    const sub = liveQuery(() => db.orders.count()).subscribe({
+      next: (count) => setOrdersCount(count || 0)
+    });
+    return () => sub.unsubscribe();
+  }, []);
+
+  const runQuery = async (text: string) => {
+    setIsProcessing(true);
+    try {
+      const res = await processOperationalNLQuery(text);
+      setQueryResult(res);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsProcessing(false);
     }
   };
 
   useEffect(() => {
-    loadQueryData();
-  }, [activeQuery]);
+    runQuery(searchQuery);
+  }, [ordersCount]);
 
-  const handleSearchHistory = async () => {
-    if (!searchCustomer.trim()) return;
-    const history = await QueryEngine.getCustomerHistory(searchCustomer.trim());
-    setCustomerHistory(history);
+  const handleSeed = async () => {
+    await seedInitialDemoOrders(true);
+    runQuery(searchQuery);
+  };
+
+  const handleMarkPaid = async (orderId: string, currentStatus: boolean | undefined) => {
+    await db.orders.update(orderId, {
+      is_paid: !currentStatus,
+      paid_at: !currentStatus ? new Date().toISOString() : null,
+      updated_at: new Date().toISOString()
+    });
+    runQuery(searchQuery);
   };
 
   return (
-    <div style={{ padding: '16px' }} className="animate-fade-in">
-      <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '12px', color: '#f8fafc' }}>
-        Offline Operational Analytics
-      </h2>
-
-      {/* Query Selector Tabs */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '6px', marginBottom: '16px' }}>
-        {[
-          { key: 'DUE', label: 'Due / Overdue', icon: Calendar },
-          { key: 'UNPAID', label: 'Receivables', icon: DollarSign },
-          { key: 'HISTORY', label: 'Customer History', icon: History },
-          { key: 'CAPACITY', label: 'Capacity', icon: BarChart3 }
-        ].map(q => {
-          const Icon = q.icon;
-          return (
-            <button
-              key={q.key}
-              onClick={() => setActiveQuery(q.key as any)}
-              style={{
-                backgroundColor: activeQuery === q.key ? '#6366f1' : '#1e293b',
-                color: activeQuery === q.key ? '#ffffff' : '#94a3b8',
-                border: '1px solid #475569',
-                padding: '8px 4px',
-                fontSize: '0.75rem',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '4px',
-                fontWeight: 600
-              }}
-            >
-              <Icon size={16} />
-              <span>{q.label}</span>
-            </button>
-          );
-        })}
+    <div className="space-y-6 max-w-4xl mx-auto pb-24 animate-card-enter">
+      {/* Header Bar */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <span>⚡</span> Operational Query Hub
+          </h2>
+          <p className="text-xs text-slate-400 mt-0.5">
+            100% Offline • Zero-Scroll IndexedDB Intelligence
+          </p>
+        </div>
+        <button
+          onClick={handleSeed}
+          className="btn-primary text-xs"
+        >
+          <span>⚡</span> Reset & Seed 20 Live Orders
+        </button>
       </div>
 
-      {/* Q1: Due & Overdue Orders View */}
-      {activeQuery === 'DUE' && (
-        <div>
-          <div className="card" style={{ backgroundColor: '#450a0a', borderColor: '#dc2626', marginBottom: '12px' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#f87171' }}>
-              Overdue Orders ({dueData.overdue.length})
-            </h3>
+      {/* 4 Quick Preset Action Buttons */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <button
+          onClick={() => { setSearchQuery('What is due today and overdue?'); runQuery('What is due today and overdue?'); }}
+          className="metric-btn"
+        >
+          <span className="text-xl">📅</span>
+          <div>
+            <div className="text-xs font-bold text-white">Due Today</div>
+            <div className="text-[11px] text-slate-400">Overdue & deadlines</div>
           </div>
-          {dueData.overdue.map(o => <OrderCard key={o.id} order={o} />)}
+        </button>
 
-          <div className="card" style={{ backgroundColor: '#451a03', borderColor: '#d97706', margin: '16px 0 12px 0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fbbf24' }}>
-              Due Today ({dueData.dueToday.length})
-            </h3>
+        <button
+          onClick={() => { setSearchQuery('Which customers owe money?'); runQuery('Which customers owe money?'); }}
+          className="metric-btn"
+        >
+          <span className="text-xl">💰</span>
+          <div>
+            <div className="text-xs font-bold text-white">Unpaid Balances</div>
+            <div className="text-[11px] text-slate-400">Udhar & receivables</div>
           </div>
-          {dueData.dueToday.map(o => <OrderCard key={o.id} order={o} />)}
-        </div>
-      )}
+        </button>
 
-      {/* Q2: Receivables & Unpaid Balances View */}
-      {activeQuery === 'UNPAID' && (
-        <div>
-          <div className="card" style={{ backgroundColor: '#064e3b', borderColor: '#059669', marginBottom: '12px', textAlign: 'center' }}>
-            <span style={{ fontSize: '0.875rem', color: '#a7f3d0' }}>Total Outstanding Receivables</span>
-            <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#34d399', margin: '4px 0' }}>
-              ₹{unpaidData.totalReceivables.toLocaleString('en-IN')}
-            </h3>
+        <button
+          onClick={() => { setSearchQuery('What did Rahul order last time?'); runQuery('What did Rahul order last time?'); }}
+          className="metric-btn"
+        >
+          <span className="text-xl">👤</span>
+          <div>
+            <div className="text-xs font-bold text-white">Customer History</div>
+            <div className="text-[11px] text-slate-400">Specs & prior orders</div>
           </div>
+        </button>
 
-          <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#f8fafc', marginBottom: '8px' }}>
-            Customer Ledger Balances ({unpaidData.customerLedger.length})
-          </h3>
+        <button
+          onClick={() => { setSearchQuery('What is my committed capacity this week?'); runQuery('What is my committed capacity this week?'); }}
+          className="metric-btn"
+        >
+          <span className="text-xl">📊</span>
+          <div>
+            <div className="text-xs font-bold text-white">Committed Capacity</div>
+            <div className="text-[11px] text-slate-400">7-day workload grid</div>
+          </div>
+        </button>
+      </div>
 
-          {unpaidData.customerLedger.map(c => (
-            <div key={c.customer} className="card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div>
-                <span style={{ fontWeight: 700, color: '#f8fafc', fontSize: '1rem' }}>{c.customer}</span>
-                <span style={{ fontSize: '0.75rem', color: '#94a3b8', display: 'block' }}>
-                  {c.orderCount} unpaid order(s) · Due: {c.latestDueDate || 'N/A'}
-                </span>
+      {/* Search Input Bar */}
+      <div className="relative">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') runQuery(searchQuery); }}
+          placeholder="Ask anything (e.g. 'What did Rahul order last time?', 'Who owes more than 500?', 'due today')..."
+          className="query-search-bar pr-24"
+        />
+        <button
+          onClick={() => runQuery(searchQuery)}
+          className="absolute right-2 top-2 btn-primary text-xs py-1.5 px-4"
+        >
+          {isProcessing ? '...' : 'Query'}
+        </button>
+      </div>
+
+      {/* Query Result Card */}
+      {queryResult && (
+        <div className="card space-y-4 border-indigo-500/30">
+          <div className="flex justify-between items-start gap-3 border-b border-slate-800 pb-3">
+            <div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-indigo-400 font-bold">
+                {queryResult.intent}
               </div>
-              <span style={{ fontWeight: 800, fontSize: '1.1rem', color: '#fbbf24' }}>
-                ₹{c.totalUnpaid.toLocaleString('en-IN')}
-              </span>
+              <h3 className="text-lg font-bold text-white mt-0.5">
+                {queryResult.title}
+              </h3>
             </div>
-          ))}
-        </div>
-      )}
-
-      {/* Q3: Customer History Lookup ("last time jaisa") */}
-      {activeQuery === 'HISTORY' && (
-        <div>
-          <div className="card">
-            <label style={{ fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8' }}>
-              Search Customer Name for Specs History:
-            </label>
-            <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
-              <input
-                type="text"
-                value={searchCustomer}
-                onChange={e => setSearchCustomer(e.target.value)}
-                placeholder="e.g. Ramesh, Sunita, Meena..."
-                className="input-field"
-                style={{ marginBottom: 0 }}
-              />
-              <button onClick={handleSearchHistory} className="btn-primary" style={{ width: 'auto', padding: '0 16px' }}>
-                <Search size={16} /> Search
-              </button>
-            </div>
-          </div>
-
-          {customerHistory.map(o => <OrderCard key={o.id} order={o} />)}
-        </div>
-      )}
-
-      {/* Q4: Capacity Commitment Breakdown */}
-      {activeQuery === 'CAPACITY' && capacityData && (
-        <div>
-          <div className="card" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', textAlign: 'center', marginBottom: '12px' }}>
-            <div style={{ backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px' }}>
-              <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Total Committed Orders</span>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#6366f1' }}>{capacityData.totalOrders}</h3>
-            </div>
-            <div style={{ backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px' }}>
-              <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Total Committed Items</span>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#34d399' }}>{capacityData.totalItems}</h3>
-            </div>
-          </div>
-
-          <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#f8fafc', marginBottom: '8px' }}>
-            Items Tally Breakdown
-          </h3>
-          <div className="card">
-            {Object.entries(capacityData.itemCountsByDescription).map(([desc, count]) => (
-              <div key={desc} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid #334155' }}>
-                <span style={{ textTransform: 'capitalize', color: '#e2e8f0', fontWeight: 600 }}>{desc}</span>
-                <span style={{ color: '#6366f1', fontWeight: 700 }}>{count} units</span>
+            {queryResult.summaryValue && (
+              <div className="text-right">
+                <div className="text-xl font-black text-amber-400">
+                  {queryResult.summaryValue}
+                </div>
+                {queryResult.secondaryInfo && (
+                  <div className="text-[11px] text-slate-400">
+                    {queryResult.secondaryInfo}
+                  </div>
+                )}
               </div>
-            ))}
+            )}
+          </div>
+
+          <p className="text-xs text-slate-300 italic bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/80">
+            💡 {queryResult.explanation}
+          </p>
+
+          {/* Customer Specs Section if matched */}
+          {queryResult.customerSpecs && (
+            <div className="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 space-y-2">
+              <h4 className="text-xs font-bold text-slate-200">
+                Last Order Specifications for {queryResult.customerSpecs.customerName}
+              </h4>
+              <div className="space-y-1.5">
+                {queryResult.customerSpecs.items.map((item, i) => (
+                  <div key={i} className="text-xs flex items-center justify-between bg-slate-900 px-3 py-2 rounded-lg border border-slate-800">
+                    <span className="font-semibold text-white">
+                      <span className="text-indigo-400">{item.quantity}x</span> {item.description}
+                    </span>
+                    {item.attributes && (
+                      <div className="flex gap-1">
+                        {Object.entries(item.attributes).map(([k, v]) => (
+                          <span key={k} className="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">
+                            {k}: {String(v)}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Capacity Heatmap Grid */}
+          {queryResult.capacityHeatmap && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 pt-2">
+              {queryResult.capacityHeatmap.map((day, idx) => (
+                <div
+                  key={idx}
+                  className={`p-2.5 rounded-xl border text-center flex flex-col items-center justify-center gap-1 ${
+                    day.status === 'HIGH'
+                      ? 'bg-rose-950/40 border-rose-500/50 text-rose-300'
+                      : day.status === 'NORMAL'
+                      ? 'bg-indigo-950/40 border-indigo-500/50 text-indigo-300'
+                      : 'bg-slate-900/60 border-slate-800 text-slate-400'
+                  }`}
+                >
+                  <span className="text-[10px] font-bold uppercase">{day.dayName}</span>
+                  <span className="text-base font-black">{day.count}</span>
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-slate-950 font-mono">
+                    {day.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Matched Orders List */}
+          <div className="space-y-2 pt-2">
+            <h4 className="text-xs font-bold text-slate-400">
+              Matched Orders ({queryResult.matchedOrders.length})
+            </h4>
+            {queryResult.matchedOrders.length === 0 ? (
+              <p className="text-xs text-slate-500 italic">No matching orders found.</p>
+            ) : (
+              queryResult.matchedOrders.map((ord) => (
+                <div
+                  key={ord.id}
+                  className="bg-slate-950/90 border border-slate-800/90 rounded-xl p-3 flex flex-col sm:flex-row justify-between sm:items-center gap-3"
+                >
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-white text-sm">
+                        {ord.customer || 'Unspecified'}
+                      </span>
+                      <span className="text-[10px] font-mono text-slate-500">
+                        {ord.id}
+                      </span>
+                    </div>
+                    <div className="text-xs text-slate-300 mt-0.5">
+                      {ord.items.map((it) => `${it.quantity}x ${it.description}`).join(', ')}
+                    </div>
+                    {ord.due_date && (
+                      <div className="text-[11px] text-slate-500 mt-0.5">
+                        📅 Due: <span className="text-slate-300 font-mono">{ord.due_date}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+                    <span
+                      className={`chip ${
+                        ord.is_paid ? 'chip-paid' : 'chip-unpaid'
+                      }`}
+                    >
+                      {ord.is_paid ? 'PAID' : `UNPAID (₹${ord.amount || 0})`}
+                    </span>
+
+                    {!ord.is_paid && (
+                      <button
+                        onClick={() => handleMarkPaid(ord.id, ord.is_paid)}
+                        className="btn-emerald"
+                      >
+                        ✓ Mark Paid
+                      </button>
+                    )}
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       )}

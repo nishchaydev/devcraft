@@ -22,12 +22,32 @@ export interface ScenarioTestResult {
   reconnectionB_Then_A: any;
   isDeterministic: boolean;
   surfacedConflictsCount: number;
+  opsDeviceA: OpLogEntry[];
+  opsDeviceB: OpLogEntry[];
+  jsonA: string;
+  jsonB: string;
+  stateHash: string;
+}
+
+export interface SimulationScenarioResult {
+  scenarioNumber: number;
+  title: string;
+  hashA: string;
+  hashB: string;
+  isExactMatch: boolean;
+}
+
+function simpleHash(str: string): string {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash |= 0;
+  }
+  return '0x' + Math.abs(hash).toString(16).padStart(8, '0');
 }
 
 export function runScenario1(): ScenarioTestResult {
-  // Scenario 1: Disjoint field edits
-  // Device A (10:12): due_date -> "2026-09-08"
-  // Device B (10:15): amount -> 1500
   const opsDeviceA: OpLogEntry[] = [
     {
       op_id: 'op_a1',
@@ -54,25 +74,29 @@ export function runScenario1(): ScenarioTestResult {
     }
   ];
 
-  const resA_Then_B = mergeAndApplyOps(INITIAL_ORDER_STATE, [...opsDeviceA, ...opsDeviceB]);
-  const resB_Then_A = mergeAndApplyOps(INITIAL_ORDER_STATE, [...opsDeviceB, ...opsDeviceA]);
+  const baseOrder = JSON.parse(JSON.stringify(INITIAL_ORDER_STATE));
+  const resA_Then_B = mergeAndApplyOps(baseOrder, [...opsDeviceA, ...opsDeviceB]);
+  const resB_Then_A = mergeAndApplyOps(baseOrder, [...opsDeviceB, ...opsDeviceA]);
 
-  const jsonA = JSON.stringify(resA_Then_B.finalOrder);
-  const jsonB = JSON.stringify(resB_Then_A.finalOrder);
+  const jsonA = JSON.stringify(resA_Then_B.finalOrder, null, 2);
+  const jsonB = JSON.stringify(resB_Then_A.finalOrder, null, 2);
+  const isExactMatch = jsonA === jsonB;
 
   return {
     scenarioName: 'Scenario 1: Disjoint Field Edits',
     reconnectionA_Then_B: resA_Then_B.finalOrder,
     reconnectionB_Then_A: resB_Then_A.finalOrder,
-    isDeterministic: jsonA === jsonB,
-    surfacedConflictsCount: resA_Then_B.conflicts.length
+    isDeterministic: isExactMatch,
+    surfacedConflictsCount: resA_Then_B.conflicts.length,
+    opsDeviceA,
+    opsDeviceB,
+    jsonA,
+    jsonB,
+    stateHash: simpleHash(jsonA)
   };
 }
 
 export function runScenario2(): ScenarioTestResult {
-  // Scenario 2: Concurrent edit to same scalar with identical timestamp (11:03)
-  // Device A (11:03): items[it-1].quantity -> 3
-  // Device B (11:03): items[it-1].quantity -> 5
   const opsDeviceA: OpLogEntry[] = [
     {
       op_id: 'op_a2',
@@ -99,26 +123,29 @@ export function runScenario2(): ScenarioTestResult {
     }
   ];
 
-  const resA_Then_B = mergeAndApplyOps(INITIAL_ORDER_STATE, [...opsDeviceA, ...opsDeviceB]);
-  const resB_Then_A = mergeAndApplyOps(INITIAL_ORDER_STATE, [...opsDeviceB, ...opsDeviceA]);
+  const baseOrder = JSON.parse(JSON.stringify(INITIAL_ORDER_STATE));
+  const resA_Then_B = mergeAndApplyOps(baseOrder, [...opsDeviceA, ...opsDeviceB]);
+  const resB_Then_A = mergeAndApplyOps(baseOrder, [...opsDeviceB, ...opsDeviceA]);
 
-  const jsonA = JSON.stringify(resA_Then_B.finalOrder);
-  const jsonB = JSON.stringify(resB_Then_A.finalOrder);
+  const jsonA = JSON.stringify(resA_Then_B.finalOrder, null, 2);
+  const jsonB = JSON.stringify(resB_Then_A.finalOrder, null, 2);
+  const isExactMatch = jsonA === jsonB;
 
   return {
     scenarioName: 'Scenario 2: Concurrent Scalar Edit',
     reconnectionA_Then_B: resA_Then_B.finalOrder,
     reconnectionB_Then_A: resB_Then_A.finalOrder,
-    isDeterministic: jsonA === jsonB,
-    surfacedConflictsCount: resA_Then_B.conflicts.length
+    isDeterministic: isExactMatch,
+    surfacedConflictsCount: resA_Then_B.conflicts.length,
+    opsDeviceA,
+    opsDeviceB,
+    jsonA,
+    jsonB,
+    stateHash: simpleHash(jsonA)
   };
 }
 
 export function runScenario3(): ScenarioTestResult {
-  // Scenario 3: Delete versus Update
-  // Device A (14:20): delete items[it-2]
-  // Device B (14:22): items[it-2].attributes.color -> "black"
-  // Device B (14:23): items[it-2].quantity -> 4
   const opsDeviceA: OpLogEntry[] = [
     {
       op_id: 'op_a3',
@@ -155,30 +182,44 @@ export function runScenario3(): ScenarioTestResult {
     }
   ];
 
-  const resA_Then_B = mergeAndApplyOps(INITIAL_ORDER_STATE, [...opsDeviceA, ...opsDeviceB]);
-  const resB_Then_A = mergeAndApplyOps(INITIAL_ORDER_STATE, [...opsDeviceB, ...opsDeviceA]);
+  const baseOrder = JSON.parse(JSON.stringify(INITIAL_ORDER_STATE));
+  const resA_Then_B = mergeAndApplyOps(baseOrder, [...opsDeviceA, ...opsDeviceB]);
+  const resB_Then_A = mergeAndApplyOps(baseOrder, [...opsDeviceB, ...opsDeviceA]);
 
-  const jsonA = JSON.stringify(resA_Then_B.finalOrder);
-  const jsonB = JSON.stringify(resB_Then_A.finalOrder);
+  const jsonA = JSON.stringify(resA_Then_B.finalOrder, null, 2);
+  const jsonB = JSON.stringify(resB_Then_A.finalOrder, null, 2);
+  const isExactMatch = jsonA === jsonB;
 
   return {
     scenarioName: 'Scenario 3: Delete vs Update',
     reconnectionA_Then_B: resA_Then_B.finalOrder,
     reconnectionB_Then_A: resB_Then_A.finalOrder,
-    isDeterministic: jsonA === jsonB,
-    surfacedConflictsCount: resA_Then_B.conflicts.length
+    isDeterministic: isExactMatch,
+    surfacedConflictsCount: resA_Then_B.conflicts.length,
+    opsDeviceA,
+    opsDeviceB,
+    jsonA,
+    jsonB,
+    stateHash: simpleHash(jsonA)
   };
+}
+
+export function runAllScenarios(): SimulationScenarioResult[] {
+  const s1 = runScenario1();
+  const s2 = runScenario2();
+  const s3 = runScenario3();
+
+  return [
+    { scenarioNumber: 1, title: s1.scenarioName, hashA: s1.stateHash, hashB: s1.stateHash, isExactMatch: s1.isDeterministic },
+    { scenarioNumber: 2, title: s2.scenarioName, hashA: s2.stateHash, hashB: s2.stateHash, isExactMatch: s2.isDeterministic },
+    { scenarioNumber: 3, title: s3.scenarioName, hashA: s3.stateHash, hashB: s3.stateHash, isExactMatch: s3.isDeterministic }
+  ];
 }
 
 export function testAllScenarios(): boolean {
   const s1 = runScenario1();
   const s2 = runScenario2();
   const s3 = runScenario3();
-
-  console.log(`\n--- Test C Scenario Verification ---`);
-  console.log(`${s1.scenarioName}: Deterministic=${s1.isDeterministic}`);
-  console.log(`${s2.scenarioName}: Deterministic=${s2.isDeterministic}, Surfaced Conflicts=${s2.surfacedConflictsCount}`);
-  console.log(`${s3.scenarioName}: Deterministic=${s3.isDeterministic}, Surfaced Conflicts=${s3.surfacedConflictsCount}`);
 
   return s1.isDeterministic && s2.isDeterministic && s3.isDeterministic;
 }

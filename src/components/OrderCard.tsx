@@ -1,66 +1,119 @@
 import React from 'react';
 import { StoredOrder } from '../db/schema';
-import { Calendar, User, AlertCircle } from 'lucide-react';
+import { Calendar, Trash2, CheckCircle, RotateCcw, Truck } from 'lucide-react';
 
-export const OrderCard: React.FC<{ order: StoredOrder; onClick?: () => void }> = ({ order, onClick }) => {
-  const isOverdue = order.due_date && order.due_date < new Date().toISOString().split('T')[0];
-  const isToday = order.due_date && order.due_date === new Date().toISOString().split('T')[0];
+interface OrderCardProps {
+  order: StoredOrder;
+  onMarkPaid?:     (id: string, isPaid: boolean) => void;
+  onStatusChange?: (id: string, status: any)     => void;
+  onDelete?:       (id: string)                  => void;
+}
+
+export const OrderCard: React.FC<OrderCardProps> = ({
+  order, onMarkPaid, onStatusChange, onDelete,
+}) => {
+  const isPaid        = order.is_paid;
+  const needsClarify  = order.needs_clarification || order.status === 'NEEDS_CLARIFICATION';
 
   return (
-    <div className="card animate-fade-in" onClick={onClick} style={{ cursor: onClick ? 'pointer' : 'default' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <User size={16} color="#94a3b8" />
-            <span style={{ fontWeight: 700, fontSize: '1.05rem', color: '#f8fafc' }}>
-              {order.customer || 'Unspecified Customer'}
-            </span>
-          </div>
-          <span style={{ fontSize: '0.75rem', color: '#64748b' }}>ID: {order.id}</span>
+    <div className="card-elevated p-4 space-y-3 animate-card-enter hover:border-slate-700 transition-colors duration-150">
+
+      {/* ── Header ──────────────────────────────── */}
+      <div className="flex justify-between items-start gap-3">
+        {/* Customer */}
+        <div className="min-w-0">
+          <p className="font-bold text-white text-sm truncate">
+            {order.customer || 'Unspecified Customer'}
+          </p>
+          <p className="text-[11px] font-mono text-slate-600 mt-0.5">{order.id}</p>
         </div>
 
-        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-          {order.needs_clarification && (
-            <span className="badge badge-clarify">
-              <AlertCircle size={12} /> CLARIFY
+        {/* Status chips — right-aligned, won't overflow */}
+        <div className="flex flex-wrap justify-end gap-1.5 shrink-0">
+          {order.amount != null && (
+            <span className={`badge ${isPaid ? 'badge-paid' : 'badge-unpaid'}`}>
+              {isPaid ? '✓ PAID' : `UNPAID · ₹${order.amount}`}
             </span>
           )}
-          <span className={`badge badge-${order.status.toLowerCase()}`}>
+          {needsClarify && (
+            <span className="badge badge-clarify text-[10px]">CLARIFY</span>
+          )}
+          <span className="badge bg-slate-800/80 border-slate-700/60 text-slate-400 text-[10px] font-mono">
             {order.status}
           </span>
         </div>
       </div>
 
-      <div style={{ margin: '10px 0', padding: '8px 12px', backgroundColor: '#0f172a', borderRadius: '6px' }}>
+      {/* ── Items Box ───────────────────────────── */}
+      <div className="bg-slate-950/60 rounded-xl p-3 border border-slate-800/50 space-y-2">
         {order.items.length === 0 ? (
-          <span style={{ fontSize: '0.875rem', color: '#ef4444', fontStyle: 'italic' }}>No identifiable item parsed</span>
+          <p className="text-xs text-slate-600 italic">No structured items detected.</p>
         ) : (
           order.items.map((item, idx) => (
-            <div key={idx} style={{ fontSize: '0.875rem', display: 'flex', justifyContent: 'space-between', borderBottom: idx < order.items.length - 1 ? '1px solid #1e293b' : 'none', padding: '4px 0' }}>
-              <span style={{ fontWeight: 600, color: '#e2e8f0' }}>
-                {item.quantity}x {item.description}
-              </span>
-              <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-                {Object.entries(item.attributes).map(([k, v]) => `${k}: ${v}`).join(' · ')}
-              </span>
+            <div key={idx} className="text-sm">
+              <p className="font-semibold text-slate-200">
+                <span className="text-indigo-400 font-bold">{item.quantity}×</span> {item.description}
+              </p>
+              {item.attributes && Object.keys(item.attributes).length > 0 && (
+                <div className="flex flex-wrap gap-1.5 mt-1.5">
+                  {Object.entries(item.attributes).map(([k, v]) => (
+                    <span key={k} className="attr-chip">
+                      <span className="text-slate-500">{k}:</span> {String(v)}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))
         )}
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.875rem', color: '#94a3b8', marginTop: '8px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Calendar size={14} color={isOverdue ? '#ef4444' : isToday ? '#fbbf24' : '#94a3b8'} />
-          <span style={{ color: isOverdue ? '#ef4444' : isToday ? '#fbbf24' : '#94a3b8', fontWeight: isOverdue || isToday ? 700 : 400 }}>
-            {order.due_date ? `${order.due_date} ${isOverdue ? '(OVERDUE)' : isToday ? '(TODAY)' : ''}` : 'No deadline'}
+      {/* ── Footer ──────────────────────────────── */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-slate-800/50">
+        {/* Due date */}
+        <div className="flex items-center gap-1.5 text-xs text-slate-500">
+          <Calendar size={12} />
+          <span className={order.due_date ? 'text-slate-300 font-mono' : ''}>
+            {order.due_date || 'No deadline'}
           </span>
+          {order.amount != null && (
+            <span className="text-amber-400 font-bold ml-2">₹{order.amount.toLocaleString()}</span>
+          )}
         </div>
 
-        {order.amount !== null && (
-          <span style={{ fontWeight: 700, fontSize: '1rem', color: '#34d399' }}>
-            ₹{order.amount.toLocaleString('en-IN')}
-          </span>
-        )}
+        {/* Action buttons */}
+        <div className="flex items-center gap-2">
+          {onMarkPaid && order.amount != null && (
+            <button
+              onClick={() => onMarkPaid(order.id, !isPaid)}
+              className={isPaid
+                ? 'btn-secondary text-xs py-1.5 px-3'
+                : 'btn-emerald text-xs py-1.5 px-3'}
+            >
+              {isPaid
+                ? <><RotateCcw size={12} /> Unpaid</>
+                : <><CheckCircle size={12} /> Mark Paid</>}
+            </button>
+          )}
+          {onStatusChange && (
+            <button
+              onClick={() => onStatusChange(order.id, order.status === 'DELIVERED' ? 'PENDING' : 'DELIVERED')}
+              className="btn-primary text-xs py-1.5 px-3"
+            >
+              <Truck size={12} />
+              {order.status === 'DELIVERED' ? 'Pending' : 'Delivered'}
+            </button>
+          )}
+          {onDelete && (
+            <button
+              onClick={() => onDelete(order.id)}
+              className="btn-danger py-1.5 px-2.5"
+              title="Delete order"
+            >
+              <Trash2 size={13} />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

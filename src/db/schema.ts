@@ -1,7 +1,7 @@
 import Dexie, { type Table } from 'dexie';
 import { OrderRecord } from '../parser/types';
 
-export type OrderStatus = 'DRAFT' | 'SYNCED' | 'CONFLICTED' | 'NEEDS_CLARIFICATION';
+export type OrderStatus = 'DRAFT' | 'SYNCED' | 'CONFLICTED' | 'NEEDS_CLARIFICATION' | 'DELIVERED' | 'PENDING';
 
 export interface StoredOrder extends OrderRecord {
   id: string; // Order ID e.g. ORD-1042
@@ -9,6 +9,8 @@ export interface StoredOrder extends OrderRecord {
   device_id: string;
   updated_at: string;
   is_deleted?: boolean;
+  is_paid?: boolean;
+  paid_at?: string | null;
 }
 
 export interface StoredRawMessage {
@@ -51,8 +53,8 @@ export class DevCraftDatabase extends Dexie {
 
   constructor() {
     super('DevCraftDB');
-    this.version(1).stores({
-      orders: 'id, customer, due_date, status, updated_at, is_deleted',
+    this.version(2).stores({
+      orders: 'id, customer, due_date, status, updated_at, is_deleted, is_paid',
       raw_messages: 'id, domain, received_at, created_at',
       op_log: 'op_id, order_id, device_id, lamport_clock, timestamp, op_type',
       conflicts: 'conflict_id, order_id, scenario, timestamp, surfaced_to_operator'

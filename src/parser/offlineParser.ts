@@ -98,10 +98,10 @@ const DOMAIN_ITEMS_ORDERED: Record<DomainType, { name: string; aliases: string[]
     { name: 'inverter', aliases: ['inverter', 'इन्वर्टर'] }
   ],
   baker: [
+    { name: 'cake', aliases: ['cake', 'केक'] },
     { name: 'birthday cake', aliases: ['birthday cake'] },
     { name: 'cheesecake', aliases: ['cheesecake', 'cheese cake'] },
     { name: 'bread loaf', aliases: ['bread loaf', 'bread'] },
-    { name: 'cake', aliases: ['cake', 'केक'] },
     { name: 'pastry', aliases: ['pastry', 'पेस्ट्री'] },
     { name: 'cupcake', aliases: ['cupcake', 'कपकेक'] },
     { name: 'muffin', aliases: ['muffin'] },
@@ -112,10 +112,12 @@ const DOMAIN_ITEMS_ORDERED: Record<DomainType, { name: string; aliases: string[]
 };
 
 const BRANDS = ['Anchor', 'Bajaj', 'Crompton', 'Havells', 'Orient', 'Polycab', 'Usha'];
+const APPLIANCES_LIST = ['fan', 'ceiling fan', 'exhaust fan', 'motor', 'geyser', 'fridge', 'fridge point', 'pump', 'inverter', 'ac', 'light', 'tube light', 'socket'];
 
 const NON_CUSTOMER_TERMS = [
   'bhaiya', 'uncle', 'aunty', 'sir', 'madam', 'boss', 'namaste', 'hello', 'hi', 'aaj', 'kal', 'parso',
-  'ek', 'do', 'teen', 'char', 'paanch', 'chhe', 'saat', 'aath', 'nau', 'das', 'mujhe', 'chahiye'
+  'ek', 'do', 'teen', 'char', 'paanch', 'chhe', 'saat', 'aath', 'nau', 'das', 'mujhe', 'chahiye',
+  'cake', 'kg', 'kilo', 'tier', 'chocolate', 'pastry', 'thali', 'samosa', 'jalebi', 'kurta', 'pant', 'ca'
 ];
 
 function normalizeText(text: string): string {
@@ -135,6 +137,10 @@ function wordToNumber(word: string): number | null {
   return null;
 }
 
+function formatCustomerName(name: string): string {
+  return name.split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+}
+
 export function generateWhatsAppReply(record: OrderRecord): string {
   const cust = record.customer ? `Ji ${record.customer} ji, ` : 'Ji, ';
   if (record.items.length === 0) {
@@ -149,6 +155,15 @@ export function generateWhatsAppReply(record: OrderRecord): string {
   const amtStr = record.amount ? `Total Amount: ₹${record.amount}. ` : '';
 
   return `${cust}aapka order (${itemSummary}) confirm kar liya hai! ${dateStr}${amtStr}Shukriya!`;
+}
+
+export function runOfflineParser(message: string, options: { received_at: string; domain?: DomainType }): OrderRecord {
+  return parseOfflineRecord({
+    id: `eval-${Date.now()}`,
+    message,
+    received_at: options.received_at,
+    domain: options.domain
+  });
 }
 
 export function parseOfflineRecord(input: InputRecord): OrderRecord {
@@ -177,29 +192,29 @@ export function parseOfflineRecord(input: InputRecord): OrderRecord {
     }
   }
 
-  // 3. Customer extraction
+  // 3. Customer extraction (preserving honorifics)
   let customer: string | null = null;
   const customerDecoyMatch = rawMsg.match(/([a-zA-Z\u0900-\u097F\s]+)\s+ke liye nahi,\s*([a-zA-Z\u0900-\u097F\s]+)\s+ke liye/i);
   if (customerDecoyMatch) {
     customer = customerDecoyMatch[2].trim();
   } else {
-    const custMatch = rawMsg.match(/^([a-zA-Z\u0900-\u097F]+)\s+(ji|bhai|didi|aunty|uncle|ji\s+ke\s+liye|ke\s+ghar|bol\s+raha\s+hu|bol\s+rahi\s+hu)\b/i);
-    if (custMatch && !NON_CUSTOMER_TERMS.includes(custMatch[1].toLowerCase())) {
+    const custMatch = rawMsg.match(/^([a-zA-Z\u0900-\u097F]+(?:\s+(?:ji|didi|aunty|bhai|uncle))?)\s*(?:ke\s+liye|ka|ki|ke|ko|bol\s+raha\s+hu|bol\s+rahi\s+hu|ke\s+ghar)\b/i);
+    if (custMatch && !NON_CUSTOMER_TERMS.includes(custMatch[1].toLowerCase().split(' ')[0])) {
       customer = custMatch[1].trim();
     } else {
-      const custMatch2 = rawMsg.match(/\b([a-zA-Z\u0900-\u097F]+)\s+(ji|bhai|didi|aunty|uncle)?\s*(ke liye|ka|ki|ke|ko)\s+(order|chahiye|delivery|nahi)/i);
-      if (custMatch2 && !NON_CUSTOMER_TERMS.includes(custMatch2[1].toLowerCase())) {
+      const custMatch2 = rawMsg.match(/\b([a-zA-Z\u0900-\u097F]{3,})(?:\s+(?:ji|didi|aunty|bhai|uncle))?\s*(?:ke liye|ka|ki|ke|ko)\s+(?:order|chahiye|delivery|nahi)/i);
+      if (custMatch2 && !NON_CUSTOMER_TERMS.includes(custMatch2[1].toLowerCase().split(' ')[0])) {
         customer = custMatch2[1].trim();
       } else {
-        const nameForMatch = rawMsg.match(/\bfor\s+([a-zA-Z]+)\b/i);
-        if (nameForMatch && !['me', 'him', 'her', 'them', 'us'].includes(nameForMatch[1].toLowerCase())) {
+        const nameForMatch = rawMsg.match(/\bfor\s+([a-zA-Z]{3,}(?:\s+(?:ji|didi|aunty|bhai|uncle))?)\b/i);
+        if (nameForMatch && !['me', 'him', 'her', 'them', 'us'].includes(nameForMatch[1].toLowerCase().split(' ')[0])) {
           customer = nameForMatch[1].trim();
         }
       }
     }
   }
   if (customer) {
-    customer = customer.charAt(0).toUpperCase() + customer.slice(1).toLowerCase();
+    customer = formatCustomerName(customer);
   }
 
   // 4. Amount Extraction
@@ -238,8 +253,8 @@ export function parseOfflineRecord(input: InputRecord): OrderRecord {
     negatedItems.push(nm[1].toLowerCase());
   }
 
-  // 7. Split message into clauses
-  const clauses = msg.split(/,|\baur\b|\band\b|;|\.|\bki\b|\bwale\b/gi).map(c => c.trim()).filter(Boolean);
+  // 7. Split message into clauses (preserving decimal numbers e.g. 1.5, 0.5)
+  const clauses = msg.split(/,|\baur\b|\band\b|;|\bki\b|\bwale\b|(?<!\d)\.|\.(?!\d)/gi).map(c => c.trim()).filter(Boolean);
 
   const items: OrderItem[] = [];
   const domainDefs = DOMAIN_ITEMS_ORDERED[domain] || [];
@@ -263,21 +278,24 @@ export function parseOfflineRecord(input: InputRecord): OrderRecord {
     }
 
     if (itemClauseIdx !== -1) {
-      let contextText = clauses[itemClauseIdx];
-      for (let cIdx = 0; cIdx < clauses.length; cIdx++) {
-        if (cIdx !== itemClauseIdx && (new RegExp(`\\b${def.name}\\b`, 'i').test(clauses[cIdx]) || clauses[cIdx].includes(foundAlias))) {
-          contextText += ' ' + clauses[cIdx];
-        }
-      }
+      const scopedClauses = clauses.slice(Math.max(0, itemClauseIdx - 2), Math.min(clauses.length, itemClauseIdx + 3));
+      const contextText = scopedClauses.join(' ');
+      
+      // Mask/strip time markers (e.g., "5 baje", "shaam 6 baje", "10 baje shaam") and decimal weights before quantity extraction
+      const contextWithoutTimeAndWeight = contextText
+        .replace(/\b(?:subah|shaam|dopahar|raat)?\s*\d{1,2}\s*(?:baje|am|pm)\b/gi, '')
+        .replace(/\bshaam\s+\d+\s*baje\b/gi, '')
+        .replace(/(?:^|\s)\d+(?:\.\d+)?\s*(?:kg|kilo|gram|gm|pound)\b/gi, '')
+        .trim();
 
       let qty = 1;
       if (ambigQtyVal !== null) {
         qty = ambigQtyVal;
       } else {
-        const preMatch = contextText.match(new RegExp(`(\\d+|ek|do|teen|char|chaar|paanch|chhe|saat|aath|nau|das|[०-९]+)\\s+(?:[a-zA-Z\\u0900-\\u097F-]+\\s+){0,3}${foundAlias}\\b`, 'i')) ||
-                         contextText.match(new RegExp(`(\\d+|ek|do|teen|char|chaar|paanch|chhe|saat|aath|nau|das|[०-९]+)\\s*${foundAlias}\\b`, 'i'));
+        const preMatch = contextWithoutTimeAndWeight.match(new RegExp(`(?:^|\\s)(\\d+|ek|do|teen|char|chaar|paanch|chhe|saat|aath|nau|das|[०-९]+)\\s+(?:[a-zA-Z\\u0900-\\u097F-]+\\s+){0,3}${foundAlias}\\b`, 'i')) ||
+                         contextWithoutTimeAndWeight.match(new RegExp(`(?:^|\\s)(\\d+|ek|do|teen|char|chaar|paanch|chhe|saat|aath|nau|das|[०-९]+)\\s*${foundAlias}\\b`, 'i'));
         
-        const postMatch = contextText.match(new RegExp(`${foundAlias}\\s+(\\d+|ek|do|teen|char|chaar|paanch|chhe|saat|aath|nau|das|[०-९]+)\\b`, 'i'));
+        const postMatch = contextWithoutTimeAndWeight.match(new RegExp(`${foundAlias}\\s+(\\d+|ek|do|teen|char|chaar|paanch|chhe|saat|aath|nau|das|[०-९]+)\\b`, 'i'));
         
         if (preMatch) {
           qty = wordToNumber(preMatch[1]) || 1;
@@ -308,17 +326,44 @@ export function parseOfflineRecord(input: InputRecord): OrderRecord {
 
         const wattMatch = contextText.match(/\b(\d+|assi|sau)\s*(w|watt|watts)\b/i);
         if (wattMatch) rawAttrs.wattage = wordToNumber(wattMatch[1]) || parseInt(wattMatch[1], 10);
+
+        for (const app of APPLIANCES_LIST) {
+          if (new RegExp(`\\b${app}\\b`, 'i').test(contextText) && !def.name.includes(app)) {
+            rawAttrs.appliance = app;
+            break;
+          }
+        }
       }
 
       if (domain === 'baker') {
         const flavMatch = contextText.match(/\b(chocolate|vanilla|strawberry|butterscotch|pineapple|red velvet|black forest|mango|blueberry|rasmalai|coffee)\b/i);
         if (flavMatch) rawAttrs.flavour = flavMatch[1].toLowerCase();
 
-        const weightMatch = contextText.match(/\b(\d+(\.\d+)?|half|dedh|0\.5|1\.5|1|2|3)\s*(kg|kilo|pound)?\b/i);
-        if (weightMatch && (contextText.includes('kg') || contextText.includes('kilo') || contextText.includes('half') || contextText.includes('dedh'))) {
-          if (weightMatch[1] === 'half') rawAttrs.weight_kg = 0.5;
-          else if (weightMatch[1] === 'dedh') rawAttrs.weight_kg = 1.5;
-          else rawAttrs.weight_kg = parseFloat(weightMatch[1]);
+        const weightMatch = contextText.match(/(?:^|\s)(?<val>\d+(?:\.\d+)?)\s*(?:kg|kilo|gram|gm)\b/i);
+        if (weightMatch && weightMatch.groups?.val) {
+          rawAttrs.weight_kg = parseFloat(weightMatch.groups.val);
+        } else {
+          const fallbackWeight = contextText.match(/(?:^|\s)(half|dedh|0\.5|1\.5|2\.5)\s*(kg|kilo|pound)?\b/i);
+          if (fallbackWeight) {
+            if (fallbackWeight[1] === 'half') rawAttrs.weight_kg = 0.5;
+            else if (fallbackWeight[1] === 'dedh') rawAttrs.weight_kg = 1.5;
+            else rawAttrs.weight_kg = parseFloat(fallbackWeight[1]);
+          }
+        }
+
+        // For items that begin with a weight descriptor (e.g. "1.5 kg chocolate cake"), item count is 1 unless preceded by dedicated count token
+        if (rawAttrs.weight_kg && (def.name.includes('cake') || def.name.includes('pastry'))) {
+          const explicitPreCountMatch = contextWithoutTimeAndWeight.match(new RegExp(`(?:^|\\s)(\\d+|ek|do|teen|char|paanch)\\s+(?:[a-zA-Z\\u0900-\\u097F-]+\\s+){0,2}${foundAlias}\\b`, 'i'));
+          if (explicitPreCountMatch) {
+            const countVal = wordToNumber(explicitPreCountMatch[1]);
+            if (countVal && countVal !== rawAttrs.weight_kg) {
+              qty = countVal;
+            } else {
+              qty = 1;
+            }
+          } else {
+            qty = 1;
+          }
         }
 
         if (/\b(egg free|eggless|bina anda|without egg)\b/i.test(contextText)) {
@@ -330,6 +375,11 @@ export function parseOfflineRecord(input: InputRecord): OrderRecord {
 
         const shapeMatch = contextText.match(/\b(round|heart|square)\b/i);
         if (shapeMatch) rawAttrs.shape = shapeMatch[1].toLowerCase();
+
+        const msgOnCakeMatch = rawMsg.match(/(?:likho|likhna|write|message|naam)\s*[:—]?\s*["']?([^"',\n]{2,30})["']?/i);
+        if (msgOnCakeMatch) {
+          rawAttrs.message_on_cake = msgOnCakeMatch[1].trim();
+        }
       }
 
       if (domain === 'tiffin') {
