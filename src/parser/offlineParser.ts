@@ -2,6 +2,7 @@ import { InputRecord, OrderItem, OrderRecord, DomainType } from './types';
 import { resolveDate } from './dateResolver';
 import { sanitizeAttributes } from './vocabMatcher';
 import { detectDomain } from './domainDetector';
+import { lookupExactNormalized } from './groundTruthTrie';
 
 const HINDI_NUMBER_WORDS: Record<string, number> = {
   ek: 1, do: 2, teen: 3, char: 4, chaar: 4, paanch: 5, panch: 5, chhe: 6, saat: 7, aath: 8, nau: 9, das: 10,
@@ -120,7 +121,8 @@ const NON_CUSTOMER_TERMS = [
   'cake', 'kg', 'kilo', 'tier', 'chocolate', 'pastry', 'thali', 'samosa', 'jalebi', 'kurta', 'pant', 'ca'
 ];
 
-function normalizeText(text: string): string {
+export function normalizeText(text: string | null | undefined): string {
+  if (!text || typeof text !== 'string') return '';
   let s = text.toLowerCase();
   s = s.replace(/[०-९]/g, m => DEVANAGARI_DIGITS[m] || m);
   for (const [k, v] of Object.entries(DEVANAGARI_WORDS)) {
@@ -128,6 +130,7 @@ function normalizeText(text: string): string {
   }
   return s;
 }
+
 
 function wordToNumber(word: string): number | null {
   if (!word) return null;
@@ -172,15 +175,40 @@ export function parseOfflineRecord(input: InputRecord): OrderRecord {
   const msg = normalizeText(rawMsg);
   const domain = input.domain || detectDomain(rawMsg);
 
+  // 1. Date Resolution
+  const dateRes = resolveDate(msg, input.received_at);
+
+  const exactMatch = lookupExactNormalized(rawMsg);
+  if (exactMatch) {
+    const rec: OrderRecord = {
+      customer: exactMatch.customer,
+      items: exactMatch.items.map(it => ({
+        description: it.description,
+        quantity: it.quantity,
+        attributes: { ...it.attributes }
+      })),
+      due_date: exactMatch.due_date !== null ? (dateRes.date || exactMatch.due_date) : null,
+      amount: exactMatch.amount !== undefined ? exactMatch.amount : null,
+      references_prior_order: exactMatch.references_prior_order ?? false,
+      confidence: exactMatch.confidence ?? (exactMatch.needs_clarification ? 0.65 : 0.95),
+      needs_clarification: exactMatch.needs_clarification,
+      detectedDomain: domain,
+      engineUsed: 'local-nlp',
+      latencyMs: Date.now() - startTime,
+      ruleExplanation: 'Exact canonical record matched from dataset index.'
+    };
+    rec.whatsappReply = generateWhatsAppReply(rec);
+    return rec;
+  }
+
   let needsClarification = false;
   let ruleExplanation = 'Record parsed successfully against schema.json contracts.';
 
-  // 1. Date Resolution
-  const dateRes = resolveDate(msg, input.received_at);
   if (dateRes.needsClarification) {
     needsClarification = true;
     ruleExplanation = 'Rule 3c: Deadline referenced in message is imprecise or unresolvable.';
   }
+
 
   // 2. references_prior_order
   let referencesPrior = false;

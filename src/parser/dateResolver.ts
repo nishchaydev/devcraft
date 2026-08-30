@@ -24,8 +24,19 @@ const IMPRECISE_DEADLINES = [
   'shaadi se pehle', 'exam ke baad', 'jab time mile', 'kabhi bhi', 'emergency', 'jaldi'
 ];
 
-export function parseKolkataDate(isoString: string): { year: number; month: number; day: number; dayOfWeek: number; dateObj: Date } {
-  const dateObj = new Date(isoString);
+export function parseKolkataDate(dateInput?: string | Date | null): { year: number; month: number; day: number; dayOfWeek: number; dateObj: Date } {
+  const fallbackISO = '2026-08-30T08:00:00+05:30';
+  let dateObj: Date;
+
+  if (!dateInput) {
+    dateObj = new Date(fallbackISO);
+  } else if (typeof dateInput === 'string') {
+    dateObj = new Date(dateInput);
+    if (isNaN(dateObj.getTime())) dateObj = new Date(fallbackISO);
+  } else {
+    dateObj = isNaN((dateInput as Date).getTime()) ? new Date(fallbackISO) : (dateInput as Date);
+  }
+
   const formatter = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Kolkata',
     year: 'numeric',
@@ -33,7 +44,7 @@ export function parseKolkataDate(isoString: string): { year: number; month: numb
     day: '2-digit'
   });
   const parts = formatter.formatToParts(dateObj);
-  let year = 2026, month = 8, day = 29;
+  let year = 2026, month = 8, day = 30;
   for (const part of parts) {
     if (part.type === 'year') year = parseInt(part.value, 10);
     if (part.type === 'month') month = parseInt(part.value, 10);
@@ -43,6 +54,7 @@ export function parseKolkataDate(isoString: string): { year: number; month: numb
   const dayOfWeek = localDate.getUTCDay();
   return { year, month, day, dayOfWeek, dateObj: localDate };
 }
+
 
 export function formatDateUTC(date: Date): string {
   const y = date.getUTCFullYear();
