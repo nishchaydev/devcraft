@@ -111,6 +111,8 @@ $$\text{Sort Key} = (\text{lamport\_clock}, \text{timestamp}, \text{device\_id})
 1. **Imprecise Temporal Phrases:** Phrases like `"diwali se pehle"`, `"next quarter"`, `"shaadi ke baad"` resolve to `due_date: null` with `needs_clarification: true`, adhering strictly to normative Rule 3c.
 2. **Deletion Default:** Scenario 3 defaults to maintaining tombstone deletion while surfacing lost edits. This ensures cancelled orders do not accidentally reappear on shop floor printouts.
 3. **Closed Set Vocabulary:** Unrecognized attribute keys outside `x-devcraft-vocabulary` are dropped to prevent scoring penalties.
+4. **Operational Query Engine:** Uses zero-latency, offline keyword & regex intent classification over client-side IndexedDB — a deliberate design decision prioritizing deterministic performance and zero bundle bloat over heavy embedded NLP models.
+
 
 ---
 

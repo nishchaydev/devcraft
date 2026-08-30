@@ -38,8 +38,9 @@ export interface OutputRecord extends OrderRecord {
 }
 
 export const DOMAIN_VOCABULARY: Record<DomainType, readonly string[]> = {
-  tailor: ['color', 'fabric', 'chest', 'waist', 'length', 'sleeve', 'size', 'fit', 'collar'],
+  tailor: ['color', 'fabric', 'chest', 'waist', 'length', 'sleeve', 'size', 'fit'],
   tiffin: ['portion', 'spice_level', 'meal', 'roti_count', 'jain', 'days'],
   electrician: ['appliance', 'issue', 'room', 'brand', 'wattage'],
   baker: ['flavour', 'weight_kg', 'egg_free', 'tier', 'message_on_cake', 'shape']
 } as const;
+

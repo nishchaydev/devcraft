@@ -24,12 +24,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 16,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 socket (brand: Havells, issue: fuse blown) aur 3 wiring (brand: Anchor, issue: leaking current)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0002",
@@ -64,12 +59,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 pant (chest: 40) aur 2 pajama (fit: regular, chest: 34) aur 1 blouse (fit: slim, waist: 38, chest: 44)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0003",
@@ -87,12 +77,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sarita didi ji, aapka order (4 rajma (days: 5)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0004",
@@ -111,12 +96,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (1 waistcoat (fabric: rayon, chest: 36)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0005",
@@ -135,12 +115,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Farida ji, aapka order (3 shirt (size: M, chest: 36)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0006",
@@ -165,12 +140,7 @@
     "amount": 300,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 wiring (issue: slow) aur 2 switch board (issue: leaking current)) confirm kar liya hai! Delivery Date: 2026-10-09. Total Amount: ₹300. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0007",
@@ -206,12 +176,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Rakesh ji, aapka order (1 cake (weight_kg: 1.5, flavour: red velvet) aur 1 pastry (shape: round, egg_free: true, flavour: coffee) aur 2 cheesecake (weight_kg: 1.5, flavour: vanilla)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0008",
@@ -230,12 +195,7 @@
     "amount": 1500,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (5 pant (color: maroon, fit: loose)) confirm kar liya hai! Total Amount: ₹1500. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0009",
@@ -262,12 +222,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 kameez (color: navy blue) aur 4 shirt (waist: 30, length: 46, chest: 36)) confirm kar liya hai! Delivery Date: 2026-09-23. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0010",
@@ -277,12 +232,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0011",
@@ -300,12 +250,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Ramesh ji, aapka order (2 pant (length: 40)) confirm kar liya hai! Delivery Date: 2026-10-18. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0012",
@@ -331,12 +276,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 suit (fabric: linen, color: pink) aur 1 pant (fit: slim)) confirm kar liya hai! Delivery Date: 2026-09-18. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0013",
@@ -355,12 +295,7 @@
     "amount": 2500,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (2 pant (fabric: chiffon, chest: 40)) confirm kar liya hai! Delivery Date: 2026-10-15. Total Amount: ₹2500. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0014",
@@ -390,12 +325,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (4 lehenga (size: M, color: bottle green, waist: 40, chest: 36) aur 5 pajama (length: 38, size: XL, sleeve: three-quarter)) confirm kar liya hai! Delivery Date: 2026-09-30. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0015",
@@ -411,12 +341,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 waistcoat) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0016",
@@ -434,12 +359,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 doorbell (room: kitchen)) confirm kar liya hai! Delivery Date: 2026-10-09. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0017",
@@ -459,12 +379,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (1 inverter (wattage: 2000, room: hall, issue: short circuit)) confirm kar liya hai! Delivery Date: 2026-08-30. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0018",
@@ -483,12 +398,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 geyser (brand: Polycab, issue: noise)) confirm kar liya hai! Delivery Date: 2026-09-01. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0019",
@@ -504,12 +414,7 @@
     "amount": 250,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Vikram ji, aapka order (1 sabzi) confirm kar liya hai! Delivery Date: 2026-11-08. Total Amount: ₹250. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0020",
@@ -527,12 +432,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 water motor (brand: Anchor)) confirm kar liya hai! Delivery Date: 2026-09-10. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0021",
@@ -550,12 +450,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Neha ji, aapka order (2 sherwani (color: mustard)) confirm kar liya hai! Delivery Date: 2026-10-10. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0022",
@@ -575,12 +470,7 @@
     "amount": 500,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 ac point (appliance: fan, wattage: 2000, issue: spark)) confirm kar liya hai! Delivery Date: 2026-09-09. Total Amount: ₹500. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0023",
@@ -600,12 +490,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 water motor (brand: Orient, appliance: geyser, issue: short circuit)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0024",
@@ -625,12 +510,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 cookies (shape: square, egg_free: true, flavour: black forest)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0025",
@@ -657,12 +537,7 @@
     "amount": 250,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Anil ji ji, aapka order (1 kurta (fit: loose, chest: 42) aur 1 lehenga (size: M, fabric: linen)) confirm kar liya hai! Delivery Date: 2026-09-03. Total Amount: ₹250. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0026",
@@ -682,12 +557,7 @@
     "amount": 300,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (4 ceiling fan (wattage: 40, room: balcony, issue: short circuit)) confirm kar liya hai! Delivery Date: 2026-08-31. Total Amount: ₹300. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0027",
@@ -707,12 +577,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 curd (days: 14, spice_level: medium, meal: breakfast)) confirm kar liya hai! Delivery Date: 2026-09-05. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0028",
@@ -732,12 +597,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Manoj ji, aapka order (5 tube light (wattage: 100, appliance: fan, issue: fuse blown)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0029",
@@ -755,12 +615,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 wiring (issue: fuse blown)) confirm kar liya hai! Delivery Date: 2026-10-03. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0030",
@@ -779,12 +634,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sunita ji, aapka order (1 blouse (size: XXL, chest: 36)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0031",
@@ -803,12 +653,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Meena aunty ji, aapka order (4 pajama (sleeve: full, waist: 38)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0032",
@@ -827,12 +672,7 @@
     "amount": 650,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 birthday cake (weight_kg: 0.5, tier: 1)) confirm kar liya hai! Delivery Date: 2026-09-01. Total Amount: ₹650. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0033",
@@ -851,12 +691,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Rakesh ji, aapka order (4 bread loaf (weight_kg: 2, flavour: coffee)) confirm kar liya hai! Delivery Date: 2026-08-22. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0034",
@@ -875,12 +710,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 cheesecake (tier: 2, egg_free: true)) confirm kar liya hai! Delivery Date: 2026-09-05. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0035",
@@ -907,12 +737,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 geyser (room: balcony, issue: noise) aur 2 inverter (brand: Usha, issue: slow)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0036",
@@ -933,12 +758,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (6 geyser (brand: Crompton, appliance: motor, room: balcony, issue: leaking current)) confirm kar liya hai! Delivery Date: 2026-08-20. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0037",
@@ -956,12 +776,7 @@
     "amount": 1200,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 dupatta (chest: 38)) confirm kar liya hai! Delivery Date: 2026-09-15. Total Amount: ₹1200. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0038",
@@ -979,12 +794,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 cake (tier: 2)) confirm kar liya hai! Delivery Date: 2026-10-08. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0039",
@@ -1010,12 +820,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 exhaust fan (issue: slow) aur 1 water motor (room: bedroom, brand: Havells)) confirm kar liya hai! Delivery Date: 2026-10-18. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0040",
@@ -1033,12 +838,7 @@
     "amount": 1500,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 tube light (wattage: 1500)) confirm kar liya hai! Total Amount: ₹1500. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0041",
@@ -1064,12 +864,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 paratha (meal: breakfast) aur 2 sabzi (spice_level: spicy, meal: lunch)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0042",
@@ -1095,12 +890,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (4 kurta (fabric: silk) aur 1 salwar (waist: 30, sleeve: half)) confirm kar liya hai! Delivery Date: 2026-08-20. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0043",
@@ -1134,12 +924,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 pastry (tier: 1) aur 1 muffin (egg_free: true, flavour: pineapple) aur 1 bread loaf (egg_free: true, flavour: vanilla)) confirm kar liya hai! Delivery Date: 2026-09-27. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0044",
@@ -1149,12 +934,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0045",
@@ -1181,12 +961,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 wiring (wattage: 40, issue: fuse blown) aur 2 inverter (brand: Bajaj, issue: not working)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0046",
@@ -1212,12 +987,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Priya ji, aapka order (1 cake (flavour: pineapple) aur 1 birthday cake (weight_kg: 1, flavour: strawberry)) confirm kar liya hai! Delivery Date: 2026-10-07. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0047",
@@ -1237,12 +1007,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Manoj ji, aapka order (4 cookies (tier: 3, shape: square, egg_free: true)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0048",
@@ -1261,12 +1026,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Manoj ji, aapka order (3 poha (spice_level: mild, meal: breakfast)) confirm kar liya hai! Delivery Date: 2026-09-19. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0049",
@@ -1301,12 +1061,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Vikram ji, aapka order (4 idli (days: 3, meal: lunch) aur 1 paneer sabzi (spice_level: spicy, portion: extra, jain: false) aur 2 rice (meal: lunch)) confirm kar liya hai! Delivery Date: 2026-09-28. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0050",
@@ -1324,12 +1079,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 doorbell (issue: short circuit)) confirm kar liya hai! Delivery Date: 2026-10-06. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0051",
@@ -1364,12 +1114,7 @@
     "amount": 450,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Vikram ji, aapka order (2 exhaust fan (brand: Polycab, room: terrace, issue: fuse blown) aur 1 geyser (issue: noise) aur 1 mcb (room: terrace, issue: noise)) confirm kar liya hai! Delivery Date: 2026-09-18. Total Amount: ₹450. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0052",
@@ -1396,12 +1141,7 @@
     "amount": 500,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Asha ji, aapka order (1 waistcoat (waist: 40, chest: 40) aur 1 sherwani (fit: loose, chest: 40)) confirm kar liya hai! Delivery Date: 2026-10-05. Total Amount: ₹500. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0053",
@@ -1437,12 +1177,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (1 rice (spice_level: spicy, jain: false, meal: breakfast) aur 3 roti (jain: false, spice_level: medium, meal: lunch) aur 1 idli (meal: breakfast)) confirm kar liya hai! Delivery Date: 2026-09-19. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0054",
@@ -1475,12 +1210,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 birthday cake (flavour: vanilla) aur 2 brownie (egg_free: false) aur 2 cookies (weight_kg: 1, flavour: vanilla)) confirm kar liya hai! Delivery Date: 2026-10-03. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0055",
@@ -1498,12 +1228,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Tarun ji, aapka order (1 curd (jain: false)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0056",
@@ -1522,12 +1247,7 @@
     "amount": 450,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sarita didi ji, aapka order (1 paneer sabzi (spice_level: medium, meal: breakfast)) confirm kar liya hai! Delivery Date: 2026-08-29. Total Amount: ₹450. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0057",
@@ -1548,12 +1268,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (5 thali (roti_count: 8, portion: full, days: 13, meal: breakfast)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0058",
@@ -1580,12 +1295,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (3 cookies (egg_free: false, flavour: butterscotch) aur 2 cheesecake (weight_kg: 3, flavour: red velvet)) confirm kar liya hai! Delivery Date: 2026-08-22. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0059",
@@ -1611,12 +1321,7 @@
     "amount": 650,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Ramesh ji, aapka order (5 dupatta (fit: regular, chest: 40) aur 3 pajama (chest: 42)) confirm kar liya hai! Delivery Date: 2026-08-27. Total Amount: ₹650. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0060",
@@ -1643,12 +1348,7 @@
     "amount": 500,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (4 doorbell (brand: Usha, wattage: 1000, issue: not working) aur 2 water motor (room: bedroom)) confirm kar liya hai! Delivery Date: 2026-09-03. Total Amount: ₹500. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0061",
@@ -1666,12 +1366,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Meena aunty ji, aapka order (2 paratha (portion: half)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0062",
@@ -1691,12 +1386,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Rakesh ji, aapka order (2 curd (portion: extra, jain: false, spice_level: medium)) confirm kar liya hai! Delivery Date: 2026-09-11. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0063",
@@ -1721,12 +1411,7 @@
     "amount": 1500,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 donut (tier: 2) aur 4 bread loaf (flavour: chocolate)) confirm kar liya hai! Delivery Date: 2026-09-11. Total Amount: ₹1500. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0064",
@@ -1744,12 +1429,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 thali (roti_count: 7)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0065",
@@ -1785,12 +1465,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Ramesh ji, aapka order (5 pajama (chest: 42) aur 1 lehenga (sleeve: full, chest: 40) aur 4 suit (fabric: velvet, size: S, length: 48, chest: 42)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0066",
@@ -1810,12 +1485,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 curd (portion: half, days: 8, meal: lunch)) confirm kar liya hai! Delivery Date: 2026-10-13. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0067",
@@ -1831,12 +1501,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (1 idli) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0068",
@@ -1861,12 +1526,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (5 blouse (fabric: silk) aur 1 shirt (waist: 32)) confirm kar liya hai! Delivery Date: 2026-09-27. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0069",
@@ -1876,12 +1536,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0070",
@@ -1897,12 +1552,7 @@
     "amount": 500,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Priya ji, aapka order (1 rice) confirm kar liya hai! Delivery Date: 2026-08-29. Total Amount: ₹500. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0071",
@@ -1940,12 +1590,7 @@
     "amount": 650,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 ceiling fan (appliance: motor, brand: Bajaj, issue: fuse blown) aur 6 inverter (appliance: motor, issue: slow) aur 2 water motor (appliance: fridge point, brand: Orient, wattage: 100, issue: spark)) confirm kar liya hai! Delivery Date: 2026-10-18. Total Amount: ₹650. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0072",
@@ -1964,12 +1609,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 doorbell (room: balcony, issue: slow)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0073",
@@ -1994,12 +1634,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sunita ji, aapka order (1 brownie (shape: round) aur 1 bread loaf (weight_kg: 3)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0074",
@@ -2025,12 +1660,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Asha ji, aapka order (2 inverter (wattage: 1000) aur 1 geyser (brand: Anchor, issue: fuse blown)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0075",
@@ -2064,12 +1694,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (6 cake (flavour: butterscotch) aur 1 bread loaf (weight_kg: 1, shape: heart, flavour: vanilla) aur 2 pastry (flavour: strawberry)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0076",
@@ -2087,12 +1712,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Neha ji, aapka order (3 pajama (chest: 34)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0077",
@@ -2119,12 +1739,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 suit (color: beige, fit: slim, chest: 38) aur 6 dupatta (sleeve: half)) confirm kar liya hai! Delivery Date: 2026-09-28. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0078",
@@ -2149,12 +1764,7 @@
     "amount": 300,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 curd (spice_level: medium, portion: half, jain: true) aur 2 idli) confirm kar liya hai! Delivery Date: 2026-09-28. Total Amount: ₹300. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0079",
@@ -2181,12 +1791,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sunita ji, aapka order (1 rice (roti_count: 8) aur 3 idli (roti_count: 8, days: 5, meal: breakfast)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0080",
@@ -2211,12 +1816,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Ramesh ji, aapka order (2 dal (meal: breakfast) aur 2 rajma (days: 2)) confirm kar liya hai! Delivery Date: 2026-09-25. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0081",
@@ -2236,12 +1836,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Asha ji, aapka order (1 mcb (brand: Anchor, wattage: 2000, issue: fuse blown)) confirm kar liya hai! Delivery Date: 2026-11-08. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0082",
@@ -2261,12 +1856,7 @@
     "amount": 500,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Anil ji ji, aapka order (4 dal (roti_count: 2, jain: true, meal: lunch)) confirm kar liya hai! Total Amount: ₹500. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0083",
@@ -2292,12 +1882,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 geyser (issue: slow) aur 2 wiring (appliance: fridge point, issue: not working)) confirm kar liya hai! Delivery Date: 2026-09-07. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0084",
@@ -2326,12 +1911,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 rice (portion: full, meal: dinner) aur 1 khichdi (roti_count: 8, days: 11, spice_level: spicy, meal: dinner)) confirm kar liya hai! Delivery Date: 2026-09-14. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0085",
@@ -2358,12 +1938,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Vikram ji, aapka order (1 sabzi (roti_count: 3, meal: dinner) aur 1 khichdi (days: 9, meal: breakfast)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0086",
@@ -2382,12 +1957,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sarita didi ji, aapka order (2 sabzi (jain: false, meal: dinner)) confirm kar liya hai! Delivery Date: 2026-10-10. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0087",
@@ -2413,12 +1983,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Tarun ji, aapka order (1 lehenga (chest: 34) aur 2 salwar (color: bottle green, chest: 44)) confirm kar liya hai! Delivery Date: 2026-09-21. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0088",
@@ -2445,12 +2010,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Ramesh ji, aapka order (1 waistcoat (fit: slim, color: grey, chest: 38) aur 2 salwar (chest: 40)) confirm kar liya hai! Delivery Date: 2026-09-01. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0089",
@@ -2468,12 +2028,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 cheesecake (flavour: chocolate)) confirm kar liya hai! Delivery Date: 2026-08-24. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0090",
@@ -2499,12 +2054,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 chole (spice_level: mild, meal: lunch) aur 1 idli (portion: extra)) confirm kar liya hai! Delivery Date: 2026-10-06. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0091",
@@ -2523,12 +2073,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Gopal ji ji, aapka order (1 wiring (room: bedroom, issue: noise)) confirm kar liya hai! Delivery Date: 2026-09-12. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0092",
@@ -2546,12 +2091,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 brownie (tier: 1)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0093",
@@ -2567,12 +2107,7 @@
     "amount": 650,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 ceiling fan) confirm kar liya hai! Delivery Date: 2026-09-06. Total Amount: ₹650. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0094",
@@ -2591,12 +2126,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 thali (days: 10, meal: breakfast)) confirm kar liya hai! Delivery Date: 2026-09-26. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0095",
@@ -2615,12 +2145,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 wiring (appliance: geyser, room: bathroom)) confirm kar liya hai! Delivery Date: 2026-08-23. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0096",
@@ -2630,12 +2155,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0097",
@@ -2668,12 +2188,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 thali aur 1 roti (days: 5, meal: breakfast) aur 5 paratha (spice_level: spicy, roti_count: 5, meal: lunch)) confirm kar liya hai! Delivery Date: 2026-09-01. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0098",
@@ -2696,12 +2211,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 switch board aur 3 water motor (appliance: light)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0099",
@@ -2720,12 +2230,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Farida ji, aapka order (2 rajma (days: 9, meal: breakfast)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0100",
@@ -2752,12 +2257,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 sherwani (color: maroon, size: XXL, length: 40) aur 1 blouse (chest: 38)) confirm kar liya hai! Delivery Date: 2026-10-07. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0101",
@@ -2773,12 +2273,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 sherwani) confirm kar liya hai! Delivery Date: 2026-10-10. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0102",
@@ -2788,12 +2283,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Manoj ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0103",
@@ -2822,12 +2312,7 @@
     "amount": 1500,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 pajama (fit: slim, color: maroon, chest: 46) aur 2 lehenga (fabric: linen, length: 42, chest: 42)) confirm kar liya hai! Total Amount: ₹1500. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0104",
@@ -2845,12 +2330,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (1 chole (meal: lunch)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0105",
@@ -2885,12 +2365,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Priya ji, aapka order (2 dal (days: 8) aur 1 thali (roti_count: 6, days: 8, meal: lunch) aur 2 paratha (spice_level: mild, meal: dinner)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0106",
@@ -2916,12 +2391,7 @@
     "amount": 1500,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 inverter (brand: Polycab, room: bathroom) aur 1 switch board (room: hall)) confirm kar liya hai! Delivery Date: 2026-08-22. Total Amount: ₹1500. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0107",
@@ -2942,12 +2412,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (1 paneer sabzi (portion: full, jain: false, spice_level: medium, meal: dinner)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0108",
@@ -2965,12 +2430,7 @@
     "amount": 650,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 suit (fit: loose)) confirm kar liya hai! Total Amount: ₹650. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0109",
@@ -2988,12 +2448,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 kameez (color: mustard)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0110",
@@ -3020,12 +2475,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sarita didi ji, aapka order (1 rice (meal: breakfast) aur 1 khichdi (portion: half, spice_level: spicy, meal: lunch)) confirm kar liya hai! Delivery Date: 2026-09-26. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0111",
@@ -3044,12 +2494,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Anil ji ji, aapka order (4 muffin (egg_free: false, flavour: chocolate)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0112",
@@ -3065,12 +2510,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 cupcake) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0113",
@@ -3089,12 +2529,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Tarun ji, aapka order (1 socket (wattage: 40, appliance: motor)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0114",
@@ -3123,12 +2558,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 sherwani (length: 46, sleeve: half) aur 2 pajama (size: XL, length: 38, color: beige, chest: 36)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0115",
@@ -3146,12 +2576,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Priya ji, aapka order (4 blouse (chest: 46)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0116",
@@ -3184,12 +2609,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Deepak bhai ji, aapka order (5 cupcake (flavour: red velvet) aur 1 cookies (egg_free: false, flavour: chocolate) aur 1 pastry (egg_free: false)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0117",
@@ -3212,12 +2632,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Deepak bhai ji, aapka order (2 salwar (length: 40) aur 2 pant) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0118",
@@ -3235,12 +2650,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 geyser (wattage: 80)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0119",
@@ -3265,12 +2675,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 thali (days: 11, portion: full, meal: breakfast) aur 1 idli) confirm kar liya hai! Delivery Date: 2026-09-04. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0120",
@@ -3289,12 +2694,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 pajama (size: L, sleeve: three-quarter)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0121",
@@ -3313,12 +2713,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Iqbal bhai ji, aapka order (1 water motor (wattage: 60, issue: leaking current)) confirm kar liya hai! Delivery Date: 2026-08-22. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0122",
@@ -3345,12 +2740,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 ac point (wattage: 40, room: hall, issue: not working) aur 1 water motor (issue: slow)) confirm kar liya hai! Delivery Date: 2026-09-02. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0123",
@@ -3376,12 +2766,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (6 birthday cake (flavour: chocolate) aur 1 bread loaf (weight_kg: 1.5, flavour: butterscotch)) confirm kar liya hai! Delivery Date: 2026-09-10. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0124",
@@ -3416,12 +2801,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (4 idli (roti_count: 7, meal: lunch) aur 2 poha (spice_level: spicy, jain: false) aur 2 khichdi (portion: extra, days: 5)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0125",
@@ -3440,12 +2820,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 donut (tier: 3, flavour: strawberry)) confirm kar liya hai! Delivery Date: 2026-10-20. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0126",
@@ -3455,12 +2830,7 @@
     "amount": 650,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0127",
@@ -3470,12 +2840,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0128",
@@ -3493,12 +2858,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Tarun ji, aapka order (1 lehenga (fit: regular)) confirm kar liya hai! Delivery Date: 2026-10-21. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0129",
@@ -3522,12 +2882,7 @@
     "amount": 200,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (5 inverter (room: bedroom, issue: leaking current) aur 1 geyser) confirm kar liya hai! Delivery Date: 2026-09-22. Total Amount: ₹200. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0130",
@@ -3545,12 +2900,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 lehenga (chest: 44)) confirm kar liya hai! Delivery Date: 2026-09-25. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0131",
@@ -3569,12 +2919,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 dal (roti_count: 7, meal: dinner)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0132",
@@ -3597,12 +2942,7 @@
     "amount": 450,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 doorbell aur 2 ac point (issue: noise)) confirm kar liya hai! Delivery Date: 2026-09-17. Total Amount: ₹450. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0133",
@@ -3630,12 +2970,7 @@
     "amount": 650,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 wiring (brand: Crompton, issue: noise) aur 2 doorbell (room: balcony, brand: Usha, issue: slow)) confirm kar liya hai! Delivery Date: 2026-10-17. Total Amount: ₹650. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0134",
@@ -3645,12 +2980,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0135",
@@ -3674,12 +3004,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (5 muffin aur 1 cake (tier: 1, flavour: mango)) confirm kar liya hai! Delivery Date: 2026-09-05. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0136",
@@ -3698,12 +3023,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 lehenga (sleeve: three-quarter, fabric: silk)) confirm kar liya hai! Delivery Date: 2026-10-03. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0137",
@@ -3713,12 +3033,7 @@
     "amount": 200,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0138",
@@ -3743,12 +3058,7 @@
     "amount": 200,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Deepak bhai ji, aapka order (3 pastry (weight_kg: 3, tier: 3, flavour: chocolate) aur 5 birthday cake) confirm kar liya hai! Total Amount: ₹200. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0139",
@@ -3768,12 +3078,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 dal (roti_count: 8, portion: half, meal: breakfast)) confirm kar liya hai! Delivery Date: 2026-08-26. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0140",
@@ -3801,12 +3106,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 wiring (wattage: 80, issue: spark) aur 5 socket (wattage: 1000, appliance: ac, issue: spark)) confirm kar liya hai! Delivery Date: 2026-10-04. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0141",
@@ -3822,12 +3122,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Meena aunty ji, aapka order (1 cheesecake) confirm kar liya hai! Delivery Date: 2026-08-31. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0142",
@@ -3845,12 +3140,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Gopal ji ji, aapka order (2 poha (meal: lunch)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0143",
@@ -3869,12 +3159,7 @@
     "amount": 1200,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Rakesh ji, aapka order (2 paratha (days: 13, jain: true)) confirm kar liya hai! Total Amount: ₹1200. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0144",
@@ -3892,12 +3177,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 dupatta (waist: 28)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0145",
@@ -3916,12 +3196,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Anil ji ji, aapka order (1 pastry (tier: 3, flavour: butterscotch)) confirm kar liya hai! Delivery Date: 2026-09-22. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0146",
@@ -3940,12 +3215,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 doorbell (brand: Orient, appliance: fan)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0147",
@@ -3982,12 +3252,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (3 dal (portion: extra, meal: breakfast) aur 1 rajma (days: 6, roti_count: 2, jain: false, meal: breakfast) aur 1 rice (roti_count: 7, meal: dinner)) confirm kar liya hai! Delivery Date: 2026-10-11. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0148",
@@ -4014,12 +3279,7 @@
     "amount": 450,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Manoj ji, aapka order (1 kurta (color: grey, size: S, chest: 46) aur 3 lehenga (chest: 36)) confirm kar liya hai! Delivery Date: 2026-08-25. Total Amount: ₹450. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0149",
@@ -4039,12 +3299,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (2 mcb (brand: Crompton, appliance: motor, issue: noise)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0150",
@@ -4065,12 +3320,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 pastry (egg_free: false, weight_kg: 1, shape: heart, flavour: red velvet)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0151",
@@ -4089,12 +3339,7 @@
     "amount": 650,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 muffin (weight_kg: 3, flavour: chocolate)) confirm kar liya hai! Delivery Date: 2026-09-29. Total Amount: ₹650. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0152",
@@ -4120,12 +3365,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Iqbal bhai ji, aapka order (1 ceiling fan (room: kitchen) aur 3 tube light (wattage: 1000, issue: spark)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0153",
@@ -4145,12 +3385,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Manoj ji, aapka order (2 suit (length: 46, fabric: linen, chest: 46)) confirm kar liya hai! Delivery Date: 2026-09-15. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0154",
@@ -4169,12 +3404,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Priya ji, aapka order (1 cupcake (tier: 2, flavour: red velvet)) confirm kar liya hai! Delivery Date: 2026-10-09. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0155",
@@ -4193,12 +3423,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 blouse (fit: slim, chest: 44)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0156",
@@ -4226,12 +3451,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Neha ji, aapka order (2 geyser (wattage: 60, issue: noise) aur 1 inverter (appliance: fridge point, brand: Polycab, issue: not working)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0157",
@@ -4249,12 +3469,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Deepak bhai ji, aapka order (6 kurta (chest: 42)) confirm kar liya hai! Delivery Date: 2026-09-22. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0158",
@@ -4282,12 +3497,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 curd (spice_level: mild, meal: dinner) aur 3 khichdi (days: 14, jain: true, meal: dinner)) confirm kar liya hai! Delivery Date: 2026-08-24. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0159",
@@ -4321,12 +3531,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (2 water motor (issue: fuse blown) aur 3 wiring (appliance: ac, brand: Polycab, issue: leaking current) aur 2 doorbell (issue: leaking current)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0160",
@@ -4344,12 +3549,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 brownie (tier: 2)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0161",
@@ -4365,12 +3565,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (4 paratha) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0162",
@@ -4390,12 +3585,7 @@
     "amount": 250,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 cupcake (egg_free: true, weight_kg: 1, flavour: red velvet)) confirm kar liya hai! Total Amount: ₹250. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0163",
@@ -4420,12 +3610,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Manoj ji, aapka order (1 lehenga (sleeve: half, fit: loose, chest: 46) aur 2 kameez) confirm kar liya hai! Delivery Date: 2026-10-01. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0164",
@@ -4443,12 +3628,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 lehenga (chest: 40)) confirm kar liya hai! Delivery Date: 2026-09-11. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0165",
@@ -4464,12 +3644,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sunita ji, aapka order (1 idli) confirm kar liya hai! Delivery Date: 2026-08-22. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0166",
@@ -4495,12 +3670,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Shalini ji, aapka order (1 kameez (sleeve: full, fit: regular) aur 4 kurta (size: S)) confirm kar liya hai! Delivery Date: 2026-08-19. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0167",
@@ -4525,12 +3695,7 @@
     "amount": 800,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (1 rice (jain: true, roti_count: 7, meal: lunch) aur 2 idli) confirm kar liya hai! Delivery Date: 2026-09-17. Total Amount: ₹800. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0168",
@@ -4564,12 +3729,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (5 bread loaf (egg_free: true) aur 1 cupcake (weight_kg: 1) aur 1 donut (shape: square, weight_kg: 0.5, flavour: red velvet)) confirm kar liya hai! Delivery Date: 2026-09-19. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0169",
@@ -4588,12 +3748,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 donut (weight_kg: 3, flavour: pineapple)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0170",
@@ -4611,12 +3766,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 kurta (sleeve: full)) confirm kar liya hai! Delivery Date: 2026-08-23. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0171",
@@ -4635,12 +3785,7 @@
     "amount": 200,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (2 salwar (sleeve: full, chest: 42)) confirm kar liya hai! Delivery Date: 2026-10-01. Total Amount: ₹200. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0172",
@@ -4668,12 +3813,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 pastry (tier: 3, egg_free: true) aur 3 birthday cake (tier: 1, weight_kg: 1.5, flavour: red velvet)) confirm kar liya hai! Delivery Date: 2026-08-25. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0173",
@@ -4691,12 +3831,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 kameez (sleeve: three-quarter)) confirm kar liya hai! Delivery Date: 2026-09-03. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0174",
@@ -4725,12 +3860,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 muffin (weight_kg: 0.5, shape: square, tier: 3, flavour: chocolate) aur 4 donut (tier: 2, flavour: chocolate)) confirm kar liya hai! Delivery Date: 2026-08-25. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0175",
@@ -4758,12 +3888,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Vikram ji, aapka order (1 bread loaf (egg_free: false, flavour: mango) aur 2 donut (egg_free: false, tier: 3, flavour: mango)) confirm kar liya hai! Delivery Date: 2026-09-13. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0176",
@@ -4783,12 +3908,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (3 donut (egg_free: true, shape: round, flavour: vanilla)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0177",
@@ -4817,12 +3937,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (4 ac point (brand: Usha, appliance: fridge point, wattage: 80, issue: slow) aur 1 switch board (appliance: light, wattage: 80)) confirm kar liya hai! Delivery Date: 2026-09-15. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0178",
@@ -4840,12 +3955,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Tarun ji, aapka order (1 pant (chest: 46)) confirm kar liya hai! Delivery Date: 2026-09-25. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0179",
@@ -4861,12 +3971,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Shalini ji, aapka order (1 shirt) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0180",
@@ -4885,12 +3990,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 wiring (wattage: 80, room: bathroom)) confirm kar liya hai! Delivery Date: 2026-08-25. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0181",
@@ -4909,12 +4009,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Meena aunty ji, aapka order (5 dupatta (fit: slim, chest: 46)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0182",
@@ -4949,12 +4044,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 roti (days: 5, roti_count: 2, portion: extra) aur 1 paratha (meal: breakfast) aur 1 rajma (days: 6, meal: dinner)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0183",
@@ -4973,12 +4063,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 salwar (length: 42, chest: 40)) confirm kar liya hai! Delivery Date: 2026-09-16. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0184",
@@ -4996,12 +4081,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Iqbal bhai ji, aapka order (1 thali (meal: lunch)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0185",
@@ -5017,12 +4097,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 pant) confirm kar liya hai! Delivery Date: 2026-10-14. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0186",
@@ -5040,12 +4115,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 thali (meal: breakfast)) confirm kar liya hai! Delivery Date: 2026-09-11. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0187",
@@ -5055,12 +4125,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order clear nahi tha. Kripya item ka naam aur details firse bhej de!"
+    "needs_clarification": true
   },
   {
     "id": "train-0188",
@@ -5079,12 +4144,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 cheesecake (shape: square, flavour: pineapple)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0189",
@@ -5103,12 +4163,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 inverter (appliance: geyser, wattage: 80)) confirm kar liya hai! Delivery Date: 2026-09-21. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0190",
@@ -5131,12 +4186,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 poha aur 2 idli (meal: dinner)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0191",
@@ -5162,12 +4212,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sunita ji, aapka order (1 donut (weight_kg: 2, flavour: butterscotch) aur 2 cookies (weight_kg: 2)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0192",
@@ -5186,12 +4231,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 mcb (room: bathroom, issue: fuse blown)) confirm kar liya hai! Delivery Date: 2026-10-17. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0193",
@@ -5220,12 +4260,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Gopal ji ji, aapka order (5 sherwani (sleeve: three-quarter, size: M, fabric: silk, chest: 34) aur 1 salwar (fabric: silk, size: L)) confirm kar liya hai! Delivery Date: 2026-10-13. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0194",
@@ -5244,12 +4279,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 mcb (wattage: 80, appliance: fan)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0195",
@@ -5277,12 +4307,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 cookies (egg_free: true, flavour: red velvet) aur 1 donut (egg_free: true, shape: heart, flavour: pineapple)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0196",
@@ -5298,12 +4323,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 switch board) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0197",
@@ -5321,12 +4341,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 kurta (chest: 44)) confirm kar liya hai! Delivery Date: 2026-10-04. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0198",
@@ -5346,12 +4361,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Farida ji, aapka order (1 exhaust fan (room: kitchen, appliance: light, issue: fuse blown)) confirm kar liya hai! Delivery Date: 2026-10-10. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0199",
@@ -5386,12 +4396,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Meena aunty ji, aapka order (1 chole (spice_level: medium, roti_count: 4, meal: dinner) aur 3 paneer sabzi (meal: lunch) aur 2 dal (spice_level: medium, portion: extra)) confirm kar liya hai! Delivery Date: 2026-08-22. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0200",
@@ -5425,12 +4430,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 dupatta aur 3 sherwani (color: mustard, sleeve: half, chest: 40) aur 6 pant (fabric: chiffon, length: 40, chest: 46)) confirm kar liya hai! Delivery Date: 2026-09-19. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0201",
@@ -5457,12 +4457,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Priya ji, aapka order (1 roti (spice_level: spicy, meal: lunch) aur 1 rajma (days: 7, meal: dinner)) confirm kar liya hai! Delivery Date: 2026-08-22. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0202",
@@ -5489,12 +4484,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 khichdi (roti_count: 5, days: 3, meal: breakfast) aur 6 chole (meal: lunch)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0203",
@@ -5513,12 +4503,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 cookies (tier: 2, flavour: vanilla)) confirm kar liya hai! Delivery Date: 2026-08-27. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0204",
@@ -5541,12 +4526,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 birthday cake (flavour: butterscotch) aur 5 cupcake) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0205",
@@ -5572,12 +4552,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (1 paneer sabzi (spice_level: spicy) aur 2 curd (spice_level: mild, portion: full)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0206",
@@ -5604,12 +4579,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 exhaust fan (appliance: fan, brand: Usha, issue: noise) aur 1 tube light (wattage: 40)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0207",
@@ -5629,12 +4599,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Shalini ji, aapka order (3 dal (days: 8, roti_count: 7, meal: dinner)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0208",
@@ -5650,12 +4615,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Shalini ji, aapka order (4 suit) confirm kar liya hai! Delivery Date: 2026-09-29. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0209",
@@ -5675,12 +4635,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Priya ji, aapka order (1 tube light (brand: Anchor, room: bathroom, issue: slow)) confirm kar liya hai! Delivery Date: 2026-09-04. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0210",
@@ -5700,12 +4655,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Rakesh ji, aapka order (2 dupatta (length: 38, waist: 40, chest: 38)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0211",
@@ -5734,12 +4684,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Neha ji, aapka order (2 cheesecake (shape: heart, tier: 1, weight_kg: 0.5, flavour: coffee) aur 3 bread loaf (tier: 2, flavour: red velvet)) confirm kar liya hai! Delivery Date: 2026-09-18. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0212",
@@ -5766,12 +4711,7 @@
     "amount": 650,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (2 sabzi (portion: extra, meal: dinner) aur 4 thali (portion: full, meal: lunch)) confirm kar liya hai! Delivery Date: 2026-08-22. Total Amount: ₹650. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0213",
@@ -5792,12 +4732,7 @@
     "amount": 800,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Kavita ji, aapka order (2 thali (days: 5, jain: true, roti_count: 6, meal: lunch)) confirm kar liya hai! Total Amount: ₹800. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0214",
@@ -5815,12 +4750,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Ramesh ji, aapka order (1 doorbell (brand: Bajaj)) confirm kar liya hai! Delivery Date: 2026-08-18. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0215",
@@ -5853,12 +4783,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (5 birthday cake (flavour: pineapple) aur 2 cake (flavour: strawberry) aur 5 bread loaf (egg_free: false, flavour: vanilla)) confirm kar liya hai! Delivery Date: 2026-09-17. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0216",
@@ -5887,12 +4812,7 @@
     "amount": 800,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 salwar (size: L, waist: 36, chest: 40) aur 1 pant (color: white, fabric: khadi, chest: 34)) confirm kar liya hai! Delivery Date: 2026-09-23. Total Amount: ₹800. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0217",
@@ -5925,12 +4845,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 kameez (chest: 38) aur 1 pant (sleeve: three-quarter) aur 2 suit (size: XL, chest: 34)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0218",
@@ -5948,12 +4863,7 @@
     "amount": 650,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Tarun ji, aapka order (4 ceiling fan (brand: Orient)) confirm kar liya hai! Total Amount: ₹650. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0219",
@@ -5973,12 +4883,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (4 geyser (appliance: fridge point, room: bedroom, issue: spark)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0220",
@@ -6001,12 +4906,7 @@
     "amount": 500,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Shalini ji, aapka order (1 brownie (tier: 2) aur 5 birthday cake) confirm kar liya hai! Total Amount: ₹500. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0221",
@@ -6024,12 +4924,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Priya ji, aapka order (2 birthday cake (shape: square)) confirm kar liya hai! Delivery Date: 2026-10-17. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0222",
@@ -6049,12 +4944,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 suit (waist: 32, length: 44, chest: 44)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0223",
@@ -6084,12 +4974,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (5 switch board (brand: Orient, appliance: fridge point, room: bathroom, issue: short circuit) aur 1 tube light (wattage: 80, room: bathroom, issue: slow)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0224",
@@ -6107,12 +4992,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 cheesecake (shape: round)) confirm kar liya hai! Delivery Date: 2026-09-05. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0225",
@@ -6130,12 +5010,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 cookies (tier: 3)) confirm kar liya hai! Delivery Date: 2026-09-25. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0226",
@@ -6154,12 +5029,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (3 kurta (fabric: khadi, chest: 38)) confirm kar liya hai! Delivery Date: 2026-09-12. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0227",
@@ -6175,12 +5045,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sunita ji, aapka order (1 pastry) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0228",
@@ -6198,12 +5063,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Deepak bhai ji, aapka order (2 muffin (flavour: strawberry)) confirm kar liya hai! Delivery Date: 2026-09-04. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0229",
@@ -6222,12 +5082,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Naveen ji, aapka order (1 birthday cake (tier: 1, flavour: strawberry)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0230",
@@ -6260,12 +5115,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 idli aur 1 paneer sabzi (days: 4, spice_level: medium, meal: breakfast) aur 5 thali (portion: extra, roti_count: 4)) confirm kar liya hai! Delivery Date: 2026-08-24. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0231",
@@ -6284,12 +5134,7 @@
     "amount": 200,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 exhaust fan (appliance: geyser, issue: leaking current)) confirm kar liya hai! Total Amount: ₹200. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0232",
@@ -6308,12 +5153,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Rakesh ji, aapka order (1 chole (jain: false, roti_count: 8)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0233",
@@ -6341,12 +5181,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 paneer sabzi (days: 13, meal: breakfast) aur 6 khichdi (roti_count: 4, spice_level: medium, meal: dinner)) confirm kar liya hai! Delivery Date: 2026-09-06. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0234",
@@ -6364,12 +5199,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 shirt (sleeve: three-quarter)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0235",
@@ -6405,12 +5235,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 lehenga (fabric: linen, sleeve: half, chest: 34) aur 2 pajama (chest: 42) aur 2 suit (fabric: velvet, color: maroon, chest: 42)) confirm kar liya hai! Delivery Date: 2026-09-09. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0236",
@@ -6428,12 +5253,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 paratha (meal: dinner)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0237",
@@ -6460,12 +5280,7 @@
     "amount": 1200,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 sherwani (length: 46, sleeve: three-quarter, waist: 36) aur 5 dupatta (size: XXL)) confirm kar liya hai! Delivery Date: 2026-08-25. Total Amount: ₹1200. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0238",
@@ -6485,12 +5300,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (3 waistcoat (size: XL, sleeve: full, chest: 42)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0239",
@@ -6510,12 +5320,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Meena aunty ji, aapka order (4 pastry (egg_free: false, tier: 1, flavour: pineapple)) confirm kar liya hai! Delivery Date: 2026-08-31. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0240",
@@ -6533,12 +5338,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 bread loaf (flavour: mango)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0241",
@@ -6554,12 +5354,7 @@
     "amount": null,
     "references_prior_order": true,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Sunita ji, aapka order (2 thali) confirm kar liya hai! Delivery Date: 2026-09-04. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0242",
@@ -6583,12 +5378,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Shalini ji, aapka order (1 cheesecake aur 1 cookies (tier: 3, shape: square)) confirm kar liya hai! Delivery Date: 2026-09-20. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0243",
@@ -6608,12 +5398,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Rakesh ji, aapka order (2 dupatta (sleeve: three-quarter, color: bottle green, chest: 36)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0244",
@@ -6642,12 +5427,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Asha ji, aapka order (6 mcb (room: bedroom, wattage: 80, issue: not working) aur 2 wiring (brand: Bajaj, appliance: ac, issue: noise)) confirm kar liya hai! Delivery Date: 2026-09-13. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0245",
@@ -6668,12 +5448,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (1 khichdi (jain: false, roti_count: 4, days: 6, meal: breakfast)) confirm kar liya hai! Delivery Date: 2026-09-03. Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0246",
@@ -6692,12 +5467,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tiffin",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 rajma (portion: full, meal: lunch)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0247",
@@ -6724,12 +5494,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (6 exhaust fan (brand: Havells, issue: not working) aur 1 switch board (brand: Orient, issue: leaking current)) confirm kar liya hai! Delivery Date: 2026-08-24. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0248",
@@ -6753,12 +5518,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": true,
-    "detectedDomain": "electrician",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji Deepak bhai ji, aapka order (1 switch board (brand: Havells, room: kitchen) aur 2 socket) confirm kar liya hai! Delivery Date: 2026-09-27. Shukriya!"
+    "needs_clarification": true
   },
   {
     "id": "train-0249",
@@ -6784,12 +5544,7 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "baker",
-    "engineUsed": "local-nlp",
-    "latencyMs": 0,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (2 bread loaf (egg_free: true) aur 6 brownie (egg_free: true, flavour: red velvet)) confirm kar liya hai! Shukriya!"
+    "needs_clarification": false
   },
   {
     "id": "train-0250",
@@ -6825,11 +5580,6 @@
     "amount": null,
     "references_prior_order": false,
     "confidence": 1,
-    "needs_clarification": false,
-    "detectedDomain": "tailor",
-    "engineUsed": "local-nlp",
-    "latencyMs": 1,
-    "ruleExplanation": "Exact canonical record matched from dataset index.",
-    "whatsappReply": "Ji, aapka order (6 sherwani (length: 38, waist: 28, chest: 42) aur 2 blouse (color: pink, length: 46, chest: 36) aur 5 pant (chest: 46)) confirm kar liya hai! Delivery Date: 2026-10-02. Shukriya!"
+    "needs_clarification": false
   }
 ]

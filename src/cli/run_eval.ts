@@ -32,9 +32,16 @@ async function main() {
     const parsed = await parseMessageRecord(rec);
     predictions.push({
       id: rec.id,
-      ...parsed
+      customer: parsed.customer ?? null,
+      items: parsed.items ?? [],
+      due_date: parsed.due_date ?? null,
+      amount: parsed.amount ?? null,
+      references_prior_order: Boolean(parsed.references_prior_order),
+      confidence: typeof parsed.confidence === 'number' ? parsed.confidence : 1.0,
+      needs_clarification: Boolean(parsed.needs_clarification)
     });
   }
+
 
   const durationMs = Date.now() - startTime;
   console.log(`Processed ${records.length} records in ${durationMs}ms (${(durationMs / records.length).toFixed(2)}ms per message).`);

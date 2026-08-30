@@ -20,7 +20,9 @@ export interface QueryResult {
 export async function processOperationalNLQuery(rawQuery: string): Promise<QueryResult> {
   const query = rawQuery.trim().toLowerCase();
   const allOrders = await db.orders.filter(o => !o.is_deleted).toArray();
-  const todayStr = "2026-08-30"; // Hackathon baseline date
+
+  // Dynamic baseline date calculation
+  const todayStr = new Date().toISOString().split('T')[0] || "2026-08-30";
 
   // 1. Check for Customer History / Past Specification query:
   // e.g., "What did Rahul order last time?", "What did Sarita Didi order?", "specs for Ramesh", "Rahul's last order"
@@ -112,7 +114,7 @@ export async function processOperationalNLQuery(rawQuery: string): Promise<Query
       intent: 'DUE_OVERDUE',
       title: 'Due Today & Overdue Orders',
       summaryValue: `${dueTodayOrders.length} Due Today / ${overdueOrders.length} Overdue`,
-      secondaryInfo: `Evaluation Anchor Date: ${todayStr}`,
+      secondaryInfo: `Current Operating Date: ${todayStr}`,
       matchedOrders: matched,
       explanation: `Found ${dueTodayOrders.length} order(s) scheduled for today (${todayStr}) and ${overdueOrders.length} overdue orders requiring immediate attention.`
     };
@@ -121,15 +123,18 @@ export async function processOperationalNLQuery(rawQuery: string): Promise<Query
   // 4. Check for Capacity / Workload / This Week queries:
   // e.g., "What is my committed capacity this week?", "how busy am I?", "workload for the week", "schedule"
   if (query.includes('capacity') || query.includes('committed') || query.includes('workload') || query.includes('week') || query.includes('schedule') || query.includes('busy')) {
-    const next7Days = [
-      { date: '2026-08-30', dayName: 'Sun (Today)' },
-      { date: '2026-08-31', dayName: 'Mon' },
-      { date: '2026-09-01', dayName: 'Tue' },
-      { date: '2026-09-02', dayName: 'Wed' },
-      { date: '2026-09-03', dayName: 'Thu' },
-      { date: '2026-09-04', dayName: 'Fri' },
-      { date: '2026-09-05', dayName: 'Sat' },
-    ];
+    const now = new Date();
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const next7Days = Array.from({ length: 7 }, (_, i) => {
+      const d = new Date(now);
+      d.setDate(d.getDate() + i);
+      const dateStr = d.toISOString().split('T')[0];
+      const dName = i === 0 ? `${dayNames[d.getDay()]} (Today)` : dayNames[d.getDay()];
+      return { date: dateStr, dayName: dName };
+    });
+
+    const startDate = next7Days[0].date;
+    const endDate = next7Days[6].date;
 
     const heatmap = next7Days.map(d => {
       const count = allOrders.filter(o => o.due_date === d.date).length;
@@ -139,16 +144,16 @@ export async function processOperationalNLQuery(rawQuery: string): Promise<Query
       return { date: d.date, dayName: d.dayName, count, status };
     });
 
-    const totalCommitted = allOrders.filter(o => o.due_date && o.due_date >= '2026-08-30' && o.due_date <= '2026-09-05').length;
+    const totalCommitted = allOrders.filter(o => o.due_date && o.due_date >= startDate && o.due_date <= endDate).length;
 
     return {
       intent: 'CAPACITY',
-      title: '7-Day Committed Capacity (Aug 30 – Sep 05)',
+      title: `7-Day Committed Capacity (${startDate} – ${endDate})`,
       summaryValue: `${totalCommitted} Orders Scheduled`,
       secondaryInfo: 'Active workload capacity across all 4 micro-business domains',
-      matchedOrders: allOrders.filter(o => o.due_date && o.due_date >= '2026-08-30' && o.due_date <= '2026-09-05'),
+      matchedOrders: allOrders.filter(o => o.due_date && o.due_date >= startDate && o.due_date <= endDate),
       capacityHeatmap: heatmap,
-      explanation: `Analyzed schedule from Aug 30 to Sep 05: ${totalCommitted} committed orders found across the 7-day operating window.`
+      explanation: `Analyzed schedule from ${startDate} to ${endDate}: ${totalCommitted} committed orders found across the 7-day operating window.`
     };
   }
 
