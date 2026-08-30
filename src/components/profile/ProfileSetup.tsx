@@ -26,11 +26,6 @@ export const ProfileSetup: React.FC = () => {
       return;
     }
 
-    if (role === 'customer' && !deliveryLocation) {
-      setErrorMsg('Please select your delivery location on the map');
-      return;
-    }
-
     if (role === 'owner' && !storeName.trim()) {
       setErrorMsg('Please enter your store name');
       return;
@@ -200,7 +195,7 @@ export const ProfileSetup: React.FC = () => {
           {role === 'customer' && (
             <div>
               <label className="block text-xs font-semibold text-slate-300 mb-1">
-                Delivery Location (Drop Map Pin) *
+                Delivery Location (Drop Map Pin) (Optional)
               </label>
               <LocationMapPicker
                 onLocationSelect={(loc) => setDeliveryLocation(loc)}
